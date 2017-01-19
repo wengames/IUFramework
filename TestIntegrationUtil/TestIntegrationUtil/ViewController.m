@@ -7,7 +7,6 @@
 //
 
 #import "ViewController.h"
-//#import <IntegrationUtil/IntegrationUtil.h>
 #import <IUChain/IUChain.h>
 
 @interface ViewController ()
@@ -18,8 +17,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
-    
     [self.view addSubview:[[UIView alloc] init].setFrame(CGRectMake(100, 100, 100, 100)).setBackgroundColor([UIColor redColor])];
 }
 

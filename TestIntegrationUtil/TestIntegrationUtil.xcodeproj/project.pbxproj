@@ -43,7 +43,6 @@
 		841F52751E30931600223BB5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		841F52771E30931600223BB5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		841F52931E30963B00223BB5 /* IUChain.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IUChain.framework; path = "../../../../Library/Developer/Xcode/DerivedData/IUFramework-egbnowvfnsxwcufwgjnrhpvcgmot/Build/Products/Debug-iphoneos/IUChain.framework"; sourceTree = "<group>"; };
-		841F52B81E309B6D00223BB5 /* IntegrationUtil.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = IntegrationUtil.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,7 +60,6 @@
 		841F525A1E30931600223BB5 = {
 			isa = PBXGroup;
 			children = (
-				841F52B81E309B6D00223BB5 /* IntegrationUtil.framework */,
 				841F52651E30931600223BB5 /* TestIntegrationUtil */,
 				841F52641E30931600223BB5 /* Products */,
 				841F52841E30934D00223BB5 /* Frameworks */,
