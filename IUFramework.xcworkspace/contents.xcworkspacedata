@@ -5,6 +5,9 @@
       location = "group:TestIntegrationUtil/TestIntegrationUtil.xcodeproj">
    </FileRef>
    <FileRef
+      location = "group:IUTextInput/IUTextInput.xcodeproj">
+   </FileRef>
+   <FileRef
       location = "group:IUChain/IUChain.xcodeproj">
    </FileRef>
 </Workspace>

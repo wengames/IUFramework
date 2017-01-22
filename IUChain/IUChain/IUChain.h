@@ -8,14 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-//! Project version number for IUChain.
-FOUNDATION_EXPORT double IUChainVersionNumber;
-
-//! Project version string for IUChain.
-FOUNDATION_EXPORT const unsigned char IUChainVersionString[];
-
-// In this header, you should import all the public headers of your framework using statements like #import <IUChain/PublicHeader.h>
-
 #ifdef __OBJC__
 
 // other class can add chain method if IUChainEnable is defined
@@ -25,6 +17,7 @@ FOUNDATION_EXPORT const unsigned char IUChainVersionString[];
     #import "UIView+IUChain.h"
         #import "UILabel+IUChain.h"
         #import "UIImageView+IUChain.h"
+        #import "UISearchBar+IUChain.h"
         #import "UIControl+IUChain.h"
             #import "UIButton+IUChain.h"
             #import "UITextField+IUChain.h"

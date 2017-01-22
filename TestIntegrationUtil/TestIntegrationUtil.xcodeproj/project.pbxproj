@@ -15,6 +15,8 @@
 		841F52761E30931600223BB5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 841F52741E30931600223BB5 /* LaunchScreen.storyboard */; };
 		841F52BD1E309BDD00223BB5 /* IUChain.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 841F52931E30963B00223BB5 /* IUChain.framework */; };
 		841F52BE1E309BDD00223BB5 /* IUChain.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 841F52931E30963B00223BB5 /* IUChain.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		84DFC5BC1E3493A4000A588C /* IUTextInput.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84DFC5BB1E3493A4000A588C /* IUTextInput.framework */; };
+		84DFC5BD1E3493A4000A588C /* IUTextInput.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 84DFC5BB1E3493A4000A588C /* IUTextInput.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -24,6 +26,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				84DFC5BD1E3493A4000A588C /* IUTextInput.framework in Embed Frameworks */,
 				841F52BE1E309BDD00223BB5 /* IUChain.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
@@ -43,6 +46,7 @@
 		841F52751E30931600223BB5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		841F52771E30931600223BB5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		841F52931E30963B00223BB5 /* IUChain.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IUChain.framework; path = "../../../../Library/Developer/Xcode/DerivedData/IUFramework-egbnowvfnsxwcufwgjnrhpvcgmot/Build/Products/Debug-iphoneos/IUChain.framework"; sourceTree = "<group>"; };
+		84DFC5BB1E3493A4000A588C /* IUTextInput.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = IUTextInput.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -50,6 +54,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				84DFC5BC1E3493A4000A588C /* IUTextInput.framework in Frameworks */,
 				841F52BD1E309BDD00223BB5 /* IUChain.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -101,6 +106,7 @@
 		841F52841E30934D00223BB5 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				84DFC5BB1E3493A4000A588C /* IUTextInput.framework */,
 				841F52931E30963B00223BB5 /* IUChain.framework */,
 			);
 			name = Frameworks;

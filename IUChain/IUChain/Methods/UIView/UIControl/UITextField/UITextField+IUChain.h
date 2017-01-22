@@ -8,10 +8,15 @@
 
 #import <UIKit/UIKit.h>
 #import "UIControl+IUChain.h"
+#import "IUChainProtocolMethod_UITextInput.h"
+#import "IUChainProtocolMethod_UIContentSizeCategoryAdjusting.h"
 
 #define IUChainMethod_UITextField(returnClass) \
 \
 IUChainMethod_UIControl(returnClass) \
+\
+IUChainProtocolMethod_UITextInput(returnClass) \
+IUChainProtocolMethod_UIContentSizeCategoryAdjusting(returnClass) \
 \
 @property (nonatomic, readonly) returnClass *(^setText)(NSString *); \
 @property (nonatomic, readonly) returnClass *(^setFont)(UIFont *); \
@@ -37,23 +42,6 @@ IUChainMethod_UIControl(returnClass) \
 @property (nonatomic, readonly) returnClass *(^setInputView)(UIView *); \
 @property (nonatomic, readonly) returnClass *(^setInputAccessoryView)(UIView *); \
 @property (nonatomic, readonly) returnClass *(^setClearsOnInsertion)(BOOL); \
-\
-@property (nonatomic, readonly) returnClass *(^setSelectedTextRange)(UITextRange *); \
-@property (nonatomic, readonly) returnClass *(^setMarkedTextStyle)(NSDictionary *); \
-@property (nonatomic, readonly) returnClass *(^setInputDelegate)(id <UITextInputDelegate>); \
-@property (nonatomic, readonly) returnClass *(^setSelectionAffinity)(UITextStorageDirection); \
-\
-@property (nonatomic, readonly) returnClass *(^setKeyboardType)(UIKeyboardType); \
-@property (nonatomic, readonly) returnClass *(^setKeyboardAppearance)(UIKeyboardAppearance); \
-@property (nonatomic, readonly) returnClass *(^setReturnKeyType)(UIReturnKeyType); \
-@property (nonatomic, readonly) returnClass *(^setEnablesReturnKeyAutomatically)(BOOL); \
-@property (nonatomic, readonly) returnClass *(^setSecureTextEntry)(BOOL); \
-@property (nonatomic, readonly) returnClass *(^setAutocapitalizationType)(UITextAutocapitalizationType); \
-@property (nonatomic, readonly) returnClass *(^setAutocorrectionType)(UITextAutocorrectionType); \
-@property (nonatomic, readonly) returnClass *(^setSpellCheckingType)(UITextSpellCheckingType); \
-@property (nonatomic, readonly) returnClass *(^setTextContentType)(UITextContentType); \
-\
-@property (nonatomic, readonly) returnClass *(^setAdjustsFontForContentSizeCategory)(BOOL); \
 
 @interface UITextField (IUChain)
 

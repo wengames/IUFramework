@@ -110,7 +110,7 @@ id dynamicMethodIMP(id self, SEL _cmd)
     BOOL resolved = [self iu_resolveInstanceMethod:sel];
     if (!resolved) {
         NSString *selString = NSStringFromSelector(sel);
-        // set开头 && 非:结尾 && 第4个字符为大写
+        // "set"开头 && 非":"结尾 && 第4个字符为大写
         if ([selString hasPrefix:@"set"] &&
             ![selString hasSuffix:@":"] &&
             [selString length] > 3 && [[[selString substringWithRange:NSMakeRange(3, 1)] uppercaseString] isEqualToString:[selString substringWithRange:NSMakeRange(3, 1)]]) {

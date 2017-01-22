@@ -45,6 +45,12 @@
 		841F532E1E347A8D00223BB5 /* UICollectionView+IUChain.m in Sources */ = {isa = PBXBuildFile; fileRef = 841F532C1E347A8D00223BB5 /* UICollectionView+IUChain.m */; };
 		84DFC58C1E347C5C000A588C /* UITextView+IUChain.h in Headers */ = {isa = PBXBuildFile; fileRef = 84DFC58A1E347C5C000A588C /* UITextView+IUChain.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		84DFC58D1E347C5C000A588C /* UITextView+IUChain.m in Sources */ = {isa = PBXBuildFile; fileRef = 84DFC58B1E347C5C000A588C /* UITextView+IUChain.m */; };
+		84DFC5CD1E349BEE000A588C /* UISearchBar+IUChain.h in Headers */ = {isa = PBXBuildFile; fileRef = 84DFC5CB1E349BEE000A588C /* UISearchBar+IUChain.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		84DFC5CE1E349BEE000A588C /* UISearchBar+IUChain.m in Sources */ = {isa = PBXBuildFile; fileRef = 84DFC5CC1E349BEE000A588C /* UISearchBar+IUChain.m */; };
+		84DFC5DD1E34A95B000A588C /* IUChainProtocolMethod_UITextInputTraits.h in Headers */ = {isa = PBXBuildFile; fileRef = 84DFC5DC1E34A915000A588C /* IUChainProtocolMethod_UITextInputTraits.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		84DFC5E11E34AA9C000A588C /* IUChainProtocolMethod_UITextInput.h in Headers */ = {isa = PBXBuildFile; fileRef = 84DFC5DE1E34A9AA000A588C /* IUChainProtocolMethod_UITextInput.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		84DFC5E21E34AA9C000A588C /* IUChainProtocolMethod_UIKeyInput.h in Headers */ = {isa = PBXBuildFile; fileRef = 84DFC5DF1E34A9B9000A588C /* IUChainProtocolMethod_UIKeyInput.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		84DFC5E31E34AA9D000A588C /* IUChainProtocolMethod_UIContentSizeCategoryAdjusting.h in Headers */ = {isa = PBXBuildFile; fileRef = 84DFC5E01E34AA49000A588C /* IUChainProtocolMethod_UIContentSizeCategoryAdjusting.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -83,6 +89,12 @@
 		841F532C1E347A8D00223BB5 /* UICollectionView+IUChain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UICollectionView+IUChain.m"; sourceTree = "<group>"; };
 		84DFC58A1E347C5C000A588C /* UITextView+IUChain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITextView+IUChain.h"; sourceTree = "<group>"; };
 		84DFC58B1E347C5C000A588C /* UITextView+IUChain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITextView+IUChain.m"; sourceTree = "<group>"; };
+		84DFC5CB1E349BEE000A588C /* UISearchBar+IUChain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UISearchBar+IUChain.h"; sourceTree = "<group>"; };
+		84DFC5CC1E349BEE000A588C /* UISearchBar+IUChain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UISearchBar+IUChain.m"; sourceTree = "<group>"; };
+		84DFC5DC1E34A915000A588C /* IUChainProtocolMethod_UITextInputTraits.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IUChainProtocolMethod_UITextInputTraits.h; sourceTree = "<group>"; };
+		84DFC5DE1E34A9AA000A588C /* IUChainProtocolMethod_UITextInput.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IUChainProtocolMethod_UITextInput.h; sourceTree = "<group>"; };
+		84DFC5DF1E34A9B9000A588C /* IUChainProtocolMethod_UIKeyInput.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IUChainProtocolMethod_UIKeyInput.h; sourceTree = "<group>"; };
+		84DFC5E01E34AA49000A588C /* IUChainProtocolMethod_UIContentSizeCategoryAdjusting.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IUChainProtocolMethod_UIContentSizeCategoryAdjusting.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,6 +129,7 @@
 			children = (
 				841F52131E30922D00223BB5 /* IUChain.h */,
 				841F52FC1E34786900223BB5 /* Methods */,
+				84DFC5D91E34A882000A588C /* Protocols */,
 				841F52141E30922D00223BB5 /* Info.plist */,
 			);
 			path = IUChain;
@@ -138,6 +151,7 @@
 				841F53001E34786900223BB5 /* UIControl */,
 				841F53091E34786900223BB5 /* UIImageView */,
 				841F530C1E34786900223BB5 /* UILabel */,
+				84DFC5CA1E349BD5000A588C /* UISearchBar */,
 				841F530F1E34786900223BB5 /* UIScrollView */,
 				841F53131E34786900223BB5 /* UIView+IUChain.h */,
 				841F53141E34786900223BB5 /* UIView+IUChain.m */,
@@ -231,6 +245,26 @@
 			path = UITextView;
 			sourceTree = "<group>";
 		};
+		84DFC5CA1E349BD5000A588C /* UISearchBar */ = {
+			isa = PBXGroup;
+			children = (
+				84DFC5CB1E349BEE000A588C /* UISearchBar+IUChain.h */,
+				84DFC5CC1E349BEE000A588C /* UISearchBar+IUChain.m */,
+			);
+			path = UISearchBar;
+			sourceTree = "<group>";
+		};
+		84DFC5D91E34A882000A588C /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				84DFC5DE1E34A9AA000A588C /* IUChainProtocolMethod_UITextInput.h */,
+				84DFC5DF1E34A9B9000A588C /* IUChainProtocolMethod_UIKeyInput.h */,
+				84DFC5DC1E34A915000A588C /* IUChainProtocolMethod_UITextInputTraits.h */,
+				84DFC5E01E34AA49000A588C /* IUChainProtocolMethod_UIContentSizeCategoryAdjusting.h */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -248,7 +282,12 @@
 				841F53211E34786900223BB5 /* UIView+IUChain.h in Headers */,
 				841F531D1E34786900223BB5 /* UIImageView+IUChain.h in Headers */,
 				841F52151E30922D00223BB5 /* IUChain.h in Headers */,
+				84DFC5CD1E349BEE000A588C /* UISearchBar+IUChain.h in Headers */,
+				84DFC5DD1E34A95B000A588C /* IUChainProtocolMethod_UITextInputTraits.h in Headers */,
 				841F531F1E34786900223BB5 /* UILabel+IUChain.h in Headers */,
+				84DFC5E11E34AA9C000A588C /* IUChainProtocolMethod_UITextInput.h in Headers */,
+				84DFC5E21E34AA9C000A588C /* IUChainProtocolMethod_UIKeyInput.h in Headers */,
+				84DFC5E31E34AA9D000A588C /* IUChainProtocolMethod_UIContentSizeCategoryAdjusting.h in Headers */,
 				841F531B1E34786900223BB5 /* UITextField+IUChain.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -345,6 +384,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				841F53201E34786900223BB5 /* UILabel+IUChain.m in Sources */,
+				84DFC5CE1E349BEE000A588C /* UISearchBar+IUChain.m in Sources */,
 				841F53161E34786900223BB5 /* NSObject+IUChain.m in Sources */,
 				841F531A1E34786900223BB5 /* UIControl+IUChain.m in Sources */,
 				841F532A1E34792800223BB5 /* UITableView+IUChain.m in Sources */,
