@@ -5,6 +5,15 @@
       location = "group:TestIntegrationUtil/TestIntegrationUtil.xcodeproj">
    </FileRef>
    <FileRef
+      location = "group:IUUtil/IUUtil.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:IUController/IUController.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:IUNetworking/IUNetworking.xcodeproj">
+   </FileRef>
+   <FileRef
       location = "group:IUTextInput/IUTextInput.xcodeproj">
    </FileRef>
    <FileRef

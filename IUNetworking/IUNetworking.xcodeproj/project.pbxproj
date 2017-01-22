@@ -7,54 +7,42 @@
 	objects = {
 
 /* Begin PBXAggregateTarget section */
-		84DFC6381E34D30B000A588C /* IUTextInputBuilder */ = {
+		84DFC63F1E34D33A000A588C /* IUNetworkingBuilder */ = {
 			isa = PBXAggregateTarget;
-			buildConfigurationList = 84DFC63B1E34D30B000A588C /* Build configuration list for PBXAggregateTarget "IUTextInputBuilder" */;
+			buildConfigurationList = 84DFC6421E34D33A000A588C /* Build configuration list for PBXAggregateTarget "IUNetworkingBuilder" */;
 			buildPhases = (
-				84DFC63C1E34D31E000A588C /* ShellScript */,
+				84DFC6461E34D347000A588C /* ShellScript */,
 			);
 			dependencies = (
-				84DFC63E1E34D327000A588C /* PBXTargetDependency */,
+				84DFC6441E34D33F000A588C /* PBXTargetDependency */,
 			);
-			name = IUTextInputBuilder;
-			productName = IUTextInputBuilder;
+			name = IUNetworkingBuilder;
+			productName = IUNetworkingBuilder;
 		};
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
-		84DFC5B51E349385000A588C /* IUTextInput.h in Headers */ = {isa = PBXBuildFile; fileRef = 84DFC5B31E349385000A588C /* IUTextInput.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		84DFC5C01E3493BF000A588C /* IUTextInputRestrict.h in Headers */ = {isa = PBXBuildFile; fileRef = 84DFC5BE1E3493BF000A588C /* IUTextInputRestrict.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		84DFC5C11E3493BF000A588C /* IUTextInputRestrict.m in Sources */ = {isa = PBXBuildFile; fileRef = 84DFC5BF1E3493BF000A588C /* IUTextInputRestrict.m */; };
-		84DFC5C41E3493FC000A588C /* UITextView+IUTextInputRestrict.h in Headers */ = {isa = PBXBuildFile; fileRef = 84DFC5C21E3493FC000A588C /* UITextView+IUTextInputRestrict.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		84DFC5C51E3493FC000A588C /* UITextView+IUTextInputRestrict.m in Sources */ = {isa = PBXBuildFile; fileRef = 84DFC5C31E3493FC000A588C /* UITextView+IUTextInputRestrict.m */; };
-		84DFC5C81E349407000A588C /* UITextField+IUTextInputRestrict.h in Headers */ = {isa = PBXBuildFile; fileRef = 84DFC5C61E349407000A588C /* UITextField+IUTextInputRestrict.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		84DFC5C91E349407000A588C /* UITextField+IUTextInputRestrict.m in Sources */ = {isa = PBXBuildFile; fileRef = 84DFC5C71E349407000A588C /* UITextField+IUTextInputRestrict.m */; };
+		84DFC5F31E34D260000A588C /* IUNetworking.h in Headers */ = {isa = PBXBuildFile; fileRef = 84DFC5F11E34D260000A588C /* IUNetworking.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		84DFC63D1E34D327000A588C /* PBXContainerItemProxy */ = {
+		84DFC6431E34D33F000A588C /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 84DFC5A71E349384000A588C /* Project object */;
+			containerPortal = 84DFC5E51E34D260000A588C /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 84DFC5AF1E349385000A588C;
-			remoteInfo = IUTextInput;
+			remoteGlobalIDString = 84DFC5ED1E34D260000A588C;
+			remoteInfo = IUNetworking;
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		84DFC5B01E349385000A588C /* IUTextInput.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = IUTextInput.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		84DFC5B31E349385000A588C /* IUTextInput.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IUTextInput.h; sourceTree = "<group>"; };
-		84DFC5B41E349385000A588C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		84DFC5BE1E3493BF000A588C /* IUTextInputRestrict.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IUTextInputRestrict.h; sourceTree = "<group>"; };
-		84DFC5BF1E3493BF000A588C /* IUTextInputRestrict.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IUTextInputRestrict.m; sourceTree = "<group>"; };
-		84DFC5C21E3493FC000A588C /* UITextView+IUTextInputRestrict.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITextView+IUTextInputRestrict.h"; sourceTree = "<group>"; };
-		84DFC5C31E3493FC000A588C /* UITextView+IUTextInputRestrict.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITextView+IUTextInputRestrict.m"; sourceTree = "<group>"; };
-		84DFC5C61E349407000A588C /* UITextField+IUTextInputRestrict.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITextField+IUTextInputRestrict.h"; sourceTree = "<group>"; };
-		84DFC5C71E349407000A588C /* UITextField+IUTextInputRestrict.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITextField+IUTextInputRestrict.m"; sourceTree = "<group>"; };
+		84DFC5EE1E34D260000A588C /* IUNetworking.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = IUNetworking.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		84DFC5F11E34D260000A588C /* IUNetworking.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IUNetworking.h; sourceTree = "<group>"; };
+		84DFC5F21E34D260000A588C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		84DFC5AC1E349385000A588C /* Frameworks */ = {
+		84DFC5EA1E34D260000A588C /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -64,113 +52,104 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		84DFC5A61E349384000A588C = {
+		84DFC5E41E34D260000A588C = {
 			isa = PBXGroup;
 			children = (
-				84DFC5B21E349385000A588C /* IUTextInput */,
-				84DFC5B11E349385000A588C /* Products */,
+				84DFC5F01E34D260000A588C /* IUNetworking */,
+				84DFC5EF1E34D260000A588C /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		84DFC5B11E349385000A588C /* Products */ = {
+		84DFC5EF1E34D260000A588C /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				84DFC5B01E349385000A588C /* IUTextInput.framework */,
+				84DFC5EE1E34D260000A588C /* IUNetworking.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		84DFC5B21E349385000A588C /* IUTextInput */ = {
+		84DFC5F01E34D260000A588C /* IUNetworking */ = {
 			isa = PBXGroup;
 			children = (
-				84DFC5B31E349385000A588C /* IUTextInput.h */,
-				84DFC5BE1E3493BF000A588C /* IUTextInputRestrict.h */,
-				84DFC5BF1E3493BF000A588C /* IUTextInputRestrict.m */,
-				84DFC5C61E349407000A588C /* UITextField+IUTextInputRestrict.h */,
-				84DFC5C71E349407000A588C /* UITextField+IUTextInputRestrict.m */,
-				84DFC5C21E3493FC000A588C /* UITextView+IUTextInputRestrict.h */,
-				84DFC5C31E3493FC000A588C /* UITextView+IUTextInputRestrict.m */,
-				84DFC5B41E349385000A588C /* Info.plist */,
+				84DFC5F11E34D260000A588C /* IUNetworking.h */,
+				84DFC5F21E34D260000A588C /* Info.plist */,
 			);
-			path = IUTextInput;
+			path = IUNetworking;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
-		84DFC5AD1E349385000A588C /* Headers */ = {
+		84DFC5EB1E34D260000A588C /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				84DFC5C81E349407000A588C /* UITextField+IUTextInputRestrict.h in Headers */,
-				84DFC5C41E3493FC000A588C /* UITextView+IUTextInputRestrict.h in Headers */,
-				84DFC5C01E3493BF000A588C /* IUTextInputRestrict.h in Headers */,
-				84DFC5B51E349385000A588C /* IUTextInput.h in Headers */,
+				84DFC5F31E34D260000A588C /* IUNetworking.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		84DFC5AF1E349385000A588C /* IUTextInput */ = {
+		84DFC5ED1E34D260000A588C /* IUNetworking */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 84DFC5B81E349385000A588C /* Build configuration list for PBXNativeTarget "IUTextInput" */;
+			buildConfigurationList = 84DFC5F61E34D260000A588C /* Build configuration list for PBXNativeTarget "IUNetworking" */;
 			buildPhases = (
-				84DFC5AB1E349385000A588C /* Sources */,
-				84DFC5AC1E349385000A588C /* Frameworks */,
-				84DFC5AD1E349385000A588C /* Headers */,
-				84DFC5AE1E349385000A588C /* Resources */,
+				84DFC5E91E34D260000A588C /* Sources */,
+				84DFC5EA1E34D260000A588C /* Frameworks */,
+				84DFC5EB1E34D260000A588C /* Headers */,
+				84DFC5EC1E34D260000A588C /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = IUTextInput;
-			productName = IUTextInput;
-			productReference = 84DFC5B01E349385000A588C /* IUTextInput.framework */;
+			name = IUNetworking;
+			productName = IUNetworking;
+			productReference = 84DFC5EE1E34D260000A588C /* IUNetworking.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		84DFC5A71E349384000A588C /* Project object */ = {
+		84DFC5E51E34D260000A588C /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 0820;
 				ORGANIZATIONNAME = "刘海文";
 				TargetAttributes = {
-					84DFC5AF1E349385000A588C = {
+					84DFC5ED1E34D260000A588C = {
 						CreatedOnToolsVersion = 8.2;
 						DevelopmentTeam = LUAYPTUCME;
 						ProvisioningStyle = Automatic;
 					};
-					84DFC6381E34D30B000A588C = {
+					84DFC63F1E34D33A000A588C = {
 						CreatedOnToolsVersion = 8.2;
 						DevelopmentTeam = LUAYPTUCME;
 						ProvisioningStyle = Automatic;
 					};
 				};
 			};
-			buildConfigurationList = 84DFC5AA1E349384000A588C /* Build configuration list for PBXProject "IUTextInput" */;
+			buildConfigurationList = 84DFC5E81E34D260000A588C /* Build configuration list for PBXProject "IUNetworking" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
 			);
-			mainGroup = 84DFC5A61E349384000A588C;
-			productRefGroup = 84DFC5B11E349385000A588C /* Products */;
+			mainGroup = 84DFC5E41E34D260000A588C;
+			productRefGroup = 84DFC5EF1E34D260000A588C /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				84DFC5AF1E349385000A588C /* IUTextInput */,
-				84DFC6381E34D30B000A588C /* IUTextInputBuilder */,
+				84DFC5ED1E34D260000A588C /* IUNetworking */,
+				84DFC63F1E34D33A000A588C /* IUNetworkingBuilder */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		84DFC5AE1E349385000A588C /* Resources */ = {
+		84DFC5EC1E34D260000A588C /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -180,7 +159,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		84DFC63C1E34D31E000A588C /* ShellScript */ = {
+		84DFC6461E34D347000A588C /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -196,28 +175,25 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		84DFC5AB1E349385000A588C /* Sources */ = {
+		84DFC5E91E34D260000A588C /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				84DFC5C91E349407000A588C /* UITextField+IUTextInputRestrict.m in Sources */,
-				84DFC5C51E3493FC000A588C /* UITextView+IUTextInputRestrict.m in Sources */,
-				84DFC5C11E3493BF000A588C /* IUTextInputRestrict.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		84DFC63E1E34D327000A588C /* PBXTargetDependency */ = {
+		84DFC6441E34D33F000A588C /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 84DFC5AF1E349385000A588C /* IUTextInput */;
-			targetProxy = 84DFC63D1E34D327000A588C /* PBXContainerItemProxy */;
+			target = 84DFC5ED1E34D260000A588C /* IUNetworking */;
+			targetProxy = 84DFC6431E34D33F000A588C /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		84DFC5B61E349385000A588C /* Debug */ = {
+		84DFC5F41E34D260000A588C /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -268,7 +244,7 @@
 			};
 			name = Debug;
 		};
-		84DFC5B71E349385000A588C /* Release */ = {
+		84DFC5F51E34D260000A588C /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -313,7 +289,7 @@
 			};
 			name = Release;
 		};
-		84DFC5B91E349385000A588C /* Debug */ = {
+		84DFC5F71E34D260000A588C /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
@@ -322,16 +298,16 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = IUTextInput/Info.plist;
+				INFOPLIST_FILE = IUNetworking/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = liuhaiwen.IUTextInput;
+				PRODUCT_BUNDLE_IDENTIFIER = liuhaiwen.IUNetworking;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 			};
 			name = Debug;
 		};
-		84DFC5BA1E349385000A588C /* Release */ = {
+		84DFC5F81E34D260000A588C /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
@@ -340,16 +316,16 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = IUTextInput/Info.plist;
+				INFOPLIST_FILE = IUNetworking/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = liuhaiwen.IUTextInput;
+				PRODUCT_BUNDLE_IDENTIFIER = liuhaiwen.IUNetworking;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 			};
 			name = Release;
 		};
-		84DFC6391E34D30B000A588C /* Debug */ = {
+		84DFC6401E34D33A000A588C /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				DEVELOPMENT_TEAM = LUAYPTUCME;
@@ -357,7 +333,7 @@
 			};
 			name = Debug;
 		};
-		84DFC63A1E34D30B000A588C /* Release */ = {
+		84DFC6411E34D33A000A588C /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				DEVELOPMENT_TEAM = LUAYPTUCME;
@@ -368,33 +344,33 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		84DFC5AA1E349384000A588C /* Build configuration list for PBXProject "IUTextInput" */ = {
+		84DFC5E81E34D260000A588C /* Build configuration list for PBXProject "IUNetworking" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				84DFC5B61E349385000A588C /* Debug */,
-				84DFC5B71E349385000A588C /* Release */,
+				84DFC5F41E34D260000A588C /* Debug */,
+				84DFC5F51E34D260000A588C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		84DFC5B81E349385000A588C /* Build configuration list for PBXNativeTarget "IUTextInput" */ = {
+		84DFC5F61E34D260000A588C /* Build configuration list for PBXNativeTarget "IUNetworking" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				84DFC5B91E349385000A588C /* Debug */,
-				84DFC5BA1E349385000A588C /* Release */,
+				84DFC5F71E34D260000A588C /* Debug */,
+				84DFC5F81E34D260000A588C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		84DFC63B1E34D30B000A588C /* Build configuration list for PBXAggregateTarget "IUTextInputBuilder" */ = {
+		84DFC6421E34D33A000A588C /* Build configuration list for PBXAggregateTarget "IUNetworkingBuilder" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				84DFC6391E34D30B000A588C /* Debug */,
-				84DFC63A1E34D30B000A588C /* Release */,
+				84DFC6401E34D33A000A588C /* Debug */,
+				84DFC6411E34D33A000A588C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = 84DFC5A71E349384000A588C /* Project object */;
+	rootObject = 84DFC5E51E34D260000A588C /* Project object */;
 }
