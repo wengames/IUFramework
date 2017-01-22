@@ -128,8 +128,13 @@ static char TAG_TEXT_VIEW_PLACEHOLDER_LABEL;
     objc_setAssociatedObject(self, &TAG_TEXT_VIEW_TEXT_INPUT_RESTRICT, textInputRestrict, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
     if ([textInputRestrict isKindOfClass:[IUTextInputRestrictNumberOnly class]]) {
         self.keyboardType = UIKeyboardTypeNumberPad;
+    } else if ([textInputRestrict isKindOfClass:[IUTextInputRestrictDecimalNegative class]]) {
+        self.keyboardType = UIKeyboardTypeNumbersAndPunctuation;
     } else if ([textInputRestrict isKindOfClass:[IUTextInputRestrictDecimalOnly class]]) {
         self.keyboardType = UIKeyboardTypeDecimalPad;
+    } else if ([textInputRestrict isKindOfClass:[IUTextInputRestrictIdentityCard class]]) {
+        self.keyboardType = UIKeyboardTypeNumberPad;
+        [(IUTextInputRestrictIdentityCard *)textInputRestrict setInputView:self];
     }
     textInputRestrict.maxTextLength = self.maxTextLength;
 }

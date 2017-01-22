@@ -164,6 +164,10 @@
 
 @implementation IUTextInputRestrictPhone
 
++ (instancetype)textInputRestrictWithFormat:(NSString *)format {
+    return [super textInputRestrictWithFormat:format];
+}
+
 + (instancetype)textInputRestrictWithSeparator:(NSString *)separator {
     IUTextInputRestrictPhone *textInputRestrict = [self textInputRestrict];
     textInputRestrict.separator = separator;
@@ -274,6 +278,113 @@
     for (int i = 0; i < [*text length]; i++) {
         NSString *charater = [*text substringWithRange:NSMakeRange(i, 1)];
         if ([predicate evaluateWithObject:charater]) {
+            [string appendString:charater];
+        } else if (i < cursorIndex) {
+            returnIndex--;
+        }
+    }
+    *text = [string copy];
+    return returnIndex;
+}
+
+@end
+
+@interface IUTextInputRestrictIdentityCard ()
+
+@property (nonatomic, strong) UIButton *xButton;
+
+@end
+
+@implementation IUTextInputRestrictIdentityCard
+
+- (instancetype)init {
+    if (self = [super init]) {
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(_keyboardWillShow:) name:UIKeyboardWillShowNotification object:nil];
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(_keyboardWillHide:) name:UIKeyboardWillHideNotification object:nil];
+    }
+    return self;
+}
+
+- (void)_keyboardWillShow:(NSNotification *)notification {
+    __weak typeof(self) ws = self;
+    NSDictionary *info = notification.userInfo;
+    CGRect frame = [info[UIKeyboardFrameBeginUserInfoKey] CGRectValue];
+    CGFloat keyboardHeight = [info[UIKeyboardFrameEndUserInfoKey] CGRectValue].size.height;
+    
+    UIWindow *tempWindow = [[[UIApplication sharedApplication] windows] lastObject];
+    [tempWindow addSubview:self.xButton];
+    if ([self.inputView isFirstResponder]) {
+        
+        [UIView performWithoutAnimation:^{
+            ws.xButton.frame = CGRectMake(0, frame.origin.y + frame.size.height - keyboardHeight/4.f, tempWindow.bounds.size.width/3.f, keyboardHeight/4.f);
+        }];
+        
+        [UIView animateWithDuration:[info[UIKeyboardAnimationDurationUserInfoKey] doubleValue] delay:0 options:[info[UIKeyboardAnimationCurveUserInfoKey] intValue] >> 16 animations:^{
+            ws.xButton.frame = CGRectMake(0, tempWindow.bounds.size.height - keyboardHeight/4.f, tempWindow.bounds.size.width/3.f, keyboardHeight/4.f);
+        } completion:^(BOOL finished) {
+            if (![self.inputView isFirstResponder]) {
+                [ws.xButton removeFromSuperview];
+            }
+        }];
+    } else {
+        [ws.xButton removeFromSuperview];
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)([info[UIKeyboardAnimationDurationUserInfoKey] doubleValue] * 1.1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            if ([ws.inputView isFirstResponder]) {
+                ws.xButton.frame = CGRectMake(0, tempWindow.bounds.size.height - keyboardHeight/4.f, tempWindow.bounds.size.width/3.f, keyboardHeight/4.f);
+                [tempWindow addSubview:ws.xButton];
+            }
+        });
+    }
+}
+
+- (void)_keyboardWillHide:(NSNotification *)notification {
+    __weak typeof(self) ws = self;
+    NSDictionary *info = notification.userInfo;
+    CGFloat keyboardHeight = [info[UIKeyboardFrameBeginUserInfoKey] CGRectValue].size.height;
+    if (ws.xButton.superview) {
+        [UIView animateWithDuration:[info[UIKeyboardAnimationDurationUserInfoKey] doubleValue] delay:0 options:[info[UIKeyboardAnimationCurveUserInfoKey] intValue] >> 16 animations:^{
+            ws.xButton.frame = CGRectMake(0, ws.xButton.superview.bounds.size.height + keyboardHeight - keyboardHeight/4.f, ws.xButton.superview.bounds.size.width/3.f, keyboardHeight/4.f);
+        } completion:^(BOOL finished) {
+            if (finished && ![ws.inputView isFirstResponder]) {
+                [ws.xButton removeFromSuperview];
+            }
+        }];
+    }
+}
+
+- (UIButton *)xButton {
+    if (_xButton == nil) {
+        _xButton = [UIButton buttonWithType:UIButtonTypeCustom];
+        _xButton.autoresizingMask = UIViewAutoresizingFlexibleTopMargin;
+        _xButton.titleLabel.font = [UIFont boldSystemFontOfSize:20 * 375 / [UIScreen mainScreen].bounds.size.width];
+        [_xButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+        [_xButton setTitleColor:[UIColor lightGrayColor] forState:UIControlStateHighlighted];
+        [_xButton setTitle:@"X" forState:UIControlStateNormal];
+        [_xButton addTarget:self action:@selector(xButtonClicked) forControlEvents:UIControlEventTouchUpInside];
+    }
+    return _xButton;
+}
+
+- (void)xButtonClicked {
+    if ([self.inputView conformsToProtocol:@protocol(UITextInput)]) {
+        id<UITextInput> inputView = self.inputView;
+        [inputView replaceRange:inputView.selectedTextRange withText:@"x"];
+    }
+}
+
+- (void)dealloc {
+    [_xButton removeFromSuperview];
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
+- (NSInteger)handleText:(inout NSString *__autoreleasing *)text cursorIndex:(NSInteger)cursorIndex {
+    NSInteger returnIndex = cursorIndex;
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", @"^[0-9xX]*$"];
+    NSMutableString *string = [@"" mutableCopy];
+    for (int i = 0; i < [*text length]; i++) {
+        NSString *charater = [*text substringWithRange:NSMakeRange(i, 1)];
+        if ([predicate evaluateWithObject:charater]) {
+            if ([charater isEqualToString:@"X"]) charater = @"x";
             [string appendString:charater];
         } else if (i < cursorIndex) {
             returnIndex--;

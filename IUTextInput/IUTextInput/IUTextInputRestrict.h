@@ -10,6 +10,8 @@
 
 @interface IUTextInputRestrict : NSObject
 
+@property (nonatomic, assign, readonly) NSUInteger maxTextLength; // the maxTextLength of input view, default is NSUIntegerMax
+
 + (instancetype)textInputRestrict;
 
 // override point, restrict text without text max length
@@ -70,5 +72,12 @@
 
 // charaters without chinese, [^\u4e00-\u9fa5]
 @interface IUTextInputRestrictCharaterOnly : IUTextInputRestrict
+
+@end
+
+// identity card, [0-9xX]
+@interface IUTextInputRestrictIdentityCard : IUTextInputRestrict
+
+@property (nonatomic, weak) id inputView;
 
 @end

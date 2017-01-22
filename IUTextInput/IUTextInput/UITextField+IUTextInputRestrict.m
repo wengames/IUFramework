@@ -43,6 +43,9 @@ static char TAG_TEXT_FIELD_MAX_TEXT_LENGTH;
         self.keyboardType = UIKeyboardTypeNumbersAndPunctuation;
     } else if ([textInputRestrict isKindOfClass:[IUTextInputRestrictDecimalOnly class]]) {
         self.keyboardType = UIKeyboardTypeDecimalPad;
+    } else if ([textInputRestrict isKindOfClass:[IUTextInputRestrictIdentityCard class]]) {
+        self.keyboardType = UIKeyboardTypeNumberPad;
+        [(IUTextInputRestrictIdentityCard *)textInputRestrict setInputView:self];
     }
     
     textInputRestrict.maxTextLength = self.maxTextLength;
