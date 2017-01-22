@@ -16,6 +16,8 @@
 @property (nonatomic, strong) NSString            *placeholder;           // extends placeholder like UITextField
 @property (nonatomic, strong) NSAttributedString  *attributedPlaceholder; // extends attributedPlaceholder like UITextField
 
+@property (nonatomic, readonly) NSString *phone; // get phone while textInputRestrict is set to IUTextInputRestrictPhone
+
 @end
 
 /* implements by IUChain */

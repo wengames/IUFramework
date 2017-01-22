@@ -75,6 +75,19 @@ static char TAG_TEXT_FIELD_MAX_TEXT_LENGTH;
     return NSUIntegerMax;
 }
 
+- (NSString *)phone {
+    NSString *text = self.text;
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", @"^[0-9]*$"];
+    NSMutableString *string = [@"" mutableCopy];
+    for (int i = 0; i < [text length]; i++) {
+        NSString *charater = [text substringWithRange:NSMakeRange(i, 1)];
+        if ([predicate evaluateWithObject:charater]) {
+            [string appendString:charater];
+        }
+    }
+    return [string copy];
+}
+
 @end
 
 #pragma clang diagnostic push

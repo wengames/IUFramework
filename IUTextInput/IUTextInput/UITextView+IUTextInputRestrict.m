@@ -159,10 +159,25 @@ static char TAG_TEXT_VIEW_PLACEHOLDER_LABEL;
     return NSUIntegerMax;
 }
 
+- (NSString *)phone {
+    NSString *text = self.text;
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", @"^[0-9]*$"];
+    NSMutableString *string = [@"" mutableCopy];
+    for (int i = 0; i < [text length]; i++) {
+        NSString *charater = [text substringWithRange:NSMakeRange(i, 1)];
+        if ([predicate evaluateWithObject:charater]) {
+            [string appendString:charater];
+        }
+    }
+    return [string copy];
+}
+
+#pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wunused-getter-return-value"
 - (void)resetProxy {
     self.proxy;
 }
+#pragma clang diagnostic pop
 
 @end
 

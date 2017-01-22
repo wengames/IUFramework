@@ -14,6 +14,8 @@
 @property (nonatomic, strong) IUTextInputRestrict *textInputRestrict;
 @property (nonatomic, assign) NSUInteger           maxTextLength;     // default is NSUIntegerMax
 
+@property (nonatomic, readonly) NSString *phone; // get phone while textInputRestrict is set to IUTextInputRestrictPhone
+
 @end
 
 /* implements by IUChain */
