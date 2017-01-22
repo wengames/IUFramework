@@ -23,10 +23,28 @@
 
 /* Begin PBXBuildFile section */
 		841F52151E30922D00223BB5 /* IUChain.h in Headers */ = {isa = PBXBuildFile; fileRef = 841F52131E30922D00223BB5 /* IUChain.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		841F528C1E3093F900223BB5 /* NSObject+IUChain.h in Headers */ = {isa = PBXBuildFile; fileRef = 841F528A1E3093F900223BB5 /* NSObject+IUChain.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		841F528D1E3093F900223BB5 /* NSObject+IUChain.m in Sources */ = {isa = PBXBuildFile; fileRef = 841F528B1E3093F900223BB5 /* NSObject+IUChain.m */; };
-		841F52901E3094AC00223BB5 /* UIView+IUChain.h in Headers */ = {isa = PBXBuildFile; fileRef = 841F528E1E3094AC00223BB5 /* UIView+IUChain.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		841F52911E3094AC00223BB5 /* UIView+IUChain.m in Sources */ = {isa = PBXBuildFile; fileRef = 841F528F1E3094AC00223BB5 /* UIView+IUChain.m */; };
+		841F53151E34786900223BB5 /* NSObject+IUChain.h in Headers */ = {isa = PBXBuildFile; fileRef = 841F52FD1E34786900223BB5 /* NSObject+IUChain.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		841F53161E34786900223BB5 /* NSObject+IUChain.m in Sources */ = {isa = PBXBuildFile; fileRef = 841F52FE1E34786900223BB5 /* NSObject+IUChain.m */; };
+		841F53171E34786900223BB5 /* UIButton+IUChain.h in Headers */ = {isa = PBXBuildFile; fileRef = 841F53021E34786900223BB5 /* UIButton+IUChain.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		841F53181E34786900223BB5 /* UIButton+IUChain.m in Sources */ = {isa = PBXBuildFile; fileRef = 841F53031E34786900223BB5 /* UIButton+IUChain.m */; };
+		841F53191E34786900223BB5 /* UIControl+IUChain.h in Headers */ = {isa = PBXBuildFile; fileRef = 841F53041E34786900223BB5 /* UIControl+IUChain.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		841F531A1E34786900223BB5 /* UIControl+IUChain.m in Sources */ = {isa = PBXBuildFile; fileRef = 841F53051E34786900223BB5 /* UIControl+IUChain.m */; };
+		841F531B1E34786900223BB5 /* UITextField+IUChain.h in Headers */ = {isa = PBXBuildFile; fileRef = 841F53071E34786900223BB5 /* UITextField+IUChain.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		841F531C1E34786900223BB5 /* UITextField+IUChain.m in Sources */ = {isa = PBXBuildFile; fileRef = 841F53081E34786900223BB5 /* UITextField+IUChain.m */; };
+		841F531D1E34786900223BB5 /* UIImageView+IUChain.h in Headers */ = {isa = PBXBuildFile; fileRef = 841F530A1E34786900223BB5 /* UIImageView+IUChain.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		841F531E1E34786900223BB5 /* UIImageView+IUChain.m in Sources */ = {isa = PBXBuildFile; fileRef = 841F530B1E34786900223BB5 /* UIImageView+IUChain.m */; };
+		841F531F1E34786900223BB5 /* UILabel+IUChain.h in Headers */ = {isa = PBXBuildFile; fileRef = 841F530D1E34786900223BB5 /* UILabel+IUChain.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		841F53201E34786900223BB5 /* UILabel+IUChain.m in Sources */ = {isa = PBXBuildFile; fileRef = 841F530E1E34786900223BB5 /* UILabel+IUChain.m */; };
+		841F53211E34786900223BB5 /* UIView+IUChain.h in Headers */ = {isa = PBXBuildFile; fileRef = 841F53131E34786900223BB5 /* UIView+IUChain.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		841F53221E34786900223BB5 /* UIView+IUChain.m in Sources */ = {isa = PBXBuildFile; fileRef = 841F53141E34786900223BB5 /* UIView+IUChain.m */; };
+		841F53251E3478AF00223BB5 /* UIScrollView+IUChain.h in Headers */ = {isa = PBXBuildFile; fileRef = 841F53231E3478AF00223BB5 /* UIScrollView+IUChain.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		841F53261E3478AF00223BB5 /* UIScrollView+IUChain.m in Sources */ = {isa = PBXBuildFile; fileRef = 841F53241E3478AF00223BB5 /* UIScrollView+IUChain.m */; };
+		841F53291E34792800223BB5 /* UITableView+IUChain.h in Headers */ = {isa = PBXBuildFile; fileRef = 841F53271E34792800223BB5 /* UITableView+IUChain.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		841F532A1E34792800223BB5 /* UITableView+IUChain.m in Sources */ = {isa = PBXBuildFile; fileRef = 841F53281E34792800223BB5 /* UITableView+IUChain.m */; };
+		841F532D1E347A8D00223BB5 /* UICollectionView+IUChain.h in Headers */ = {isa = PBXBuildFile; fileRef = 841F532B1E347A8D00223BB5 /* UICollectionView+IUChain.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		841F532E1E347A8D00223BB5 /* UICollectionView+IUChain.m in Sources */ = {isa = PBXBuildFile; fileRef = 841F532C1E347A8D00223BB5 /* UICollectionView+IUChain.m */; };
+		84DFC58C1E347C5C000A588C /* UITextView+IUChain.h in Headers */ = {isa = PBXBuildFile; fileRef = 84DFC58A1E347C5C000A588C /* UITextView+IUChain.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		84DFC58D1E347C5C000A588C /* UITextView+IUChain.m in Sources */ = {isa = PBXBuildFile; fileRef = 84DFC58B1E347C5C000A588C /* UITextView+IUChain.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,10 +61,28 @@
 		841F52101E30922D00223BB5 /* IUChain.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = IUChain.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		841F52131E30922D00223BB5 /* IUChain.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IUChain.h; sourceTree = "<group>"; };
 		841F52141E30922D00223BB5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		841F528A1E3093F900223BB5 /* NSObject+IUChain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+IUChain.h"; sourceTree = "<group>"; };
-		841F528B1E3093F900223BB5 /* NSObject+IUChain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+IUChain.m"; sourceTree = "<group>"; };
-		841F528E1E3094AC00223BB5 /* UIView+IUChain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+IUChain.h"; sourceTree = "<group>"; };
-		841F528F1E3094AC00223BB5 /* UIView+IUChain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+IUChain.m"; sourceTree = "<group>"; };
+		841F52FD1E34786900223BB5 /* NSObject+IUChain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+IUChain.h"; sourceTree = "<group>"; };
+		841F52FE1E34786900223BB5 /* NSObject+IUChain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+IUChain.m"; sourceTree = "<group>"; };
+		841F53021E34786900223BB5 /* UIButton+IUChain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+IUChain.h"; sourceTree = "<group>"; };
+		841F53031E34786900223BB5 /* UIButton+IUChain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+IUChain.m"; sourceTree = "<group>"; };
+		841F53041E34786900223BB5 /* UIControl+IUChain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIControl+IUChain.h"; sourceTree = "<group>"; };
+		841F53051E34786900223BB5 /* UIControl+IUChain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIControl+IUChain.m"; sourceTree = "<group>"; };
+		841F53071E34786900223BB5 /* UITextField+IUChain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITextField+IUChain.h"; sourceTree = "<group>"; };
+		841F53081E34786900223BB5 /* UITextField+IUChain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITextField+IUChain.m"; sourceTree = "<group>"; };
+		841F530A1E34786900223BB5 /* UIImageView+IUChain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+IUChain.h"; sourceTree = "<group>"; };
+		841F530B1E34786900223BB5 /* UIImageView+IUChain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+IUChain.m"; sourceTree = "<group>"; };
+		841F530D1E34786900223BB5 /* UILabel+IUChain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UILabel+IUChain.h"; sourceTree = "<group>"; };
+		841F530E1E34786900223BB5 /* UILabel+IUChain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UILabel+IUChain.m"; sourceTree = "<group>"; };
+		841F53131E34786900223BB5 /* UIView+IUChain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+IUChain.h"; sourceTree = "<group>"; };
+		841F53141E34786900223BB5 /* UIView+IUChain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+IUChain.m"; sourceTree = "<group>"; };
+		841F53231E3478AF00223BB5 /* UIScrollView+IUChain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+IUChain.h"; sourceTree = "<group>"; };
+		841F53241E3478AF00223BB5 /* UIScrollView+IUChain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+IUChain.m"; sourceTree = "<group>"; };
+		841F53271E34792800223BB5 /* UITableView+IUChain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableView+IUChain.h"; sourceTree = "<group>"; };
+		841F53281E34792800223BB5 /* UITableView+IUChain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableView+IUChain.m"; sourceTree = "<group>"; };
+		841F532B1E347A8D00223BB5 /* UICollectionView+IUChain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UICollectionView+IUChain.h"; sourceTree = "<group>"; };
+		841F532C1E347A8D00223BB5 /* UICollectionView+IUChain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UICollectionView+IUChain.m"; sourceTree = "<group>"; };
+		84DFC58A1E347C5C000A588C /* UITextView+IUChain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITextView+IUChain.h"; sourceTree = "<group>"; };
+		84DFC58B1E347C5C000A588C /* UITextView+IUChain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITextView+IUChain.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,13 +116,119 @@
 			isa = PBXGroup;
 			children = (
 				841F52131E30922D00223BB5 /* IUChain.h */,
-				841F528A1E3093F900223BB5 /* NSObject+IUChain.h */,
-				841F528B1E3093F900223BB5 /* NSObject+IUChain.m */,
-				841F528E1E3094AC00223BB5 /* UIView+IUChain.h */,
-				841F528F1E3094AC00223BB5 /* UIView+IUChain.m */,
+				841F52FC1E34786900223BB5 /* Methods */,
 				841F52141E30922D00223BB5 /* Info.plist */,
 			);
 			path = IUChain;
+			sourceTree = "<group>";
+		};
+		841F52FC1E34786900223BB5 /* Methods */ = {
+			isa = PBXGroup;
+			children = (
+				841F52FD1E34786900223BB5 /* NSObject+IUChain.h */,
+				841F52FE1E34786900223BB5 /* NSObject+IUChain.m */,
+				841F52FF1E34786900223BB5 /* UIView */,
+			);
+			path = Methods;
+			sourceTree = "<group>";
+		};
+		841F52FF1E34786900223BB5 /* UIView */ = {
+			isa = PBXGroup;
+			children = (
+				841F53001E34786900223BB5 /* UIControl */,
+				841F53091E34786900223BB5 /* UIImageView */,
+				841F530C1E34786900223BB5 /* UILabel */,
+				841F530F1E34786900223BB5 /* UIScrollView */,
+				841F53131E34786900223BB5 /* UIView+IUChain.h */,
+				841F53141E34786900223BB5 /* UIView+IUChain.m */,
+			);
+			path = UIView;
+			sourceTree = "<group>";
+		};
+		841F53001E34786900223BB5 /* UIControl */ = {
+			isa = PBXGroup;
+			children = (
+				841F53011E34786900223BB5 /* UIButton */,
+				841F53041E34786900223BB5 /* UIControl+IUChain.h */,
+				841F53051E34786900223BB5 /* UIControl+IUChain.m */,
+				841F53061E34786900223BB5 /* UITextField */,
+			);
+			path = UIControl;
+			sourceTree = "<group>";
+		};
+		841F53011E34786900223BB5 /* UIButton */ = {
+			isa = PBXGroup;
+			children = (
+				841F53021E34786900223BB5 /* UIButton+IUChain.h */,
+				841F53031E34786900223BB5 /* UIButton+IUChain.m */,
+			);
+			path = UIButton;
+			sourceTree = "<group>";
+		};
+		841F53061E34786900223BB5 /* UITextField */ = {
+			isa = PBXGroup;
+			children = (
+				841F53071E34786900223BB5 /* UITextField+IUChain.h */,
+				841F53081E34786900223BB5 /* UITextField+IUChain.m */,
+			);
+			path = UITextField;
+			sourceTree = "<group>";
+		};
+		841F53091E34786900223BB5 /* UIImageView */ = {
+			isa = PBXGroup;
+			children = (
+				841F530A1E34786900223BB5 /* UIImageView+IUChain.h */,
+				841F530B1E34786900223BB5 /* UIImageView+IUChain.m */,
+			);
+			path = UIImageView;
+			sourceTree = "<group>";
+		};
+		841F530C1E34786900223BB5 /* UILabel */ = {
+			isa = PBXGroup;
+			children = (
+				841F530D1E34786900223BB5 /* UILabel+IUChain.h */,
+				841F530E1E34786900223BB5 /* UILabel+IUChain.m */,
+			);
+			path = UILabel;
+			sourceTree = "<group>";
+		};
+		841F530F1E34786900223BB5 /* UIScrollView */ = {
+			isa = PBXGroup;
+			children = (
+				841F53101E34786900223BB5 /* UICollectionView */,
+				841F53111E34786900223BB5 /* UITableView */,
+				841F53121E34786900223BB5 /* UITextView */,
+				841F53231E3478AF00223BB5 /* UIScrollView+IUChain.h */,
+				841F53241E3478AF00223BB5 /* UIScrollView+IUChain.m */,
+			);
+			path = UIScrollView;
+			sourceTree = "<group>";
+		};
+		841F53101E34786900223BB5 /* UICollectionView */ = {
+			isa = PBXGroup;
+			children = (
+				841F532B1E347A8D00223BB5 /* UICollectionView+IUChain.h */,
+				841F532C1E347A8D00223BB5 /* UICollectionView+IUChain.m */,
+			);
+			path = UICollectionView;
+			sourceTree = "<group>";
+		};
+		841F53111E34786900223BB5 /* UITableView */ = {
+			isa = PBXGroup;
+			children = (
+				841F53271E34792800223BB5 /* UITableView+IUChain.h */,
+				841F53281E34792800223BB5 /* UITableView+IUChain.m */,
+			);
+			path = UITableView;
+			sourceTree = "<group>";
+		};
+		841F53121E34786900223BB5 /* UITextView */ = {
+			isa = PBXGroup;
+			children = (
+				84DFC58A1E347C5C000A588C /* UITextView+IUChain.h */,
+				84DFC58B1E347C5C000A588C /* UITextView+IUChain.m */,
+			);
+			path = UITextView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -96,9 +238,18 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				841F52901E3094AC00223BB5 /* UIView+IUChain.h in Headers */,
-				841F528C1E3093F900223BB5 /* NSObject+IUChain.h in Headers */,
+				84DFC58C1E347C5C000A588C /* UITextView+IUChain.h in Headers */,
+				841F53291E34792800223BB5 /* UITableView+IUChain.h in Headers */,
+				841F53191E34786900223BB5 /* UIControl+IUChain.h in Headers */,
+				841F53171E34786900223BB5 /* UIButton+IUChain.h in Headers */,
+				841F53151E34786900223BB5 /* NSObject+IUChain.h in Headers */,
+				841F53251E3478AF00223BB5 /* UIScrollView+IUChain.h in Headers */,
+				841F532D1E347A8D00223BB5 /* UICollectionView+IUChain.h in Headers */,
+				841F53211E34786900223BB5 /* UIView+IUChain.h in Headers */,
+				841F531D1E34786900223BB5 /* UIImageView+IUChain.h in Headers */,
 				841F52151E30922D00223BB5 /* IUChain.h in Headers */,
+				841F531F1E34786900223BB5 /* UILabel+IUChain.h in Headers */,
+				841F531B1E34786900223BB5 /* UITextField+IUChain.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -193,8 +344,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				841F52911E3094AC00223BB5 /* UIView+IUChain.m in Sources */,
-				841F528D1E3093F900223BB5 /* NSObject+IUChain.m in Sources */,
+				841F53201E34786900223BB5 /* UILabel+IUChain.m in Sources */,
+				841F53161E34786900223BB5 /* NSObject+IUChain.m in Sources */,
+				841F531A1E34786900223BB5 /* UIControl+IUChain.m in Sources */,
+				841F532A1E34792800223BB5 /* UITableView+IUChain.m in Sources */,
+				841F532E1E347A8D00223BB5 /* UICollectionView+IUChain.m in Sources */,
+				841F53221E34786900223BB5 /* UIView+IUChain.m in Sources */,
+				841F53181E34786900223BB5 /* UIButton+IUChain.m in Sources */,
+				841F53261E3478AF00223BB5 /* UIScrollView+IUChain.m in Sources */,
+				841F531C1E34786900223BB5 /* UITextField+IUChain.m in Sources */,
+				841F531E1E34786900223BB5 /* UIImageView+IUChain.m in Sources */,
+				84DFC58D1E347C5C000A588C /* UITextView+IUChain.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -315,6 +475,7 @@
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				ENABLE_STRICT_OBJC_MSGSEND = NO;
+				GCC_PREFIX_HEADER = "";
 				INFOPLIST_FILE = IUChain/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -334,6 +495,7 @@
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				ENABLE_STRICT_OBJC_MSGSEND = NO;
+				GCC_PREFIX_HEADER = "";
 				INFOPLIST_FILE = IUChain/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -387,6 +549,7 @@
 				841F52C31E309D3300223BB5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

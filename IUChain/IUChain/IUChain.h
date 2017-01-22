@@ -18,7 +18,19 @@ FOUNDATION_EXPORT const unsigned char IUChainVersionString[];
 
 #ifdef __OBJC__
 
+// other class can add chain method if IUChainEnable is defined
+#define IUChainEnable
+
 #import "NSObject+IUChain.h"
-#import "UIView+IUChain.h"
+    #import "UIView+IUChain.h"
+        #import "UILabel+IUChain.h"
+        #import "UIImageView+IUChain.h"
+        #import "UIControl+IUChain.h"
+            #import "UIButton+IUChain.h"
+            #import "UITextField+IUChain.h"
+        #import "UIScrollView+IUChain.h"
+            #import "UITableView+IUChain.h"
+            #import "UICollectionView+IUChain.h"
+            #import "UITextView+IUChain.h"
 
 #endif

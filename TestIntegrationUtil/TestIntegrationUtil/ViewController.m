@@ -17,14 +17,14 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self.view addSubview:[[UIView alloc] init].setFrame(CGRectMake(100, 100, 100, 100)).setBackgroundColor([UIColor redColor])];
+    
+    // IUChain
+    UIView *v;
+    UILabel *l;
+    [self.view addSubview:[[UIView alloc] init].setFrame(CGRectMake(100, 100, 100, 100)).setContentMode(UIViewContentModeScaleToFill).setBackgroundColor([UIColor redColor]).bind(&v)];
+    [self.view addSubview:[[UILabel alloc] init].setBackgroundColor([UIColor cyanColor]).setText(@"xxx").bind(&l)];
+    NSLog(@"%@", v);
+    l.setTextAlignment(NSTextAlignmentCenter).frame = CGRectMake(100, 200, 100, 100);
 }
-
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
 
 @end

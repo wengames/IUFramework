@@ -121,4 +121,11 @@ id dynamicMethodIMP(id self, SEL _cmd)
     return resolved;
 }
 
+- (NSObject *(^)(__autoreleasing id *))bind {
+    return ^(id *obj) {
+        *obj = self;
+        return self;
+    };
+}
+
 @end

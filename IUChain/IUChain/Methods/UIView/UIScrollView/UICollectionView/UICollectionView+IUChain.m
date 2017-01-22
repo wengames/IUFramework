@@ -1,15 +1,15 @@
 //
-//  UILabel+IUChain.m
+//  UICollectionView+IUChain.m
 //  IUChain
 //
-//  Created by admin on 2017/1/19.
+//  Created by admin on 2017/1/22.
 //  Copyright © 2017年 刘海文. All rights reserved.
 //
 
-#import "UILabel+IUChain.h"
+#import "UICollectionView+IUChain.h"
 
 #pragma clang diagnostic ignored "-Wobjc-property-implementation"
 
-@implementation UILabel (IUChain)
+@implementation UICollectionView (IUChain)
 
 @end
