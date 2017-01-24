@@ -377,6 +377,10 @@
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
+- (NSUInteger)maxTextLength {
+    return 18;
+}
+
 - (NSInteger)handleText:(inout NSString *__autoreleasing *)text cursorIndex:(NSInteger)cursorIndex {
     NSInteger returnIndex = cursorIndex;
     NSPredicate *predicate = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", @"^[0-9xX]*$"];

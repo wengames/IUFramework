@@ -28,6 +28,7 @@ static char TAG_TEXT_FIELD_MAX_TEXT_LENGTH;
 - (void)iu_setText:(NSString *)text {
     [self iu_setText:text];
     [self sendActionsForControlEvents:UIControlEventEditingChanged];
+    [[NSNotificationCenter defaultCenter] postNotificationName:UITextFieldTextDidChangeNotification object:self];
 }
 
 #pragma mark - Getter & Setter
@@ -67,7 +68,7 @@ static char TAG_TEXT_FIELD_MAX_TEXT_LENGTH;
 - (void)setMaxTextLength:(NSUInteger)maxTextLength {
     objc_setAssociatedObject(self, &TAG_TEXT_FIELD_MAX_TEXT_LENGTH, @(maxTextLength), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
     self.textInputRestrict.maxTextLength = maxTextLength;
-    [self sendActionsForControlEvents:UIControlEventEditingChanged];
+    [self.textInputRestrict _textDidChange:self];
 }
 
 - (NSUInteger)maxTextLength {

@@ -153,7 +153,7 @@ static char TAG_TEXT_VIEW_PLACEHOLDER_LABEL;
     [self resetProxy];
     objc_setAssociatedObject(self, &TAG_TEXT_VIEW_MAX_TEXT_LENGTH, @(maxTextLength), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
     self.textInputRestrict.maxTextLength = maxTextLength;
-    [[NSNotificationCenter defaultCenter] postNotificationName:UITextViewTextDidChangeNotification object:self];
+    [self.textInputRestrict _textDidChange:self];
 }
 
 - (NSUInteger)maxTextLength {
