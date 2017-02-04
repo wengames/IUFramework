@@ -34,6 +34,7 @@ typedef enum {
 @property (nonatomic, assign) float    duration;
 @property (nonatomic, strong) UIColor *dimmerColor;
 @property (nonatomic, strong) UIView  *dimmerView;
+@property (nonatomic, assign) UIViewAnimationCurve animationCurve; // default is UIViewAnimationCurveEaseOut
 
 + (instancetype)animatorWithTransitionOperation:(IUTransitionOperation)operation;
 + (instancetype)animatorWithTransitionOperation:(IUTransitionOperation)operation type:(IUTransitionType)type;

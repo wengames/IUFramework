@@ -35,6 +35,7 @@
 - (instancetype)init {
     if (self = [super init]) {
         self.duration = 0.35f;
+        self.animationCurve = UIViewAnimationCurveEaseOut;
     }
     return self;
 }
@@ -153,7 +154,7 @@
     
     [UIView animateWithDuration:[self transitionDuration:transitionContext]
                           delay:0.0
-                        options:UIViewAnimationOptionCurveEaseOut|UIViewAnimationOptionBeginFromCurrentState
+                        options:UIViewAnimationOptionBeginFromCurrentState | (self.animationCurve << 16)
                      animations:^{
                          
                          if (animations) animations();
@@ -165,6 +166,7 @@
                          fromViewController.view.userInteractionEnabled = YES;
                          toViewController.view.userInteractionEnabled = YES;
                          
+//                         [transitionContext finishInteractiveTransition];
                          [transitionContext completeTransition:!transitionContext.transitionWasCancelled];
                          
                          [self completeAnimationWithTransition:transitionContext finished:finished];

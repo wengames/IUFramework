@@ -27,7 +27,7 @@
 - (UIPercentDrivenInteractiveTransition *)interactiveTransition {
     if (_interactiveTransition == nil) {
         _interactiveTransition = [[UIPercentDrivenInteractiveTransition alloc] init];
-        _interactiveTransition.completionCurve = UIViewAnimationCurveLinear;
+        _interactiveTransition.completionCurve = UIViewAnimationCurveEaseOut;
     }
     return _interactiveTransition;
 }

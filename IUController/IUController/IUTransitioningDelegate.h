@@ -11,7 +11,7 @@
 
 @interface IUTransitioningDelegate : NSObject <UIViewControllerTransitioningDelegate,UINavigationControllerDelegate>
 
-@property (nonatomic, weak)   id<UINavigationControllerDelegate> delegate; // to get other method in Protocol UINavigationControllerDelegate to be invoked
+@property (nonatomic, weak)   id<UINavigationControllerDelegate> delegate; // set to get other method in Protocol UINavigationControllerDelegate invoked if needed
 
 @property (nonatomic, assign) IUTransitionType type;
 @property (nonatomic, strong) void(^config)(IUTransitionAnimator *animator);
