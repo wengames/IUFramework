@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "IndexViewController.h"
 
 @interface AppDelegate ()
 
@@ -15,7 +16,9 @@
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
+    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]].setBackgroundColor([UIColor colorWithWhite:0.7 alpha:1]).setRootViewController([[UINavigationController alloc] initWithRootViewController:[[IndexViewController alloc] init]]);
+    [(UINavigationController *)self.window.rootViewController fullScreenInteractivePopGestureRecognizer].enabled = YES;
+    [self.window makeKeyAndVisible];
     return YES;
 }
 

@@ -88,7 +88,6 @@ static char TAG_OBJECT_PREVIEW_CONTROLLER_CREATOR;
     // 直系导航控制器
     if ([self.parentViewController isKindOfClass:[UINavigationController class]]) {
         [self.navigationController setNavigationBarHidden:self.navigationBarHidden animated:animated];
-        self.navigationController.interactivePopGestureRecognizer.enabled = !self.navigationInteractivePopGestureRecognizerDisabled;
     }
     
     [self addObserverForKeyboard];
@@ -275,9 +274,9 @@ static char TAG_OBJECT_PREVIEW_CONTROLLER_CREATOR;
         _peekTitleLabel.textAlignment = NSTextAlignmentCenter;
         
         UINavigationBar *navigationBar = [UINavigationBar appearance];
-        _peekTitleLabel.backgroundColor = navigationBar.barTintColor ?: [UIColor blackColor];
-        _peekTitleLabel.textColor = navigationBar.titleTextAttributes[NSForegroundColorAttributeName] ?: [UIColor whiteColor];
-        _peekTitleLabel.font = navigationBar.titleTextAttributes[NSFontAttributeName] ?: [UIFont systemFontOfSize:20];
+        _peekTitleLabel.backgroundColor = navigationBar.barTintColor ?: [UIColor colorWithWhite:198/255.f alpha:1];
+        _peekTitleLabel.textColor = navigationBar.titleTextAttributes[NSForegroundColorAttributeName] ?: [UIColor blackColor];
+        _peekTitleLabel.font = navigationBar.titleTextAttributes[NSFontAttributeName] ?: [UIFont boldSystemFontOfSize:18];
         [self.view addSubview:_peekTitleLabel];
     }
     return _peekTitleLabel;
@@ -292,7 +291,7 @@ static char TAG_OBJECT_PREVIEW_CONTROLLER_CREATOR;
 
 #pragma mark - Override
 - (BOOL)shouldAutorotate {
-    return NO;
+    return YES;
 }
 
 - (UIInterfaceOrientationMask)supportedInterfaceOrientations {

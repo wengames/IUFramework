@@ -20,7 +20,7 @@ static char TAG_TABLE_VIEW_DATA_BINDER;
 - (void)setDatas:(NSArray *)datas animated:(BOOL)animated;
 
 @property (nonatomic, weak) id<UITableViewDataSource> dataSource;
-@property (nonatomic, weak) id<UITableViewDelegate>   delegate;
+@property (nonatomic, weak) id<IUTableViewPreviewing> delegate;
 
 @property (nonatomic, strong) NSMutableDictionary <NSString *, UITableViewCell *> *templateCellsByIdentifiers;
 
@@ -75,6 +75,14 @@ static char TAG_TABLE_VIEW_DATA_BINDER;
 
 - (void)setDatas:(NSArray *)datas animated:(BOOL)animated {
     [self.dataBinder setDatas:datas animated:animated];
+}
+
+- (UIViewController *)viewController {
+    UIResponder *responder = self;
+    while (responder != nil && ![responder isKindOfClass:[UIViewController class]]) {
+        responder = [responder nextResponder];
+    }
+    return responder;
 }
 
 @end
@@ -167,11 +175,42 @@ static char TAG_TABLE_VIEW_DATA_BINDER;
     if (cell == nil) {
         cell = [cellClass alloc];
         cell = [cell initWithStyle:UITableViewCellStyleDefault reuseIdentifier:NSStringFromClass(cellClass)];
+        
+        UIViewController *viewController = self.tableView.viewController;
+        if ([viewController respondsToSelector:@selector(traitCollection)] &&
+            [viewController.traitCollection respondsToSelector:@selector(forceTouchCapability)] &&
+            viewController.traitCollection.forceTouchCapability != UIForceTouchCapabilityUnavailable) {
+            [viewController registerForPreviewingWithDelegate:self sourceView:cell];
+        }
     }
     
     if ([cell respondsToSelector:@selector(setModel:)]) cell.model = data;
     
     return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    if ([self.delegate respondsToSelector:_cmd]) {
+        [self.delegate tableView:tableView didSelectRowAtIndexPath:indexPath];
+    } else {
+        [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    }
+}
+
+#pragma mark UIViewControllerPreviewingDelegate
+- (nullable UIViewController *)previewingContext:(id <UIViewControllerPreviewing>)previewingContext viewControllerForLocation:(CGPoint)location {
+    if ([self.delegate respondsToSelector:@selector(tableView:viewControllerToPreviewAtIndexPath:)]) {
+        UIViewController *viewController = [self.delegate tableView:self.tableView viewControllerToPreviewAtIndexPath:[self.tableView indexPathForCell:previewingContext.sourceView]];
+        if ([viewController respondsToSelector:@selector(setIsPeek)]) {
+            [viewController setValue:@YES forKey:@"isPeek"];
+        }
+        return viewController;
+    }
+    return nil;
+}
+
+- (void)previewingContext:(id <UIViewControllerPreviewing>)previewingContext commitViewController:(UIViewController *)viewControllerToCommit {
+    [self.tableView.viewController.navigationController pushViewController:viewControllerToCommit animated:NO];
 }
 
 #pragma mark Private Method

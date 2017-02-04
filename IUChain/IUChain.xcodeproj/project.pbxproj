@@ -43,6 +43,18 @@
 		841F532A1E34792800223BB5 /* UITableView+IUChain.m in Sources */ = {isa = PBXBuildFile; fileRef = 841F53281E34792800223BB5 /* UITableView+IUChain.m */; };
 		841F532D1E347A8D00223BB5 /* UICollectionView+IUChain.h in Headers */ = {isa = PBXBuildFile; fileRef = 841F532B1E347A8D00223BB5 /* UICollectionView+IUChain.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		841F532E1E347A8D00223BB5 /* UICollectionView+IUChain.m in Sources */ = {isa = PBXBuildFile; fileRef = 841F532C1E347A8D00223BB5 /* UICollectionView+IUChain.m */; };
+		8481EDE11E459B32003EC17D /* UISlider+IUChain.h in Headers */ = {isa = PBXBuildFile; fileRef = 8481EDDF1E459B32003EC17D /* UISlider+IUChain.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		8481EDE21E459B32003EC17D /* UISlider+IUChain.m in Sources */ = {isa = PBXBuildFile; fileRef = 8481EDE01E459B32003EC17D /* UISlider+IUChain.m */; };
+		8481EDE51E459B41003EC17D /* UISwitch+IUChain.h in Headers */ = {isa = PBXBuildFile; fileRef = 8481EDE31E459B41003EC17D /* UISwitch+IUChain.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		8481EDE61E459B41003EC17D /* UISwitch+IUChain.m in Sources */ = {isa = PBXBuildFile; fileRef = 8481EDE41E459B41003EC17D /* UISwitch+IUChain.m */; };
+		8481EDEB1E459D26003EC17D /* UISegmentedControl+IUChain.h in Headers */ = {isa = PBXBuildFile; fileRef = 8481EDE91E459D26003EC17D /* UISegmentedControl+IUChain.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		8481EDEC1E459D26003EC17D /* UISegmentedControl+IUChain.m in Sources */ = {isa = PBXBuildFile; fileRef = 8481EDEA1E459D26003EC17D /* UISegmentedControl+IUChain.m */; };
+		8481EDEF1E459D30003EC17D /* UIPageControl+IUChain.h in Headers */ = {isa = PBXBuildFile; fileRef = 8481EDED1E459D30003EC17D /* UIPageControl+IUChain.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		8481EDF01E459D30003EC17D /* UIPageControl+IUChain.m in Sources */ = {isa = PBXBuildFile; fileRef = 8481EDEE1E459D30003EC17D /* UIPageControl+IUChain.m */; };
+		84D2EA4A1E45B6AD00B2A2CD /* UIGestureRecognizer+IUChain.h in Headers */ = {isa = PBXBuildFile; fileRef = 84D2EA481E45B6AD00B2A2CD /* UIGestureRecognizer+IUChain.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		84D2EA4B1E45B6AD00B2A2CD /* UIGestureRecognizer+IUChain.m in Sources */ = {isa = PBXBuildFile; fileRef = 84D2EA491E45B6AD00B2A2CD /* UIGestureRecognizer+IUChain.m */; };
+		84D2EA5F1E45F29200B2A2CD /* UIWindow+IUChain.h in Headers */ = {isa = PBXBuildFile; fileRef = 84D2EA5D1E45F29200B2A2CD /* UIWindow+IUChain.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		84D2EA601E45F29200B2A2CD /* UIWindow+IUChain.m in Sources */ = {isa = PBXBuildFile; fileRef = 84D2EA5E1E45F29200B2A2CD /* UIWindow+IUChain.m */; };
 		84DFC58C1E347C5C000A588C /* UITextView+IUChain.h in Headers */ = {isa = PBXBuildFile; fileRef = 84DFC58A1E347C5C000A588C /* UITextView+IUChain.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		84DFC58D1E347C5C000A588C /* UITextView+IUChain.m in Sources */ = {isa = PBXBuildFile; fileRef = 84DFC58B1E347C5C000A588C /* UITextView+IUChain.m */; };
 		84DFC5CD1E349BEE000A588C /* UISearchBar+IUChain.h in Headers */ = {isa = PBXBuildFile; fileRef = 84DFC5CB1E349BEE000A588C /* UISearchBar+IUChain.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -87,6 +99,18 @@
 		841F53281E34792800223BB5 /* UITableView+IUChain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableView+IUChain.m"; sourceTree = "<group>"; };
 		841F532B1E347A8D00223BB5 /* UICollectionView+IUChain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UICollectionView+IUChain.h"; sourceTree = "<group>"; };
 		841F532C1E347A8D00223BB5 /* UICollectionView+IUChain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UICollectionView+IUChain.m"; sourceTree = "<group>"; };
+		8481EDDF1E459B32003EC17D /* UISlider+IUChain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UISlider+IUChain.h"; sourceTree = "<group>"; };
+		8481EDE01E459B32003EC17D /* UISlider+IUChain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UISlider+IUChain.m"; sourceTree = "<group>"; };
+		8481EDE31E459B41003EC17D /* UISwitch+IUChain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UISwitch+IUChain.h"; sourceTree = "<group>"; };
+		8481EDE41E459B41003EC17D /* UISwitch+IUChain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UISwitch+IUChain.m"; sourceTree = "<group>"; };
+		8481EDE91E459D26003EC17D /* UISegmentedControl+IUChain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UISegmentedControl+IUChain.h"; sourceTree = "<group>"; };
+		8481EDEA1E459D26003EC17D /* UISegmentedControl+IUChain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UISegmentedControl+IUChain.m"; sourceTree = "<group>"; };
+		8481EDED1E459D30003EC17D /* UIPageControl+IUChain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIPageControl+IUChain.h"; sourceTree = "<group>"; };
+		8481EDEE1E459D30003EC17D /* UIPageControl+IUChain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIPageControl+IUChain.m"; sourceTree = "<group>"; };
+		84D2EA481E45B6AD00B2A2CD /* UIGestureRecognizer+IUChain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIGestureRecognizer+IUChain.h"; sourceTree = "<group>"; };
+		84D2EA491E45B6AD00B2A2CD /* UIGestureRecognizer+IUChain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIGestureRecognizer+IUChain.m"; sourceTree = "<group>"; };
+		84D2EA5D1E45F29200B2A2CD /* UIWindow+IUChain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIWindow+IUChain.h"; sourceTree = "<group>"; };
+		84D2EA5E1E45F29200B2A2CD /* UIWindow+IUChain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIWindow+IUChain.m"; sourceTree = "<group>"; };
 		84DFC58A1E347C5C000A588C /* UITextView+IUChain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITextView+IUChain.h"; sourceTree = "<group>"; };
 		84DFC58B1E347C5C000A588C /* UITextView+IUChain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITextView+IUChain.m"; sourceTree = "<group>"; };
 		84DFC5CB1E349BEE000A588C /* UISearchBar+IUChain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UISearchBar+IUChain.h"; sourceTree = "<group>"; };
@@ -140,6 +164,7 @@
 			children = (
 				841F52FD1E34786900223BB5 /* NSObject+IUChain.h */,
 				841F52FE1E34786900223BB5 /* NSObject+IUChain.m */,
+				84D2EA471E45B69900B2A2CD /* UIGestureRecognizer */,
 				841F52FF1E34786900223BB5 /* UIView */,
 			);
 			path = Methods;
@@ -155,6 +180,7 @@
 				841F530F1E34786900223BB5 /* UIScrollView */,
 				841F53131E34786900223BB5 /* UIView+IUChain.h */,
 				841F53141E34786900223BB5 /* UIView+IUChain.m */,
+				84D2EA5C1E45F27F00B2A2CD /* UIWindow */,
 			);
 			path = UIView;
 			sourceTree = "<group>";
@@ -165,6 +191,10 @@
 				841F53011E34786900223BB5 /* UIButton */,
 				841F53041E34786900223BB5 /* UIControl+IUChain.h */,
 				841F53051E34786900223BB5 /* UIControl+IUChain.m */,
+				8481EDE81E459D17003EC17D /* UIPageControl */,
+				8481EDE71E459D11003EC17D /* UISegmentedControl */,
+				8481EDDE1E459B20003EC17D /* UISlider */,
+				8481EDDD1E459B20003EC17D /* UISwitch */,
 				841F53061E34786900223BB5 /* UITextField */,
 			);
 			path = UIControl;
@@ -245,6 +275,60 @@
 			path = UITextView;
 			sourceTree = "<group>";
 		};
+		8481EDDD1E459B20003EC17D /* UISwitch */ = {
+			isa = PBXGroup;
+			children = (
+				8481EDE31E459B41003EC17D /* UISwitch+IUChain.h */,
+				8481EDE41E459B41003EC17D /* UISwitch+IUChain.m */,
+			);
+			path = UISwitch;
+			sourceTree = "<group>";
+		};
+		8481EDDE1E459B20003EC17D /* UISlider */ = {
+			isa = PBXGroup;
+			children = (
+				8481EDDF1E459B32003EC17D /* UISlider+IUChain.h */,
+				8481EDE01E459B32003EC17D /* UISlider+IUChain.m */,
+			);
+			path = UISlider;
+			sourceTree = "<group>";
+		};
+		8481EDE71E459D11003EC17D /* UISegmentedControl */ = {
+			isa = PBXGroup;
+			children = (
+				8481EDE91E459D26003EC17D /* UISegmentedControl+IUChain.h */,
+				8481EDEA1E459D26003EC17D /* UISegmentedControl+IUChain.m */,
+			);
+			path = UISegmentedControl;
+			sourceTree = "<group>";
+		};
+		8481EDE81E459D17003EC17D /* UIPageControl */ = {
+			isa = PBXGroup;
+			children = (
+				8481EDED1E459D30003EC17D /* UIPageControl+IUChain.h */,
+				8481EDEE1E459D30003EC17D /* UIPageControl+IUChain.m */,
+			);
+			path = UIPageControl;
+			sourceTree = "<group>";
+		};
+		84D2EA471E45B69900B2A2CD /* UIGestureRecognizer */ = {
+			isa = PBXGroup;
+			children = (
+				84D2EA481E45B6AD00B2A2CD /* UIGestureRecognizer+IUChain.h */,
+				84D2EA491E45B6AD00B2A2CD /* UIGestureRecognizer+IUChain.m */,
+			);
+			path = UIGestureRecognizer;
+			sourceTree = "<group>";
+		};
+		84D2EA5C1E45F27F00B2A2CD /* UIWindow */ = {
+			isa = PBXGroup;
+			children = (
+				84D2EA5D1E45F29200B2A2CD /* UIWindow+IUChain.h */,
+				84D2EA5E1E45F29200B2A2CD /* UIWindow+IUChain.m */,
+			);
+			path = UIWindow;
+			sourceTree = "<group>";
+		};
 		84DFC5CA1E349BD5000A588C /* UISearchBar */ = {
 			isa = PBXGroup;
 			children = (
@@ -285,9 +369,15 @@
 				84DFC5CD1E349BEE000A588C /* UISearchBar+IUChain.h in Headers */,
 				84DFC5DD1E34A95B000A588C /* IUChainProtocolMethod_UITextInputTraits.h in Headers */,
 				841F531F1E34786900223BB5 /* UILabel+IUChain.h in Headers */,
+				8481EDEB1E459D26003EC17D /* UISegmentedControl+IUChain.h in Headers */,
 				84DFC5E11E34AA9C000A588C /* IUChainProtocolMethod_UITextInput.h in Headers */,
+				8481EDEF1E459D30003EC17D /* UIPageControl+IUChain.h in Headers */,
+				8481EDE51E459B41003EC17D /* UISwitch+IUChain.h in Headers */,
+				8481EDE11E459B32003EC17D /* UISlider+IUChain.h in Headers */,
 				84DFC5E21E34AA9C000A588C /* IUChainProtocolMethod_UIKeyInput.h in Headers */,
 				84DFC5E31E34AA9D000A588C /* IUChainProtocolMethod_UIContentSizeCategoryAdjusting.h in Headers */,
+				84D2EA5F1E45F29200B2A2CD /* UIWindow+IUChain.h in Headers */,
+				84D2EA4A1E45B6AD00B2A2CD /* UIGestureRecognizer+IUChain.h in Headers */,
 				841F531B1E34786900223BB5 /* UITextField+IUChain.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -383,6 +473,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8481EDE21E459B32003EC17D /* UISlider+IUChain.m in Sources */,
 				841F53201E34786900223BB5 /* UILabel+IUChain.m in Sources */,
 				84DFC5CE1E349BEE000A588C /* UISearchBar+IUChain.m in Sources */,
 				841F53161E34786900223BB5 /* NSObject+IUChain.m in Sources */,
@@ -390,11 +481,16 @@
 				841F532A1E34792800223BB5 /* UITableView+IUChain.m in Sources */,
 				841F532E1E347A8D00223BB5 /* UICollectionView+IUChain.m in Sources */,
 				841F53221E34786900223BB5 /* UIView+IUChain.m in Sources */,
+				8481EDEC1E459D26003EC17D /* UISegmentedControl+IUChain.m in Sources */,
+				84D2EA601E45F29200B2A2CD /* UIWindow+IUChain.m in Sources */,
 				841F53181E34786900223BB5 /* UIButton+IUChain.m in Sources */,
+				8481EDF01E459D30003EC17D /* UIPageControl+IUChain.m in Sources */,
 				841F53261E3478AF00223BB5 /* UIScrollView+IUChain.m in Sources */,
 				841F531C1E34786900223BB5 /* UITextField+IUChain.m in Sources */,
 				841F531E1E34786900223BB5 /* UIImageView+IUChain.m in Sources */,
 				84DFC58D1E347C5C000A588C /* UITextView+IUChain.m in Sources */,
+				8481EDE61E459B41003EC17D /* UISwitch+IUChain.m in Sources */,
+				84D2EA4B1E45B6AD00B2A2CD /* UIGestureRecognizer+IUChain.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -1,5 +1,5 @@
 //
-//  TestTableViewCell.h
+//  IndexTableViewCell.h
 //  TestIntegrationUtil
 //
 //  Created by admin on 2017/2/4.
@@ -7,10 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "TestModel.h"
+#import "IndexModel.h"
 
-@interface TestTableViewCell : UITableViewCell
+@interface IndexTableViewCell : UITableViewCell
 
-@property (nonatomic, strong) TestModel *model;
+@property (nonatomic, strong) IndexModel *model;
 
 @end

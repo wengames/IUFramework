@@ -18,8 +18,11 @@
 
 @end
 
+@protocol IUTableViewPreviewing;
+
 @interface UITableView (IUDataBinder)
 
+@property (nonatomic, weak) id<IUTableViewPreviewing> delegate;
 @property (nonatomic, strong) NSArray <id<IUTableViewCellClassDeclaration>> *datas; // datas in sections, call method below with animated YES
 
 - (void)setDatas:(NSArray *)datas animated:(BOOL)animated;
@@ -29,6 +32,13 @@
 @protocol IUTableViewCellModelSettable <NSObject>
 
 @optional
-@property (nonatomic, strong) id model;
+- (void)setModel:(id)model;
+
+@end
+
+@protocol IUTableViewPreviewing <UITableViewDelegate>
+
+@optional
+- (UIViewController *)tableView:(UITableView *)tableView viewControllerToPreviewAtIndexPath:(NSIndexPath *)indexPath;
 
 @end

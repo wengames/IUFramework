@@ -11,7 +11,6 @@
 @interface IUViewController : UIViewController
 
 @property (nonatomic, assign)           BOOL             navigationBarHidden;   // default is NO;
-@property (nonatomic, assign)           BOOL             navigationInteractivePopGestureRecognizerDisabled;   // default is NO;
 
 @property (nonatomic, strong, readonly) UIScrollView     *scrollView;           // a scroll view fits view size, lazy loading
 

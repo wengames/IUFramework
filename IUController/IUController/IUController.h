@@ -10,9 +10,13 @@
 
 #ifdef __OBJC__
 
-#import "UINavigationController+IUAutoHidesBottomBarWhenPushed.h"
 #import "UIViewController+IUStatusBarHidden.h"
+#import "UINavigationController+IUAutoHidesBottomBarWhenPushed.h"
+#import "UINavigationController+IUFullScreenInteractivePopGestureRecognizer.h"
 
 #import "IUViewController.h"
+
+#import "IUTransitionAnimator.h"
+#import "IUTransitioningDelegate.h"
 
 #endif

@@ -16,6 +16,4 @@
 
 @property (nonatomic, assign) BOOL ignoreAutoHidesBottomBarWhenPushed; // default is NO
 
-- (void)popBack;
-
 @end

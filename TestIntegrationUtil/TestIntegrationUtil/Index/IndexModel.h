@@ -1,5 +1,5 @@
 //
-//  TestModel.h
+//  IndexModel.h
 //  TestIntegrationUtil
 //
 //  Created by admin on 2017/2/4.
@@ -8,10 +8,10 @@
 
 #import <Foundation/Foundation.h>
 
-@interface TestModel : NSObject
+@interface IndexModel : NSObject
 
-@property (nonatomic, strong) NSString *number;
+@property (nonatomic, strong) NSString *title;
 
-+ (instancetype)modelWithNumber:(NSString *)number;
++ (instancetype)modelWithTitle:(NSString *)title;
 
 @end

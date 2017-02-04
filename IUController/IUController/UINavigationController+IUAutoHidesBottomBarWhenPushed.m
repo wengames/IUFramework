@@ -38,10 +38,6 @@ static char TAG_VIEW_CONTROLLER_IGNORE_AUTO_HIDES_BOTTOM_BAR_WHEN_PUSHED;
     return [objc_getAssociatedObject(self, &TAG_VIEW_CONTROLLER_IGNORE_AUTO_HIDES_BOTTOM_BAR_WHEN_PUSHED) boolValue];
 }
 
-- (void)popBack {
-    [self.navigationController popViewControllerAnimated:YES];
-}
-
 - (void)_setHidesBottomBarWhenPushedIfNotIgnored:(BOOL)hidesBottomBarWhenPushed {
     if (!self.ignoreAutoHidesBottomBarWhenPushed) self.hidesBottomBarWhenPushed = hidesBottomBarWhenPushed;
 }
