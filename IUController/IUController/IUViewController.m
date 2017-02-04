@@ -58,10 +58,10 @@ static char TAG_OBJECT_PREVIEW_CONTROLLER_CREATOR;
 @implementation IUViewController
 
 @synthesize scrollView                       = _scrollView,
-tableView                        = _tableView,
-collectionViewLayout             = _collectionViewLayout,
-collectionView                   = _collectionView,
-hideKeyboardTapGestureRecognizer = _hideKeyboardTapGestureRecognizer;
+            tableView                        = _tableView,
+            collectionViewLayout             = _collectionViewLayout,
+            collectionView                   = _collectionView,
+            hideKeyboardTapGestureRecognizer = _hideKeyboardTapGestureRecognizer;
 
 - (instancetype)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
     if (self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil]) {
@@ -126,6 +126,8 @@ hideKeyboardTapGestureRecognizer = _hideKeyboardTapGestureRecognizer;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    self.view.backgroundColor = [UIColor whiteColor];
     
     self.edgesForExtendedLayout = UIRectEdgeNone;
     self.automaticallyAdjustsScrollViewInsets = NO;
@@ -299,28 +301,6 @@ hideKeyboardTapGestureRecognizer = _hideKeyboardTapGestureRecognizer;
 
 - (UIInterfaceOrientation)preferredInterfaceOrientationForPresentation {
     return UIInterfaceOrientationPortrait;
-}
-
-- (UIStatusBarStyle)preferredStatusBarStyle {
-    return UIStatusBarStyleLightContent;
-}
-
-#pragma mark - UITableViewDelegate
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 0;
-}
-
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return nil;
-}
-
-#pragma mark - UICollectionViewDelegate
-- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return 0;
-}
-
-- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
-    return nil;
 }
 
 #pragma mark - UIViewControllerPreviewingDelegate

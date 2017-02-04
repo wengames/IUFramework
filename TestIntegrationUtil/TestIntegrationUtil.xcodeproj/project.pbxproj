@@ -15,6 +15,8 @@
 		841F52761E30931600223BB5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 841F52741E30931600223BB5 /* LaunchScreen.storyboard */; };
 		841F52BD1E309BDD00223BB5 /* IUChain.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 841F52931E30963B00223BB5 /* IUChain.framework */; };
 		841F52BE1E309BDD00223BB5 /* IUChain.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 841F52931E30963B00223BB5 /* IUChain.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		8481EDD91E456B9B003EC17D /* TestModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8481EDD81E456B9B003EC17D /* TestModel.m */; };
+		8481EDDC1E456BA8003EC17D /* TestTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8481EDDB1E456BA8003EC17D /* TestTableViewCell.m */; };
 		84DFC5BC1E3493A4000A588C /* IUTextInput.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84DFC5BB1E3493A4000A588C /* IUTextInput.framework */; };
 		84DFC5BD1E3493A4000A588C /* IUTextInput.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 84DFC5BB1E3493A4000A588C /* IUTextInput.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		84DFC6561E34D396000A588C /* IUUtil.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84DFC6551E34D396000A588C /* IUUtil.framework */; };
@@ -56,6 +58,10 @@
 		841F52751E30931600223BB5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		841F52771E30931600223BB5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		841F52931E30963B00223BB5 /* IUChain.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IUChain.framework; path = "../../../../Library/Developer/Xcode/DerivedData/IUFramework-egbnowvfnsxwcufwgjnrhpvcgmot/Build/Products/Debug-iphoneos/IUChain.framework"; sourceTree = "<group>"; };
+		8481EDD71E456B9B003EC17D /* TestModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestModel.h; sourceTree = "<group>"; };
+		8481EDD81E456B9B003EC17D /* TestModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestModel.m; sourceTree = "<group>"; };
+		8481EDDA1E456BA8003EC17D /* TestTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestTableViewCell.h; sourceTree = "<group>"; };
+		8481EDDB1E456BA8003EC17D /* TestTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestTableViewCell.m; sourceTree = "<group>"; };
 		84DFC5BB1E3493A4000A588C /* IUTextInput.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = IUTextInput.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		84DFC6551E34D396000A588C /* IUUtil.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = IUUtil.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		84DFC6581E34D396000A588C /* IUController.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = IUController.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -107,6 +113,10 @@
 				841F526D1E30931600223BB5 /* ViewController.m */,
 				84DFC6621E37229D000A588C /* PortraitViewController.h */,
 				84DFC6631E37229D000A588C /* PortraitViewController.m */,
+				8481EDD71E456B9B003EC17D /* TestModel.h */,
+				8481EDD81E456B9B003EC17D /* TestModel.m */,
+				8481EDDA1E456BA8003EC17D /* TestTableViewCell.h */,
+				8481EDDB1E456BA8003EC17D /* TestTableViewCell.m */,
 				841F526F1E30931600223BB5 /* Main.storyboard */,
 				841F52721E30931600223BB5 /* Assets.xcassets */,
 				841F52741E30931600223BB5 /* LaunchScreen.storyboard */,
@@ -211,6 +221,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				841F526E1E30931600223BB5 /* ViewController.m in Sources */,
+				8481EDDC1E456BA8003EC17D /* TestTableViewCell.m in Sources */,
+				8481EDD91E456B9B003EC17D /* TestModel.m in Sources */,
 				841F526B1E30931600223BB5 /* AppDelegate.m in Sources */,
 				841F52681E30931600223BB5 /* main.m in Sources */,
 				84DFC6641E37229D000A588C /* PortraitViewController.m in Sources */,

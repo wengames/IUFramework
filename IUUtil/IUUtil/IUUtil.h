@@ -8,12 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-//! Project version number for IUUtil.
-FOUNDATION_EXPORT double IUUtilVersionNumber;
+#ifdef __OBJC__
 
-//! Project version string for IUUtil.
-FOUNDATION_EXPORT const unsigned char IUUtilVersionString[];
+#import "UITableView+IUDataBinder.h"
 
-// In this header, you should import all the public headers of your framework using statements like #import <IUUtil/PublicHeader.h>
-
-
+#endif
