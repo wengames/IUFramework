@@ -7,6 +7,7 @@
 //
 
 #import "UITableView+IUDataBinder.h"
+#import "UIView+IUEmpty.h"
 #import "objc/runtime.h"
 
 static char TAG_TABLE_VIEW_DATA_BINDER;
@@ -108,8 +109,10 @@ static char TAG_TABLE_VIEW_DATA_BINDER;
 
 - (void)setDatas:(NSArray *)datas animated:(BOOL)animated {
     if (!animated) {
+        
         _datas = datas;
         [self.tableView reloadData];
+        
     } else {
         NSUInteger oldLength = [self.tableView numberOfSections];
         NSUInteger newLength = [datas count];
@@ -137,7 +140,10 @@ static char TAG_TABLE_VIEW_DATA_BINDER;
             [self.tableView endUpdates];
             
         }
+        
     }
+    
+    [self.tableView setEmpty:[_datas count] == 0 animated:animated];
 }
 
 #pragma mark UITableViewDelegate

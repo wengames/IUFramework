@@ -23,18 +23,31 @@
 - (instancetype)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
     if (self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil]) {
         self.navigationItem.title = @"Index";
-        
     }
     return self;
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    __weak typeof(self) weakSelf = self;
+    self.tableView.emptyViewGenerate = ^{
+        UIView *view = [[UIView alloc] init].setBackgroundColor([UIColor cyanColor]);
+        [view addSubview:[[UILabel alloc] init].setText(@"This is an empty view\n\nTap to reset data").setTextAlignment(NSTextAlignmentCenter).setNumberOfLines(0).setAutoresizingMask(UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight)];
+        [view addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:weakSelf action:@selector(resetData)]];
+        return view;
+    };
+    
+    [self resetData];
+}
+
+- (void)resetData {
     self.tableView.datas = @[
-                             [IndexModel modelWithTitle:@"Push"],
+                             [IndexModel modelWithTitle:@"Push(Landscape)"],
                              [IndexModel modelWithTitle:@"Push(None Navi, status bar auto change)"],
                              [IndexModel modelWithTitle:@"Present(Custom)"],
-                             ];    
+                             [IndexModel modelWithTitle:@"Empty Table View"]
+                             ];
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -55,6 +68,9 @@
             [self presentViewController:viewController animated:YES completion:nil];
         }
             break;
+        case 3:
+            tableView.datas = nil;
+            break;
             
         default:
             break;
@@ -74,17 +90,5 @@
 - (UIInterfaceOrientationMask)supportedInterfaceOrientations {
     return UIInterfaceOrientationMaskPortrait;
 }
-
-- (UIInterfaceOrientation)preferredInterfaceOrientationForPresentation {
-    return UIInterfaceOrientationPortrait;
-}
-
-//- (UIInterfaceOrientationMask)supportedInterfaceOrientations {
-//    return UIInterfaceOrientationMaskLandscape;
-//}
-//
-//- (UIInterfaceOrientation)preferredInterfaceOrientationForPresentation {
-//    return UIInterfaceOrientationLandscapeLeft;
-//}
 
 @end

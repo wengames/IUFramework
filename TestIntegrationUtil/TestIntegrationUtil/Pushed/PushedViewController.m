@@ -21,30 +21,30 @@
     return self;
 }
 
-- (void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
-    
-    //    UIDeviceOrientation orientation = [UIDevice currentDevice].orientation;
-//    [self.navigationController performSelector:@selector(setInterfaceOrientation:) withObject:@(UIInterfaceOrientationMaskLandscapeLeft)];
-//    [[UIDevice currentDevice] performSelector:@selector(setOrientation:) withObject:@([UIDevice currentDevice].orientation)];
-    //    [[UIDevice currentDevice] performSelector:@selector(setOrientation:) withObject:@(orientation)afterDelay:0];
-    
-//    UIWindow
-}
-
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-//    [self.navigationController setViewControllers:self.navigationController.viewControllers animated:YES];
-//    [self.navigationController pushViewController:[[TTTViewController alloc] init] animated:NO];
+    UIButton *button = [UIButton buttonWithType:UIButtonTypeSystem].setFrame(CGRectMake(50, 150, 200, 200));
+    button.backgroundColor = [UIColor greenColor];
+    button.tag = 1;
+    [button setTitle:@"button1" forState:UIControlStateNormal];
+    [button addTarget:self action:@selector(tapButton:) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:button];
     
-    [self.view addSubview:[[UILabel alloc] initWithFrame:CGRectMake(100, 100, 100, 100)].setText(@"Pushed")];
+    [self.view addSubview:[[UIView alloc] initWithFrame:CGRectMake(100, 100, 200, 300)].setBackgroundColor([UIColor colorWithWhite:0 alpha:0.3]).setUserInteractionEnabled(NO)];
+    
+    button = [UIButton buttonWithType:UIButtonTypeSystem].setFrame(CGRectMake(100, 200, 100, 100));
+    button.expandInsets = UIEdgeInsetsMake(100, 0, 100, 100);
+    button.backgroundColor = [UIColor cyanColor];
+    button.tag = 2;
+    [button setTitle:@"button2" forState:UIControlStateNormal];
+    [button addTarget:self action:@selector(tapButton:) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:button];
 }
 
-//- (UIInterfaceOrientationMask)supportedInterfaceOrientations {
-//    return UIInterfaceOrientationMaskPortrait;
-//}
-
+- (void)tapButton:(UIButton *)button {
+    NSLog(@"button%ld tapped", button.tag);
+}
 
 - (UIInterfaceOrientationMask)supportedInterfaceOrientations {
     return UIInterfaceOrientationMaskAll;

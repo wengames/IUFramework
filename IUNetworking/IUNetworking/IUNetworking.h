@@ -8,12 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-//! Project version number for IUNetworking.
-FOUNDATION_EXPORT double IUNetworkingVersionNumber;
+#ifdef __OBJC__
 
-//! Project version string for IUNetworking.
-FOUNDATION_EXPORT const unsigned char IUNetworkingVersionString[];
+#import "NSNull+IURedirect.h"
 
-// In this header, you should import all the public headers of your framework using statements like #import <IUNetworking/PublicHeader.h>
+#endif
 
 
