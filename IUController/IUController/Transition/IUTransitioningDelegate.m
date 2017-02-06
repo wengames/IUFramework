@@ -32,8 +32,12 @@
     return _interactiveTransition;
 }
 
-- (void)setInteractiveTransitionBegan {
+- (void)beginInteractiveTransition {
     self.interactiveTransitionEnabled = YES;
+}
+
+- (void)endInteractiveTransition {
+    self.interactiveTransitionEnabled = NO;
 }
 
 #pragma mark - UIViewControllerTransitioningDelegate

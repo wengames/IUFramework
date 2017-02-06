@@ -23,22 +23,18 @@
 - (instancetype)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
     if (self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil]) {
         self.navigationItem.title = @"Index";
+        
     }
     return self;
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-
     self.tableView.datas = @[
                              [IndexModel modelWithTitle:@"Push"],
                              [IndexModel modelWithTitle:@"Push(None Navi, status bar auto change)"],
                              [IndexModel modelWithTitle:@"Present(Custom)"],
-                             ];
-}
-
-- (UIInterfaceOrientationMask)supportedInterfaceOrientations {
-    return UIInterfaceOrientationMaskAll;
+                             ];    
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -47,7 +43,9 @@
     switch (indexPath.section) {
         case 0:
         case 1:
+        {
             [self.navigationController pushViewController:[self tableView:tableView viewControllerToPreviewAtIndexPath:indexPath] animated:YES];
+        }
             break;
         case 2:
         {
@@ -72,5 +70,21 @@
     }
     return nil;
 }
+
+- (UIInterfaceOrientationMask)supportedInterfaceOrientations {
+    return UIInterfaceOrientationMaskPortrait;
+}
+
+- (UIInterfaceOrientation)preferredInterfaceOrientationForPresentation {
+    return UIInterfaceOrientationPortrait;
+}
+
+//- (UIInterfaceOrientationMask)supportedInterfaceOrientations {
+//    return UIInterfaceOrientationMaskLandscape;
+//}
+//
+//- (UIInterfaceOrientation)preferredInterfaceOrientationForPresentation {
+//    return UIInterfaceOrientationLandscapeLeft;
+//}
 
 @end

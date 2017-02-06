@@ -17,7 +17,8 @@
 @property (nonatomic, strong) void(^config)(IUTransitionAnimator *animator);
 
 @property (nonatomic, strong, readonly) UIPercentDrivenInteractiveTransition *interactiveTransition;
-- (void)setInteractiveTransitionBegan; // call this mothod before transition began
+- (void)beginInteractiveTransition; // call before transition began
+- (void)endInteractiveTransition; // call after transition end
 
 + (instancetype)transitioningDelegateWithType:(IUTransitionType)type;
 

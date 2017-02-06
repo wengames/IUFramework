@@ -16,6 +16,10 @@
 
 @interface UIViewController (IUPopBack)
 
-- (void)popBack; // override point, will also be called if it is pop by the fullScreenInteractivePopGestureRecognizer
+@property (nonatomic, strong) UIBarButtonItem *backButtonItem; // default is a bar button item with a button as a custom view, set nil to hide it
+
+// override point, will also be called if it is pop by the fullScreenInteractivePopGestureRecognizer
+// defaults call [self.navigationController popViewControllerAnimated:YES]
+- (void)popBack;
 
 @end

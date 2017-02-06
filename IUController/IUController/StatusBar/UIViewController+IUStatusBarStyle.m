@@ -1,39 +1,16 @@
 //
-//  UIViewController+IUStatusBarHidden.m
+//  UIViewController+IUStatusBarStyle.m
 //  IUController
 //
-//  Created by admin on 2017/1/24.
+//  Created by admin on 2017/2/6.
 //  Copyright © 2017年 刘海文. All rights reserved.
 //
 
-#import "UIViewController+IUStatusBarHidden.h"
-#import "objc/runtime.h"
+#import "UIViewController+IUStatusBarStyle.h"
 
-static char TAG_VIEW_CONTROLLER_STATUS_BAR_HIDDEN;
-
-@implementation UIViewController (IUStatusBarHidden)
-
-+ (void)load {
-    method_exchangeImplementations(class_getInstanceMethod(self, @selector(viewDidLayoutSubviews)), class_getInstanceMethod(self, @selector(iu_viewDidLayoutSubviews)));
-}
-
-- (void)iu_viewDidLayoutSubviews {
-    [self iu_viewDidLayoutSubviews];
-    [self setNeedsStatusBarAppearanceUpdate];
-}
-
-- (void)setStatusBarHidden:(BOOL)statusBarHidden {
-    objc_setAssociatedObject(self, &TAG_VIEW_CONTROLLER_STATUS_BAR_HIDDEN, @(statusBarHidden), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
-    [self setNeedsStatusBarAppearanceUpdate];
-}
-
-- (BOOL)statusBarHidden {
-    return [objc_getAssociatedObject(self, &TAG_VIEW_CONTROLLER_STATUS_BAR_HIDDEN) boolValue];
-}
+@implementation UIViewController (IUStatusBarStyle)
 
 - (UIStatusBarStyle)preferredStatusBarStyle {
-    if (self.statusBarHidden) return UIStatusBarStyleDefault;
-    
     CGFloat brightness = 0, alpha = 1;
     BOOL s = [[self statusBarBackgroundColor] getHue:nil saturation:nil brightness:&brightness alpha:&alpha];
     return brightness * alpha > 0.5 ? UIStatusBarStyleDefault : UIStatusBarStyleLightContent;
@@ -43,16 +20,12 @@ static char TAG_VIEW_CONTROLLER_STATUS_BAR_HIDDEN;
     return UIStatusBarAnimationSlide;
 }
 
-- (BOOL)prefersStatusBarHidden {
-    return self.statusBarHidden;
-}
-
 - (UIColor *)statusBarBackgroundColor {
     UIGraphicsBeginImageContext(CGSizeMake(self.view.bounds.size.width, 20));
     [self.view.layer renderInContext:UIGraphicsGetCurrentContext()];
     UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
-
+    
     int bitmapInfo = kCGBitmapByteOrderDefault | kCGImageAlphaPremultipliedLast;
     
     //第一步 先把图片缩小 加快计算速度. 但越小结果误差可能越大

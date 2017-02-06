@@ -289,19 +289,6 @@ static char TAG_OBJECT_PREVIEW_CONTROLLER_CREATOR;
     return _hideKeyboardTapGestureRecognizer;
 }
 
-#pragma mark - Override
-- (BOOL)shouldAutorotate {
-    return YES;
-}
-
-- (UIInterfaceOrientationMask)supportedInterfaceOrientations {
-    return UIInterfaceOrientationMaskPortrait;
-}
-
-- (UIInterfaceOrientation)preferredInterfaceOrientationForPresentation {
-    return UIInterfaceOrientationPortrait;
-}
-
 #pragma mark - UIViewControllerPreviewingDelegate
 - (void)registerPreviewingWithSourceView:(UIView *)sourceView viewControllerCreator:(IUViewController *(^)())creator {
     if (creator && [self respondsToSelector:@selector(traitCollection)] &&

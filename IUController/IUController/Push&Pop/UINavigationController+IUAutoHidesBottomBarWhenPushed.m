@@ -87,31 +87,6 @@ static char TAG_VIEW_CONTROLLER_IGNORE_AUTO_HIDES_BOTTOM_BAR_WHEN_PUSHED;
     [self _resetDelegate];
 }
 
-#pragma mark Override Orientations Method
-- (BOOL)shouldAutorotate {
-    return [self.topViewController shouldAutorotate];
-}
-
-- (UIInterfaceOrientationMask)supportedInterfaceOrientations {
-    return [self.topViewController supportedInterfaceOrientations];
-}
-
-- (UIInterfaceOrientation)preferredInterfaceOrientationForPresentation {
-    return [self.topViewController preferredInterfaceOrientationForPresentation];
-}
-
-- (UIStatusBarStyle)preferredStatusBarStyle {
-    return self.isNavigationBarHidden ? [self.topViewController preferredStatusBarStyle] : [super preferredStatusBarStyle];
-}
-
-- (UIStatusBarAnimation)preferredStatusBarUpdateAnimation {
-    return [self.topViewController preferredStatusBarUpdateAnimation];
-}
-
-- (BOOL)prefersStatusBarHidden {
-    return [self.topViewController prefersStatusBarHidden];
-}
-
 #pragma mark Private Method
 - (void)_resetDelegate {
     if (self.interactivePopGestureRecognizer.delegate != self._innerDelegate) self.interactivePopGestureRecognizer.delegate = self._innerDelegate;
