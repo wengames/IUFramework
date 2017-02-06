@@ -31,27 +31,27 @@ static NSDateFormatter *__dateFormatter = nil;
 }
 
 - (NSInteger)year {
-    return [[self stringWithDateFormat:@"yyyy"] integerValue];
+    return [[self stringWithFormat:@"yyyy"] integerValue];
 }
 
 - (NSInteger)month {
-    return [[self stringWithDateFormat:@"M"] integerValue];
+    return [[self stringWithFormat:@"M"] integerValue];
 }
 
 - (NSInteger)day {
-    return [[self stringWithDateFormat:@"d"] integerValue];
+    return [[self stringWithFormat:@"d"] integerValue];
 }
 
 - (NSInteger)hour {
-    return [[self stringWithDateFormat:@"H"] integerValue];
+    return [[self stringWithFormat:@"H"] integerValue];
 }
 
 - (NSInteger)minute {
-    return [[self stringWithDateFormat:@"m"] integerValue];
+    return [[self stringWithFormat:@"m"] integerValue];
 }
 
 - (NSInteger)second {
-    return [[self stringWithDateFormat:@"s"] integerValue];
+    return [[self stringWithFormat:@"s"] integerValue];
 }
 
 - (BOOL)isWorkTime {
@@ -76,7 +76,7 @@ static NSDateFormatter *__dateFormatter = nil;
             dateFormat = @"MM-dd HH:mm";
             break;
     }
-    return [self stringWithDateFormat:dateFormat];
+    return [self stringWithFormat:dateFormat];
 }
 
 - (NSInteger)yearBeforeDate:(NSDate *)date {
@@ -89,22 +89,22 @@ static NSDateFormatter *__dateFormatter = nil;
 
 - (NSInteger)dayBeforeDate:(NSDate *)date {
     NSString *dateFormat = @"yyyy-MM-dd";
-    NSDate *date1 = [NSDate dateWithString:[self stringWithDateFormat:dateFormat] format:dateFormat];
-    NSDate *date2 = [NSDate dateWithString:[date stringWithDateFormat:dateFormat] format:dateFormat];
+    NSDate *date1 = [NSDate dateWithString:[self stringWithFormat:dateFormat] format:dateFormat];
+    NSDate *date2 = [NSDate dateWithString:[date stringWithFormat:dateFormat] format:dateFormat];
     return [date2 timeIntervalSinceDate:date1] / 86400.f;
 }
 
 - (NSInteger)hourBeforeDate:(NSDate *)date {
     NSString *dateFormat = @"yyyy-MM-dd HH";
-    NSDate *date1 = [NSDate dateWithString:[self stringWithDateFormat:dateFormat] format:dateFormat];
-    NSDate *date2 = [NSDate dateWithString:[date stringWithDateFormat:dateFormat] format:dateFormat];
+    NSDate *date1 = [NSDate dateWithString:[self stringWithFormat:dateFormat] format:dateFormat];
+    NSDate *date2 = [NSDate dateWithString:[date stringWithFormat:dateFormat] format:dateFormat];
     return [date2 timeIntervalSinceDate:date1] / 3600.f;
 }
 
 - (NSInteger)minuteBeforeDate:(NSDate *)date {
     NSString *dateFormat = @"yyyy-MM-dd HH:mm";
-    NSDate *date1 = [NSDate dateWithString:[self stringWithDateFormat:dateFormat] format:dateFormat];
-    NSDate *date2 = [NSDate dateWithString:[date stringWithDateFormat:dateFormat] format:dateFormat];
+    NSDate *date1 = [NSDate dateWithString:[self stringWithFormat:dateFormat] format:dateFormat];
+    NSDate *date2 = [NSDate dateWithString:[date stringWithFormat:dateFormat] format:dateFormat];
     return [date2 timeIntervalSinceDate:date1] / 60.f;
 }
 
@@ -112,8 +112,8 @@ static NSDateFormatter *__dateFormatter = nil;
     return [date timeIntervalSinceDate:self];
 }
 
-- (NSString *)stringWithDateFormat:(NSString *)dateFormat {
-    __dateFormatter.dateFormat = dateFormat;
+- (NSString *)stringWithFormat:(NSString *)format {
+    __dateFormatter.dateFormat = format;
     return [__dateFormatter stringFromDate:self];
 }
 
@@ -131,7 +131,7 @@ static NSDateFormatter *__dateFormatter = nil;
 }
 
 - (NSString *)dateStringWithFormat:(NSString *)format {
-    return [[self date] stringWithDateFormat:format];
+    return [[self date] stringWithFormat:format];
 }
 
 @end

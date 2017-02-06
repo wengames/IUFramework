@@ -10,7 +10,11 @@
 
 @interface UINavigationController (IUFullScreenInteractivePopGestureRecognizer)
 
+// lazy loading
+// both gesture recognizer will be created after any one be called
+// using "navigationController.fullScreenInteractivePopGestureRecognizer.enabled = YES" to enable both
 @property (nonatomic, readonly) UIGestureRecognizer *fullScreenInteractivePopGestureRecognizer; // enable defaults NO
+@property (nonatomic, readonly) UIGestureRecognizer *edgeScreenInteractivePopGestureRecognizer; // enable defaults YES
 
 @end
 

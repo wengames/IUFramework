@@ -21,7 +21,7 @@
 
 @property (nonatomic, readonly) NSString *autoString;
 
-- (NSString *)stringWithDateFormat:(NSString *)dateFormat;
+- (NSString *)stringWithFormat:(NSString *)format;
 
 - (NSInteger)yearBeforeDate:(NSDate *)date;
 - (NSInteger)monthBeforeDate:(NSDate *)date;

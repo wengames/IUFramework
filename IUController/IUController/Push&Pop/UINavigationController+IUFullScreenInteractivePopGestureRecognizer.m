@@ -16,6 +16,7 @@ static char TAG_TRANSITION_GESTURE_RECOGNIZER_HELPER;
 
 @property (nonatomic, weak) UINavigationController *navigationController;
 
+@property (nonatomic, strong, readonly) UIScreenEdgePanGestureRecognizer *edgePanGestureRecognizer;
 @property (nonatomic, strong, readonly) UIPanGestureRecognizer  *panGestureRecognizer;
 @property (nonatomic, strong, readonly) IUTransitioningDelegate *transitioningDelegate;
 
@@ -49,6 +50,8 @@ static char TAG_TRANSITION_GESTURE_RECOGNIZER_HELPER;
         
         [self iu_setDelegate:helper.transitioningDelegate];
         [self.view addGestureRecognizer:helper.panGestureRecognizer];
+        [self.view addGestureRecognizer:helper.edgePanGestureRecognizer];
+        [helper.panGestureRecognizer requireGestureRecognizerToFail:helper.edgePanGestureRecognizer];
     }
     return helper;
 }
@@ -57,11 +60,23 @@ static char TAG_TRANSITION_GESTURE_RECOGNIZER_HELPER;
     return self.transitionGestureRecognizerHelper.panGestureRecognizer;
 }
 
+- (UIGestureRecognizer *)edgeScreenInteractivePopGestureRecognizer {
+    return self.transitionGestureRecognizerHelper.edgePanGestureRecognizer;
+}
+
 @end
 
 @implementation _IUNavigationControllerGestureRecognizerHelper
 
-@synthesize panGestureRecognizer = _panGestureRecognizer, transitioningDelegate = _transitioningDelegate;
+@synthesize edgePanGestureRecognizer = _edgePanGestureRecognizer, panGestureRecognizer = _panGestureRecognizer, transitioningDelegate = _transitioningDelegate;
+
+- (UIScreenEdgePanGestureRecognizer *)edgePanGestureRecognizer {
+    if (_edgePanGestureRecognizer == nil) {
+        _edgePanGestureRecognizer = [[UIScreenEdgePanGestureRecognizer alloc] initWithTarget:self action:@selector(pan:)];
+        _edgePanGestureRecognizer.edges = UIRectEdgeLeft;
+    }
+    return _edgePanGestureRecognizer;
+}
 
 - (UIPanGestureRecognizer *)panGestureRecognizer {
     if (_panGestureRecognizer == nil) {

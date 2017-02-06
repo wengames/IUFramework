@@ -229,10 +229,12 @@ static char TAG_TABLE_VIEW_DATA_BINDER;
 
 - (Class)cellClassWithData:(id)data {
     Class cellClass = nil;
-    @try {
-        cellClass = NSClassFromString([data valueForKey:@"cellClassName"]);
-    } @catch (NSException *exception) {
-        cellClass = nil;
+    if ([data respondsToSelector:@selector(cellClassName)] || [data isKindOfClass:[NSDictionary class]]) {
+        @try {
+            cellClass = NSClassFromString([data valueForKey:@"cellClassName"]);
+        } @catch (NSException *exception) {
+            cellClass = nil;
+        }
     }
     for (int i = 0; cellClass == nil && i < 6; i++) {
         NSString *cellClassName = NSStringFromClass([data class]);

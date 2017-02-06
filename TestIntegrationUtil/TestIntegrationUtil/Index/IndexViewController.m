@@ -11,6 +11,8 @@
 #import "PushedViewController.h"
 #import "NonNaviPushedViewController.h"
 #import "PresentedViewController.h"
+#import "SpringLayoutViewController.h"
+#import "TabPageViewController.h"
 
 @interface IndexViewController () <IUTableViewPreviewing>
 {
@@ -46,7 +48,9 @@
                              [IndexModel modelWithTitle:@"Push(Landscape)"],
                              [IndexModel modelWithTitle:@"Push(None Navi, status bar auto change)"],
                              [IndexModel modelWithTitle:@"Present(Custom)"],
-                             [IndexModel modelWithTitle:@"Empty Table View"]
+                             [IndexModel modelWithTitle:@"Empty Table View"],
+                             [IndexModel modelWithTitle:@"Spring Layout"],
+                             [IndexModel modelWithTitle:@"Tab Page View"]
                              ];
 }
 
@@ -56,6 +60,8 @@
     switch (indexPath.section) {
         case 0:
         case 1:
+        case 4:
+        case 5:
         {
             [self.navigationController pushViewController:[self tableView:tableView viewControllerToPreviewAtIndexPath:indexPath] animated:YES];
         }
@@ -83,6 +89,10 @@
             return [[PushedViewController alloc] init];
         case 1:
             return [[NonNaviPushedViewController alloc] init];
+        case 4:
+            return [[SpringLayoutViewController alloc] init];
+        case 5:
+            return [[TabPageViewController alloc] init];
     }
     return nil;
 }

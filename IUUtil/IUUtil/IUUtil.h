@@ -12,13 +12,20 @@
 
 #import "NSDate+IUQuickDate.h"
 #import "NSString+IURegex.h"
+#import "NSString+IUEvaluate.h"
 
 #import "UIImage+IUTransform.h"
+#import "UIColor+IUGenerator.h"
 
 #import "UIView+IUEmpty.h"
 #import "UIView+IUTouchAreaExpand.h"
 #import "UITableView+IUDataBinder.h"
 
 #import "UIViewController+IUAlertController.h"
+
+#import "IUCollectionViewSpringFlowLayout.h"
+#import "IUForceTouchGestureRecognizer.h"
+#import "IUTabPageView.h"
+#import "IUTabPageViewController.h"
 
 #endif
