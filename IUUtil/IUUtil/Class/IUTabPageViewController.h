@@ -7,11 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "IUTabPageView.h"
 
-@interface IUTabPageViewController : UIViewController
+@interface IUTabPageViewController : UIViewController <IUTabPageViewDelegate>
 
+@property (nonatomic, strong, readonly) IUTabPageView *tabPageView;
 @property (nonatomic, strong) NSArray <UIViewController *> *viewControllers;
-
-//TODO add property
 
 @end

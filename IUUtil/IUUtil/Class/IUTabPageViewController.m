@@ -7,18 +7,13 @@
 //
 
 #import "IUTabPageViewController.h"
-#import "IUTabPageView.h"
 #import <objc/runtime.h>
 
 static char TAG_TAB_BADGE_LABEL;
 
-@interface IUTabPageViewController () <IUTabPageViewDelegate,UIGestureRecognizerDelegate>
-
-@property (nonatomic, strong) IUTabPageView *tabPageView;
-
-@end
-
 @implementation IUTabPageViewController
+
+@synthesize tabPageView = _tabPageView;
 
 - (void)willMoveToParentViewController:(UIViewController *)parent {
     [super willMoveToParentViewController:parent];
