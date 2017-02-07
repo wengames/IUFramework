@@ -22,6 +22,12 @@ static char TAG_TRANSITION_GESTURE_RECOGNIZER_HELPER;
 
 @end
 
+@interface UIViewController ()
+
+- (void)_showDismissButtonItem:(BOOL)show;
+
+@end
+
 @interface UINavigationController ()
 
 @property (nonatomic, strong, readonly) _IUNavigationControllerGestureRecognizerHelper *transitionGestureRecognizerHelper;
@@ -32,6 +38,16 @@ static char TAG_TRANSITION_GESTURE_RECOGNIZER_HELPER;
 
 + (void)load {
     method_exchangeImplementations(class_getInstanceMethod(self, @selector(setDelegate:)), class_getInstanceMethod(self, @selector(iu_setDelegate:)));
+    if (![self instancesRespondToSelector:@selector(iu_viewWillAppear:)]) {
+        method_exchangeImplementations(class_getInstanceMethod(self, @selector(viewWillAppear:)), class_getInstanceMethod(self, @selector(_iu_viewWillAppear:)));
+    }
+    
+}
+
+// method called by UIViewController(IUOrientation)
+- (void)_iu_viewWillAppear:(BOOL)animated {
+    if (![self respondsToSelector:@selector(iu_viewWillAppear:)]) [self _iu_viewWillAppear:animated];
+    [[self.viewControllers firstObject] _showDismissButtonItem:self.presentingViewController];
 }
 
 - (void)iu_setDelegate:(id<UINavigationControllerDelegate>)delegate {
@@ -143,6 +159,9 @@ static char TAG_TRANSITION_GESTURE_RECOGNIZER_HELPER;
 static char TAG_VIEW_CONTROLLER_BACK_BUTTON_ITEM;
 static char TAG_VIEW_CONTROLLER_BACK_BUTTON_ITEM_CREATED;
 
+static char TAG_VIEW_CONTROLLER_DISSMISS_BUTTON_ITEM;
+static char TAG_VIEW_CONTROLLER_DISSMISS_BUTTON_ITEM_CREATED;
+
 @implementation UIViewController (IUPopBack)
 
 + (void)load {
@@ -156,20 +175,25 @@ static char TAG_VIEW_CONTROLLER_BACK_BUTTON_ITEM_CREATED;
         self.navigationItem.hidesBackButton = YES;
         self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStylePlain target:nil action:nil];
         
-        NSMutableArray *items = [self.navigationItem.leftBarButtonItems mutableCopy];
+        NSMutableArray *items = [self.navigationItem.leftBarButtonItems ?: @[] mutableCopy];
         if ([[(UINavigationController *)parent viewControllers] firstObject] != self) {
             
+            if ([items containsObject:self.dismissButtonItem]) {
+                [items removeObject:self.dismissButtonItem];
+            }
+            
             if (self.backButtonItem && ![items containsObject:self.backButtonItem]) {
-                self.navigationItem.leftBarButtonItems = [@[self.backButtonItem] arrayByAddingObjectsFromArray:items];
+                [items insertObject:self.backButtonItem atIndex:0];
             }
             
         } else {
             
             if ([items containsObject:self.backButtonItem]) {
                 [items removeObject:self.backButtonItem];
-                self.navigationItem.leftBarButtonItems = [items copy];
             }
+            
         }
+        self.navigationItem.leftBarButtonItems = [items copy];
     }
 }
 
@@ -235,11 +259,75 @@ static char TAG_VIEW_CONTROLLER_BACK_BUTTON_ITEM_CREATED;
     return backButtonItem;
 }
 
+- (void)setDismissButtonItem:(UIBarButtonItem *)dismissButtonItem {
+    objc_setAssociatedObject(self, &TAG_VIEW_CONTROLLER_DISSMISS_BUTTON_ITEM_CREATED, @YES, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+    UIBarButtonItem *oldItem = self.dismissButtonItem;
+    NSMutableArray *items = [self.navigationItem.leftBarButtonItems mutableCopy];
+    if (oldItem && items) {
+        NSUInteger index = [items indexOfObject:oldItem];
+        if (index != NSNotFound) {
+            [items removeObjectAtIndex:index];
+        } else {
+            index = 0;
+        }
+        
+        if (dismissButtonItem) {
+            [items insertObject:dismissButtonItem atIndex:index];
+        }
+        
+        self.navigationItem.leftBarButtonItems = [items copy];
+    }
+    objc_setAssociatedObject(self, &TAG_VIEW_CONTROLLER_DISSMISS_BUTTON_ITEM, dismissButtonItem, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+}
+
+- (UIBarButtonItem *)dismissButtonItem {
+    UIBarButtonItem *dismissButtonItem = objc_getAssociatedObject(self, &TAG_VIEW_CONTROLLER_DISSMISS_BUTTON_ITEM);
+    if (dismissButtonItem == nil && ![objc_getAssociatedObject(self, &TAG_VIEW_CONTROLLER_DISSMISS_BUTTON_ITEM_CREATED) boolValue]) {
+        objc_setAssociatedObject(self, &TAG_VIEW_CONTROLLER_DISSMISS_BUTTON_ITEM_CREATED, @YES, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+        
+        UIColor *color = [UINavigationBar appearance].tintColor ?: [UIColor colorWithRed:0 green:0.5 blue:1 alpha:1];
+        CGFloat r,g,b,a;
+        [color getRed:&r green:&g blue:&b alpha:&a];
+        r+=1.0; g+=1.0; b+=1.0; a+=1.0;
+        r/=2.0; g/=2.0; b/=2.0; a/=2.0;
+        UIColor *highlightedColor = [UIColor colorWithRed:r green:g blue:b alpha:a];
+        
+        UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
+        button.titleLabel.font = [UIFont systemFontOfSize:14];
+        [button setTitleColor:color forState:UIControlStateNormal];
+        [button setTitleColor:highlightedColor forState:UIControlStateHighlighted];
+        [button setTitle:@"取消" forState:UIControlStateNormal];
+        [button addTarget:self action:@selector(dismiss) forControlEvents:UIControlEventTouchUpInside];
+        [button sizeToFit];
+        dismissButtonItem = [[UIBarButtonItem alloc] initWithCustomView:button];
+        objc_setAssociatedObject(self, &TAG_VIEW_CONTROLLER_DISSMISS_BUTTON_ITEM, dismissButtonItem, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+    }
+    return dismissButtonItem;
+}
+
+- (void)_showDismissButtonItem:(BOOL)show {
+    NSMutableArray *items = [self.navigationItem.leftBarButtonItems ?: @[] mutableCopy];
+    if (show) {
+        if (self.dismissButtonItem && ![items containsObject:self.dismissButtonItem]) {
+            [items insertObject:self.dismissButtonItem atIndex:0];
+        }
+    } else {
+        if ([items containsObject:self.dismissButtonItem]) {
+            [items removeObject:self.dismissButtonItem];
+        }
+    }
+    self.navigationItem.leftBarButtonItems = [items copy];
+}
+
 - (void)popBack {
     NSUInteger count = [self.navigationController.viewControllers count];
     if (count > 1) {
         [self.navigationController popViewControllerAnimated:([self.navigationController.viewControllers[count - 2] supportedInterfaceOrientations] & (1 << self.navigationController.interfaceOrientation))];
     }
+}
+
+- (void)dismiss {
+    [self.navigationController dismissViewControllerAnimated:YES completion:nil];
 }
 
 @end

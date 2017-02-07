@@ -23,8 +23,11 @@
 @interface UITableView (IUDataBinder)
 
 @property (nonatomic, weak) id<IUTableViewPreviewing> delegate;
-@property (nonatomic, strong) NSArray <id<IUTableViewCellClassDeclaration>> *datas; // datas in sections, call method below with animated YES
 
+// call method below with animated YES
+// one order datas in sections with row 0
+// two order datas in sections and rows, type of "NSArray <NSArray <id<IUTableViewCellClassDeclaration>> *> *"
+@property (nonatomic, strong) NSArray <id<IUTableViewCellClassDeclaration>> *datas;
 - (void)setDatas:(NSArray *)datas animated:(BOOL)animated;
 
 @end

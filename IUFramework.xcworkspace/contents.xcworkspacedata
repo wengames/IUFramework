@@ -5,6 +5,9 @@
       location = "group:TestIntegrationUtil/TestIntegrationUtil.xcodeproj">
    </FileRef>
    <FileRef
+      location = "group:IURouter/IURouter.xcodeproj">
+   </FileRef>
+   <FileRef
       location = "group:IUUtil/IUUtil.xcodeproj">
    </FileRef>
    <FileRef

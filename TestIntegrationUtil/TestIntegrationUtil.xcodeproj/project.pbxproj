@@ -23,6 +23,7 @@
 		84D2EAD31E48921900B2A2CD /* TabPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84D2EAD21E48921900B2A2CD /* TabPageViewController.m */; };
 		84D2EADA1E48947A00B2A2CD /* SubPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84D2EAD91E48947A00B2A2CD /* SubPageViewController.m */; };
 		84D2EADE1E48960300B2A2CD /* SpringLayoutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84D2EADD1E48960300B2A2CD /* SpringLayoutViewController.m */; };
+		84D2EAF51E496F4800B2A2CD /* IURouter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84D2EAF41E496F4800B2A2CD /* IURouter.framework */; };
 		84DFC5BC1E3493A4000A588C /* IUTextInput.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84DFC5BB1E3493A4000A588C /* IUTextInput.framework */; };
 		84DFC5BD1E3493A4000A588C /* IUTextInput.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 84DFC5BB1E3493A4000A588C /* IUTextInput.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		84DFC6561E34D396000A588C /* IUUtil.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84DFC6551E34D396000A588C /* IUUtil.framework */; };
@@ -79,6 +80,7 @@
 		84D2EAD91E48947A00B2A2CD /* SubPageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SubPageViewController.m; sourceTree = "<group>"; };
 		84D2EADC1E48960300B2A2CD /* SpringLayoutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpringLayoutViewController.h; sourceTree = "<group>"; };
 		84D2EADD1E48960300B2A2CD /* SpringLayoutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SpringLayoutViewController.m; sourceTree = "<group>"; };
+		84D2EAF41E496F4800B2A2CD /* IURouter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IURouter.framework; path = "../IURouter/build/Debug-iphoneos/IURouter.framework"; sourceTree = "<group>"; };
 		84DFC5BB1E3493A4000A588C /* IUTextInput.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = IUTextInput.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		84DFC6551E34D396000A588C /* IUUtil.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = IUUtil.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		84DFC6581E34D396000A588C /* IUController.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = IUController.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -91,6 +93,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				84D2EAF51E496F4800B2A2CD /* IURouter.framework in Frameworks */,
 				84DFC6591E34D396000A588C /* IUController.framework in Frameworks */,
 				84DFC65C1E34D396000A588C /* IUNetworking.framework in Frameworks */,
 				84DFC5BC1E3493A4000A588C /* IUTextInput.framework in Frameworks */,
@@ -151,6 +154,7 @@
 		841F52841E30934D00223BB5 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				84D2EAF41E496F4800B2A2CD /* IURouter.framework */,
 				84DFC65B1E34D396000A588C /* IUNetworking.framework */,
 				84DFC6581E34D396000A588C /* IUController.framework */,
 				84DFC6551E34D396000A588C /* IUUtil.framework */,

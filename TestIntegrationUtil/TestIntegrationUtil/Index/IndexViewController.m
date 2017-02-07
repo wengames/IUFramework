@@ -25,6 +25,7 @@
 - (instancetype)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
     if (self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil]) {
         self.navigationItem.title = @"Index";
+        
     }
     return self;
 }
@@ -61,17 +62,20 @@
         case 0:
         case 1:
         case 4:
-        case 5:
         {
             [self.navigationController pushViewController:[self tableView:tableView viewControllerToPreviewAtIndexPath:indexPath] animated:YES];
         }
             break;
+        case 5:
+            [[IURouter router] open:@"TabPageViewController/1/2/3?tab=page"];
+            break;
         case 2:
         {
-            UIViewController *viewController = [[PresentedViewController alloc] init];
+            UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:[[PresentedViewController alloc] init]];
             _p = [IUTransitioningDelegate transitioningDelegateWithType:IUTransitionTypeFade];
-            viewController.transitioningDelegate = _p;
-            [self presentViewController:viewController animated:YES completion:nil];
+            navigationController.transitioningDelegate = _p;
+            navigationController.modalPresentationStyle = UIModalPresentationCustom;
+            [self presentViewController:navigationController animated:YES completion:nil];
         }
             break;
         case 3:

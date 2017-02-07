@@ -17,7 +17,7 @@
 
 - (void)iu_viewWillAppear:(BOOL)animated {
     [self iu_viewWillAppear:animated];
-    
+    [self _iu_viewWillAppear:animated];
     if (self.navigationController && ([self supportedInterfaceOrientations] & (1 << self.navigationController.interfaceOrientation)) == 0) {
         [self presentViewController:[[UIViewController alloc] init] animated:NO completion:nil];
         [self dismissViewControllerAnimated:NO completion:nil];
@@ -25,6 +25,8 @@
 
     [self.class attemptRotationToDeviceOrientation];
 }
+
+- (void)_iu_viewWillAppear:(BOOL)animated { }
 
 - (BOOL)shouldAutorotate {
     return YES;

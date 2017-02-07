@@ -24,6 +24,12 @@
     return self;
 }
 
+- (void)setParameters:(IURouterParameter *)parameters {
+    [super setParameters:parameters];
+    NSLog(@"TabPageViewController : argv = %@", parameters.argv);
+    NSLog(@"TabPageViewController : params = %@", parameters.params);
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     

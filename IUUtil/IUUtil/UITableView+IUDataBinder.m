@@ -13,7 +13,9 @@
 static char TAG_TABLE_VIEW_DATA_BINDER;
 
 @interface IUTableViewDataBinder : NSObject <UITableViewDataSource,UITableViewDelegate>
-
+{
+    BOOL _isDatasTwoOrder;
+}
 @property (nonatomic, weak) UITableView *tableView;
 
 @property (nonatomic, strong) NSArray *datas;
@@ -108,6 +110,9 @@ static char TAG_TABLE_VIEW_DATA_BINDER;
 }
 
 - (void)setDatas:(NSArray *)datas animated:(BOOL)animated {
+  
+    _isDatasTwoOrder = [self _cellClassWithData:[datas firstObject]] == nil && [[datas firstObject] isKindOfClass:[NSArray class]];
+    
     if (!animated) {
         
         _datas = datas;
@@ -129,7 +134,7 @@ static char TAG_TABLE_VIEW_DATA_BINDER;
             [self.tableView deleteSections:[NSIndexSet indexSetWithIndexesInRange:NSMakeRange(newLength, oldLength - newLength)] withRowAnimation:UITableViewRowAnimationFade];
             
             [self.tableView endUpdates];
-            
+
         } else {
             
             [self.tableView beginUpdates];
@@ -158,14 +163,16 @@ static char TAG_TABLE_VIEW_DATA_BINDER;
     if ([self.dataSource respondsToSelector:_cmd]) {
         return [self.dataSource tableView:tableView numberOfRowsInSection:section];
     }
-    return 1;
+    return _isDatasTwoOrder ? [self.datas[section] count] : 1;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     if ([self.delegate respondsToSelector:_cmd]) {
         return [self.delegate tableView:tableView heightForRowAtIndexPath:indexPath];
     }
-    return [self cellHeightWithData:self.datas[indexPath.section] inTableView:tableView];
+    
+    id data = _isDatasTwoOrder ? self.datas[indexPath.section][indexPath.row] : self.datas[indexPath.section];
+    return [self cellHeightWithData:data inTableView:tableView];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -173,7 +180,7 @@ static char TAG_TABLE_VIEW_DATA_BINDER;
         return [self.dataSource tableView:tableView cellForRowAtIndexPath:indexPath];
     }
     
-    id data = self.datas[indexPath.section];
+    id data = _isDatasTwoOrder ? self.datas[indexPath.section][indexPath.row] : self.datas[indexPath.section];
     
     Class cellClass = [self cellClassWithData:data];
     
@@ -228,6 +235,14 @@ static char TAG_TABLE_VIEW_DATA_BINDER;
 }
 
 - (Class)cellClassWithData:(id)data {
+    Class cellClass = [self _cellClassWithData:data];
+    
+    NSAssert(cellClass != nil, @"cell class is NOT declared");
+    
+    return cellClass;
+}
+
+- (Class)_cellClassWithData:(id)data {
     Class cellClass = nil;
     if ([data respondsToSelector:@selector(cellClassName)] || [data isKindOfClass:[NSDictionary class]]) {
         @try {
@@ -269,6 +284,7 @@ static char TAG_TABLE_VIEW_DATA_BINDER;
 }
 
 - (CGFloat)cellHeightWithData:(id)data inTableView:(UITableView *)tableView {
+    if (data == nil) return 0;
     Class cellClass = [self cellClassWithData:data];
     UITableViewCell <IUTableViewCellModelSettable> *templateCell = [self templateCellWithCellClass:cellClass];
     [templateCell prepareForReuse];

@@ -17,7 +17,6 @@
 - (instancetype)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
     if (self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil]) {
         self.navigationItem.title = @"Presented";
-        self.navigationBarHidden = YES;
     }
     return self;
 }
@@ -25,11 +24,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-    self.view.backgroundColor = [UIColor blackColor];
-}
-
-- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
-    [self dismiss];
+    self.view.backgroundColor = [UIColor colorWithWhite:0 alpha:0.5];
 }
 
 @end
