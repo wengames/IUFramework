@@ -26,6 +26,8 @@
     [super viewDidLoad];
     
     self.view.backgroundColor = [UIColor blackColor];
+    
+    [self.view addSubview:[[UILabel alloc] initWithFrame:self.view.bounds].setTextColor([UIColor whiteColor]).setText(@"Pan Anywhere To Back ➡️").setAutoresizingMask(UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight).setTextAlignment(NSTextAlignmentCenter)];
 }
 
 @end

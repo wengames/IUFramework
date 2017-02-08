@@ -44,8 +44,7 @@ typedef enum {
 @protocol IUTransitionAnimatorDelegate <NSObject>
 
 @optional
-- (void)transitionAnimatorWillBeginAnimation:(IUTransitionAnimator *)transitionAnimator;
-- (void)transitionAnimatorWillEndAnimation:(IUTransitionAnimator *)transitionAnimator;
-- (void)transitionAnimator:(IUTransitionAnimator *)transitionAnimator didCompleteAnimation:(BOOL)finished;
-
+- (void)transitionAnimator:(IUTransitionAnimator *)transitionAnimator willBeginTransition:(id <UIViewControllerContextTransitioning>)transitionContext;
+- (void)transitionAnimator:(IUTransitionAnimator *)transitionAnimator willEndTransition:(id <UIViewControllerContextTransitioning>)transitionContext;
+- (void)transitionAnimator:(IUTransitionAnimator *)transitionAnimator didCompleteTransition:(id <UIViewControllerContextTransitioning>)transitionContext finished:(BOOL)finished;
 @end

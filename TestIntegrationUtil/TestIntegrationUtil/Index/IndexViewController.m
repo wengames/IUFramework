@@ -17,6 +17,8 @@
 @interface IndexViewController () <IUTableViewPreviewing>
 {
     id _p;
+    
+    UIView *_magicView;
 }
 @end
 
@@ -42,6 +44,16 @@
     };
     
     [self resetData];
+    
+    [self.view addSubview:[[UIView alloc] initWithFrame:CGRectMake(0, 400, 100, 100)].setBackgroundColor([UIColor cyanColor]).bind(&_magicView)];
+}
+
+- (NSArray *)magicViewsTransitionToViewController:(UIViewController *)viewController {
+    return @[_magicView];
+}
+
+- (NSArray *)magicViewsTransitionFromViewController:(UIViewController *)viewController {
+    return @[_magicView];
 }
 
 - (void)resetData {

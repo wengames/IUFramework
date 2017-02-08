@@ -277,9 +277,7 @@ static char TAG_TABLE_VIEW_DATA_BINDER;
         
         cellClass = NSClassFromString(cellClassName);
     }
-    
-    NSAssert(cellClass != nil, @"cell class is NOT declared");
-    
+        
     return cellClass;
 }
 

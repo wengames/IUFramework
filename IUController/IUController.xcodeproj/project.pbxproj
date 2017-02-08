@@ -48,6 +48,8 @@
 		84D2EA921E481A3500B2A2CD /* UINavigationController+IUAutoHidesBottomBarWhenPushed.m in Sources */ = {isa = PBXBuildFile; fileRef = 84D2EA8E1E481A3500B2A2CD /* UINavigationController+IUAutoHidesBottomBarWhenPushed.m */; };
 		84D2EA931E481A3500B2A2CD /* UINavigationController+IUFullScreenInteractivePopGestureRecognizer.h in Headers */ = {isa = PBXBuildFile; fileRef = 84D2EA8F1E481A3500B2A2CD /* UINavigationController+IUFullScreenInteractivePopGestureRecognizer.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		84D2EA941E481A3500B2A2CD /* UINavigationController+IUFullScreenInteractivePopGestureRecognizer.m in Sources */ = {isa = PBXBuildFile; fileRef = 84D2EA901E481A3500B2A2CD /* UINavigationController+IUFullScreenInteractivePopGestureRecognizer.m */; };
+		84D2EB4B1E49C7F000B2A2CD /* UIViewController+IUMagicTransition.h in Headers */ = {isa = PBXBuildFile; fileRef = 84D2EB491E49C7F000B2A2CD /* UIViewController+IUMagicTransition.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		84D2EB4C1E49C7F000B2A2CD /* UIViewController+IUMagicTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 84D2EB4A1E49C7F000B2A2CD /* UIViewController+IUMagicTransition.m */; };
 		84DFC6321E34D2CC000A588C /* IUController.h in Headers */ = {isa = PBXBuildFile; fileRef = 84DFC6301E34D2CC000A588C /* IUController.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
 
@@ -88,6 +90,8 @@
 		84D2EA8E1E481A3500B2A2CD /* UINavigationController+IUAutoHidesBottomBarWhenPushed.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationController+IUAutoHidesBottomBarWhenPushed.m"; sourceTree = "<group>"; };
 		84D2EA8F1E481A3500B2A2CD /* UINavigationController+IUFullScreenInteractivePopGestureRecognizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationController+IUFullScreenInteractivePopGestureRecognizer.h"; sourceTree = "<group>"; };
 		84D2EA901E481A3500B2A2CD /* UINavigationController+IUFullScreenInteractivePopGestureRecognizer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationController+IUFullScreenInteractivePopGestureRecognizer.m"; sourceTree = "<group>"; };
+		84D2EB491E49C7F000B2A2CD /* UIViewController+IUMagicTransition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+IUMagicTransition.h"; sourceTree = "<group>"; };
+		84D2EB4A1E49C7F000B2A2CD /* UIViewController+IUMagicTransition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+IUMagicTransition.m"; sourceTree = "<group>"; };
 		84DFC62D1E34D2CC000A588C /* IUController.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = IUController.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		84DFC6301E34D2CC000A588C /* IUController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IUController.h; sourceTree = "<group>"; };
 		84DFC6311E34D2CC000A588C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -111,6 +115,8 @@
 				84D2EA851E4818E300B2A2CD /* IUTransitionAnimator.m */,
 				84D2EA861E4818E300B2A2CD /* IUTransitioningDelegate.h */,
 				84D2EA871E4818E300B2A2CD /* IUTransitioningDelegate.m */,
+				84D2EB491E49C7F000B2A2CD /* UIViewController+IUMagicTransition.h */,
+				84D2EB4A1E49C7F000B2A2CD /* UIViewController+IUMagicTransition.m */,
 			);
 			path = Transition;
 			sourceTree = "<group>";
@@ -205,6 +211,7 @@
 				84D2EA821E48188300B2A2CD /* UITabBarController+IUOrientation.h in Headers */,
 				84D2EA911E481A3500B2A2CD /* UINavigationController+IUAutoHidesBottomBarWhenPushed.h in Headers */,
 				84D2EA931E481A3500B2A2CD /* UINavigationController+IUFullScreenInteractivePopGestureRecognizer.h in Headers */,
+				84D2EB4B1E49C7F000B2A2CD /* UIViewController+IUMagicTransition.h in Headers */,
 				84D2EA721E48179B00B2A2CD /* UIViewController+IUOrientation.h in Headers */,
 				84D2EA6A1E48170C00B2A2CD /* UIViewController+IUStatusBarHidden.h in Headers */,
 				84A3674E1E3738C60058F21B /* IUViewController.h in Headers */,
@@ -303,6 +310,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				84D2EA671E48169100B2A2CD /* UIViewController+IUStatusBarStyle.m in Sources */,
+				84D2EB4C1E49C7F000B2A2CD /* UIViewController+IUMagicTransition.m in Sources */,
 				84D2EA891E4818E300B2A2CD /* IUTransitionAnimator.m in Sources */,
 				84D2EA6B1E48170C00B2A2CD /* UIViewController+IUStatusBarHidden.m in Sources */,
 				84D2EA7F1E48183400B2A2CD /* UITabBarController+IUStatusBar.m in Sources */,

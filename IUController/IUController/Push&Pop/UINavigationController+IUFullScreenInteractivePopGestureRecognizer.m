@@ -103,11 +103,12 @@ static char TAG_TRANSITION_GESTURE_RECOGNIZER_HELPER;
     return _panGestureRecognizer;
 }
 
+
 - (IUTransitioningDelegate *)transitioningDelegate {
     if (_transitioningDelegate == nil) {
         _transitioningDelegate = [IUTransitioningDelegate transitioningDelegateWithType:IUTransitionTypeDefault];
         _transitioningDelegate.config = ^(IUTransitionAnimator *animator){
-            animator.duration = 0.25f;
+            animator.duration = .25f;
         };
     }
     return _transitioningDelegate;

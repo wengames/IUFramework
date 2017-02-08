@@ -30,6 +30,7 @@
 // transition
 #import "IUTransitionAnimator.h"
 #import "IUTransitioningDelegate.h"
+#import "UIViewController+IUMagicTransition.h"
 
 // base view controller
 #import "IUViewController.h"

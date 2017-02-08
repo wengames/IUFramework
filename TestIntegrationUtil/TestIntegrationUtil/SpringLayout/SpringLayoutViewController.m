@@ -9,7 +9,9 @@
 #import "SpringLayoutViewController.h"
 
 @interface SpringLayoutViewController () <UICollectionViewDataSource,UICollectionViewDelegateFlowLayout,UICollectionViewDelegateFlowLayout,IUCollectionViewDelegateWaterfallLayout>
-
+{
+    UIView *_magicView;
+}
 @end
 
 @implementation SpringLayoutViewController
@@ -28,6 +30,17 @@
     [self.collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:@"cell"];
     [self.collectionView registerClass:[UICollectionReusableView class] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"view"];
     [self.collectionView registerClass:[UICollectionReusableView class] forSupplementaryViewOfKind:UICollectionElementKindSectionFooter withReuseIdentifier:@"view"];
+    [self.collectionView layoutIfNeeded];
+    
+//    [self.view addSubview:[[UIView alloc] initWithFrame:CGRectMake(200, 300, 100, 100)].setBackgroundColor([UIColor cyanColor]).bind(&_magicView)];
+}
+
+- (NSArray *)magicViewsTransitionToViewController:(UIViewController *)viewController {
+    return [self.collectionView cellForItemAtIndexPath:[NSIndexPath indexPathForItem:2 inSection:0]] ? @[[self.collectionView cellForItemAtIndexPath:[NSIndexPath indexPathForItem:2 inSection:0]]] : nil;
+}
+
+- (NSArray *)magicViewsTransitionFromViewController:(UIViewController *)viewController {
+    return [self.collectionView cellForItemAtIndexPath:[NSIndexPath indexPathForItem:2 inSection:0]] ? @[[self.collectionView cellForItemAtIndexPath:[NSIndexPath indexPathForItem:2 inSection:0]]] : nil;
 }
 
 #pragma mark - UICollectionViewDelegate
