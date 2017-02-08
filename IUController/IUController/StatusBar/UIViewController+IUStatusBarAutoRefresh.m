@@ -12,11 +12,11 @@
 @implementation UIViewController (IUStatusBarAutoRefresh)
 
 + (void)load {
-    method_exchangeImplementations(class_getInstanceMethod(self, @selector(viewDidLayoutSubviews)), class_getInstanceMethod(self, @selector(iu_viewDidLayoutSubviews)));
+    method_exchangeImplementations(class_getInstanceMethod(self, @selector(viewDidLayoutSubviews)), class_getInstanceMethod(self, @selector(iuStatusBarAutoRefresh_UIViewController_viewDidLayoutSubviews)));
 }
 
-- (void)iu_viewDidLayoutSubviews {
-    [self iu_viewDidLayoutSubviews];
+- (void)iuStatusBarAutoRefresh_UIViewController_viewDidLayoutSubviews {
+    [self iuStatusBarAutoRefresh_UIViewController_viewDidLayoutSubviews];
     [self setNeedsStatusBarAppearanceUpdate];
 }
 

@@ -37,20 +37,16 @@ static char TAG_TRANSITION_GESTURE_RECOGNIZER_HELPER;
 @implementation UINavigationController (IUFullScreenInteractivePopGestureRecognizer)
 
 + (void)load {
-    method_exchangeImplementations(class_getInstanceMethod(self, @selector(setDelegate:)), class_getInstanceMethod(self, @selector(iu_setDelegate:)));
-    if (![self instancesRespondToSelector:@selector(iu_viewWillAppear:)]) {
-        method_exchangeImplementations(class_getInstanceMethod(self, @selector(viewWillAppear:)), class_getInstanceMethod(self, @selector(_iu_viewWillAppear:)));
-    }
-    
+    method_exchangeImplementations(class_getInstanceMethod(self, @selector(setDelegate:)), class_getInstanceMethod(self, @selector(iuFullScreenInteractivePopGestureRecognizer_UINavigationController_setDelegate:)));
+    method_exchangeImplementations(class_getInstanceMethod(self, @selector(viewWillAppear:)), class_getInstanceMethod(self, @selector(iuFullScreenInteractivePopGestureRecognizer_UINavigationController_viewWillAppear:)));
 }
 
-// method called by UIViewController(IUOrientation)
-- (void)_iu_viewWillAppear:(BOOL)animated {
-    if (![self respondsToSelector:@selector(iu_viewWillAppear:)]) [self _iu_viewWillAppear:animated];
+- (void)iuFullScreenInteractivePopGestureRecognizer_UINavigationController_viewWillAppear:(BOOL)animated {
+    [self iuFullScreenInteractivePopGestureRecognizer_UINavigationController_viewWillAppear:animated];
     [[self.viewControllers firstObject] _showDismissButtonItem:self.presentingViewController];
 }
 
-- (void)iu_setDelegate:(id<UINavigationControllerDelegate>)delegate {
+- (void)iuFullScreenInteractivePopGestureRecognizer_UINavigationController_setDelegate:(id<UINavigationControllerDelegate>)delegate {
     self.transitionGestureRecognizerHelper.transitioningDelegate.delegate = delegate;
 }
 
@@ -64,7 +60,7 @@ static char TAG_TRANSITION_GESTURE_RECOGNIZER_HELPER;
         self.interactivePopGestureRecognizer.enabled = NO;
         [self.view removeGestureRecognizer:self.interactivePopGestureRecognizer];
         
-        [self iu_setDelegate:helper.transitioningDelegate];
+        [self iuFullScreenInteractivePopGestureRecognizer_UINavigationController_setDelegate:helper.transitioningDelegate];
         [self.view addGestureRecognizer:helper.panGestureRecognizer];
         [self.view addGestureRecognizer:helper.edgePanGestureRecognizer];
         [helper.panGestureRecognizer requireGestureRecognizerToFail:helper.edgePanGestureRecognizer];
@@ -166,11 +162,11 @@ static char TAG_VIEW_CONTROLLER_DISSMISS_BUTTON_ITEM_CREATED;
 @implementation UIViewController (IUPopBack)
 
 + (void)load {
-    method_exchangeImplementations(class_getInstanceMethod(self, @selector(willMoveToParentViewController:)), class_getInstanceMethod(self, @selector(iu_willMoveToParentViewController:)));
+    method_exchangeImplementations(class_getInstanceMethod(self, @selector(willMoveToParentViewController:)), class_getInstanceMethod(self, @selector(iuPopBack_UIViewController_willMoveToParentViewController:)));
 }
 
-- (void)iu_willMoveToParentViewController:(UIViewController *)parent {
-    [self iu_willMoveToParentViewController:parent];
+- (void)iuPopBack_UIViewController_willMoveToParentViewController:(UIViewController *)parent {
+    [self iuPopBack_UIViewController_willMoveToParentViewController:parent];
     if ([parent isKindOfClass:[UINavigationController class]]) {
         
         self.navigationItem.hidesBackButton = YES;

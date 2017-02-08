@@ -103,11 +103,11 @@ id dynamicMethodIMP(id self, SEL _cmd)
 }
 
 + (void)load {
-    method_exchangeImplementations(class_getClassMethod(self, @selector(resolveInstanceMethod:)), class_getClassMethod(self, @selector(iu_resolveInstanceMethod:)));
+    method_exchangeImplementations(class_getClassMethod(self, @selector(resolveInstanceMethod:)), class_getClassMethod(self, @selector(iuChain_NSObject_resolveInstanceMethod:)));
 }
 
-+ (BOOL)iu_resolveInstanceMethod:(SEL)sel {
-    BOOL resolved = [self iu_resolveInstanceMethod:sel];
++ (BOOL)iuChain_NSObject_resolveInstanceMethod:(SEL)sel {
+    BOOL resolved = [self iuChain_NSObject_resolveInstanceMethod:sel];
     if (!resolved) {
         NSString *selString = NSStringFromSelector(sel);
         // "set"开头 && 非":"结尾 && 第4个字符为大写

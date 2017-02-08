@@ -48,6 +48,8 @@
 		84D2EB461E49C52B00B2A2CD /* UIView+IUTouchAreaExpand.m in Sources */ = {isa = PBXBuildFile; fileRef = 84D2EB2C1E49C52B00B2A2CD /* UIView+IUTouchAreaExpand.m */; };
 		84D2EB471E49C52B00B2A2CD /* UIViewController+IUAlertController.h in Headers */ = {isa = PBXBuildFile; fileRef = 84D2EB2D1E49C52B00B2A2CD /* UIViewController+IUAlertController.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		84D2EB481E49C52B00B2A2CD /* UIViewController+IUAlertController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84D2EB2E1E49C52B00B2A2CD /* UIViewController+IUAlertController.m */; };
+		84D2EB4F1E4B166000B2A2CD /* NSString+IUTokenizer.h in Headers */ = {isa = PBXBuildFile; fileRef = 84D2EB4D1E4B166000B2A2CD /* NSString+IUTokenizer.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		84D2EB501E4B166000B2A2CD /* NSString+IUTokenizer.m in Sources */ = {isa = PBXBuildFile; fileRef = 84D2EB4E1E4B166000B2A2CD /* NSString+IUTokenizer.m */; };
 		84DFC6081E34D26D000A588C /* IUUtil.h in Headers */ = {isa = PBXBuildFile; fileRef = 84DFC6061E34D26D000A588C /* IUUtil.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
 
@@ -88,6 +90,8 @@
 		84D2EB2C1E49C52B00B2A2CD /* UIView+IUTouchAreaExpand.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+IUTouchAreaExpand.m"; sourceTree = "<group>"; };
 		84D2EB2D1E49C52B00B2A2CD /* UIViewController+IUAlertController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+IUAlertController.h"; sourceTree = "<group>"; };
 		84D2EB2E1E49C52B00B2A2CD /* UIViewController+IUAlertController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+IUAlertController.m"; sourceTree = "<group>"; };
+		84D2EB4D1E4B166000B2A2CD /* NSString+IUTokenizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+IUTokenizer.h"; sourceTree = "<group>"; };
+		84D2EB4E1E4B166000B2A2CD /* NSString+IUTokenizer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+IUTokenizer.m"; sourceTree = "<group>"; };
 		84DFC6031E34D26D000A588C /* IUUtil.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = IUUtil.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		84DFC6061E34D26D000A588C /* IUUtil.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IUUtil.h; sourceTree = "<group>"; };
 		84DFC6071E34D26D000A588C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -128,6 +132,8 @@
 				84D2EB201E49C52B00B2A2CD /* NSString+IUEvaluate.m */,
 				84D2EB211E49C52B00B2A2CD /* NSString+IURegex.h */,
 				84D2EB221E49C52B00B2A2CD /* NSString+IURegex.m */,
+				84D2EB4D1E4B166000B2A2CD /* NSString+IUTokenizer.h */,
+				84D2EB4E1E4B166000B2A2CD /* NSString+IUTokenizer.m */,
 				84D2EB231E49C52B00B2A2CD /* UIColor+IUGenerator.h */,
 				84D2EB241E49C52B00B2A2CD /* UIColor+IUGenerator.m */,
 				84D2EB251E49C52B00B2A2CD /* UIImage+IUTransform.h */,
@@ -190,6 +196,7 @@
 				84D2EB3B1E49C52B00B2A2CD /* NSString+IURegex.h in Headers */,
 				84D2EB371E49C52B00B2A2CD /* NSDate+IUQuickDate.h in Headers */,
 				84D2EB411E49C52B00B2A2CD /* UITableView+IUDataBinder.h in Headers */,
+				84D2EB4F1E4B166000B2A2CD /* NSString+IUTokenizer.h in Headers */,
 				84D2EB311E49C52B00B2A2CD /* IUForceTouchGestureRecognizer.h in Headers */,
 				84D2EB351E49C52B00B2A2CD /* IUTabPageViewController.h in Headers */,
 			);
@@ -287,6 +294,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				84D2EB301E49C52B00B2A2CD /* IUCollectionViewSpringFlowLayout.m in Sources */,
+				84D2EB501E4B166000B2A2CD /* NSString+IUTokenizer.m in Sources */,
 				84D2EB3C1E49C52B00B2A2CD /* NSString+IURegex.m in Sources */,
 				84D2EB361E49C52B00B2A2CD /* IUTabPageViewController.m in Sources */,
 				84D2EB421E49C52B00B2A2CD /* UITableView+IUDataBinder.m in Sources */,

@@ -53,12 +53,12 @@ static char TAG_TEXT_VIEW_PLACEHOLDER_LABEL;
 @implementation UITextView (IUTextInputRestrict)
 
 + (void)load {
-    method_exchangeImplementations(class_getInstanceMethod(self, @selector(layoutSubviews)), class_getInstanceMethod(self, @selector(iu_layoutSubviews)));
-    method_exchangeImplementations(class_getInstanceMethod(self, @selector(setText:)), class_getInstanceMethod(self, @selector(iu_setText:)));
+    method_exchangeImplementations(class_getInstanceMethod(self, @selector(layoutSubviews)), class_getInstanceMethod(self, @selector(iuTextInputRestrict_UITextView_layoutSubviews)));
+    method_exchangeImplementations(class_getInstanceMethod(self, @selector(setText:)), class_getInstanceMethod(self, @selector(iuTextInputRestrict_UITextView_setText:)));
 }
 
-- (void)iu_layoutSubviews {
-    [self iu_layoutSubviews];
+- (void)iuTextInputRestrict_UITextView_layoutSubviews {
+    [self iuTextInputRestrict_UITextView_layoutSubviews];
     UILabel *placeholderLabel = objc_getAssociatedObject(self, &TAG_TEXT_VIEW_PLACEHOLDER_LABEL);
     if (placeholderLabel) {
         placeholderLabel.frame = CGRectMake(self.textContainerInset.left + self.textContainer.lineFragmentPadding, self.textContainerInset.top, self.bounds.size.width - self.textContainerInset.left - self.textContainerInset.right - self.textContainer.lineFragmentPadding * 2, 0);
@@ -68,8 +68,8 @@ static char TAG_TEXT_VIEW_PLACEHOLDER_LABEL;
     }
 }
 
-- (void)iu_setText:(NSString *)text {
-    [self iu_setText:text];
+- (void)iuTextInputRestrict_UITextView_setText:(NSString *)text {
+    [self iuTextInputRestrict_UITextView_setText:text];
     [[NSNotificationCenter defaultCenter] postNotificationName:UITextViewTextDidChangeNotification object:self];
 }
 

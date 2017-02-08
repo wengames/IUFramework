@@ -14,7 +14,7 @@ static char TAG_VIEW_TOUCH_AREA_EXPAND_INSETS;
 @implementation UIView (IUTouchAreaExpand)
 
 + (void)load {
-    method_exchangeImplementations(class_getInstanceMethod(self, @selector(pointInside:withEvent:)), class_getInstanceMethod(self, @selector(iu_pointInside:withEvent:)));
+    method_exchangeImplementations(class_getInstanceMethod(self, @selector(pointInside:withEvent:)), class_getInstanceMethod(self, @selector(iuTouchAreaExpand_UIView_pointInside:withEvent:)));
 }
 
 - (void)setExpandEdge:(CGFloat)edge {
@@ -29,10 +29,11 @@ static char TAG_VIEW_TOUCH_AREA_EXPAND_INSETS;
     return [objc_getAssociatedObject(self, &TAG_VIEW_TOUCH_AREA_EXPAND_INSETS) UIEdgeInsetsValue];
 }
 
-- (BOOL)iu_pointInside:(CGPoint)point withEvent:(UIEvent *)event {
+- (BOOL)iuTouchAreaExpand_UIView_pointInside:(CGPoint)point withEvent:(UIEvent *)event {
+    BOOL result = [self iuTouchAreaExpand_UIView_pointInside:point withEvent:event];
     UIEdgeInsets expandInsets = self.expandInsets;
-    if (UIEdgeInsetsEqualToEdgeInsets(expandInsets, UIEdgeInsetsZero)) {
-        return [self iu_pointInside:point withEvent:event];
+    if (result || UIEdgeInsetsEqualToEdgeInsets(expandInsets, UIEdgeInsetsZero)) {
+        return result;
     } else {
         CGRect rect = self.bounds;
         rect.origin.x -= expandInsets.left;

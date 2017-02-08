@@ -22,11 +22,11 @@ static char TAG_TEXT_FIELD_MAX_TEXT_LENGTH;
 @implementation UITextField (IUTextInputRestrict)
 
 + (void)load {
-    method_exchangeImplementations(class_getInstanceMethod(self, @selector(setText:)), class_getInstanceMethod(self, @selector(iu_setText:)));
+    method_exchangeImplementations(class_getInstanceMethod(self, @selector(setText:)), class_getInstanceMethod(self, @selector(iuTextInputRestrict_UITextField_setText:)));
 }
 
-- (void)iu_setText:(NSString *)text {
-    [self iu_setText:text];
+- (void)iuTextInputRestrict_UITextField_setText:(NSString *)text {
+    [self iuTextInputRestrict_UITextField_setText:text];
     [self sendActionsForControlEvents:UIControlEventEditingChanged];
     [[NSNotificationCenter defaultCenter] postNotificationName:UITextFieldTextDidChangeNotification object:self];
 }

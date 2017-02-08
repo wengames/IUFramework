@@ -39,12 +39,12 @@ static char TAG_TABLE_VIEW_DATA_BINDER;
 
 + (void)load {
     if ([self instancesRespondToSelector:@selector(setLayoutMargins:)] || [self instancesRespondToSelector:@selector(setSeparatorInset:)]) {
-        method_exchangeImplementations(class_getInstanceMethod(self, @selector(initWithFrame:style:)), class_getInstanceMethod(self, @selector(iu_initWithFrame:style:)));
+        method_exchangeImplementations(class_getInstanceMethod(self, @selector(initWithFrame:style:)), class_getInstanceMethod(self, @selector(iuDataBinder_UITableView_initWithFrame:style:)));
     }
 }
 
-- (instancetype)iu_initWithFrame:(CGRect)frame style:(UITableViewStyle)style {
-    UITableView *obj = [self iu_initWithFrame:frame style:style];
+- (instancetype)iuDataBinder_UITableView_initWithFrame:(CGRect)frame style:(UITableViewStyle)style {
+    UITableView *obj = [self iuDataBinder_UITableView_initWithFrame:frame style:style];
     if (obj) {
         if ([obj respondsToSelector:@selector(setLayoutMargins:)]) obj.layoutMargins = UIEdgeInsetsZero;
         if ([obj respondsToSelector:@selector(setSeparatorInset:)]) obj.separatorInset = UIEdgeInsetsZero;
@@ -369,12 +369,12 @@ static char TAG_TABLE_VIEW_DATA_BINDER;
 
 + (void)load {
     if ([self instancesRespondToSelector:@selector(setLayoutMargins:)] || [self instancesRespondToSelector:@selector(setSeparatorInset:)]) {
-        method_exchangeImplementations(class_getInstanceMethod(self, @selector(initWithStyle:reuseIdentifier:)), class_getInstanceMethod(self, @selector(iu_initWithStyle:reuseIdentifier:)));
+        method_exchangeImplementations(class_getInstanceMethod(self, @selector(initWithStyle:reuseIdentifier:)), class_getInstanceMethod(self, @selector(iuSeparatorSetting_UITableViewCell_initWithStyle:reuseIdentifier:)));
     }
 }
 
-- (instancetype)iu_initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
-    UITableViewCell *obj = [self iu_initWithStyle:style reuseIdentifier:reuseIdentifier];
+- (instancetype)iuSeparatorSetting_UITableViewCell_initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
+    UITableViewCell *obj = [self iuSeparatorSetting_UITableViewCell_initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (obj) {
         if ([obj respondsToSelector:@selector(setLayoutMargins:)]) obj.layoutMargins = UIEdgeInsetsZero;
         if ([obj respondsToSelector:@selector(setSeparatorInset:)]) obj.separatorInset = UIEdgeInsetsZero;

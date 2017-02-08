@@ -29,4 +29,9 @@
     return self;
 }
 
+- (id)objectAtIndexedSubscript:(NSUInteger)idx { return nil; }
+- (void)setObject:(id)obj atIndexedSubscript:(NSUInteger)idx {}
+- (id)objectForKeyedSubscript:(id)key { return nil; }
+- (void)setObject:(id)obj forKeyedSubscript:(id)key {}
+
 @end

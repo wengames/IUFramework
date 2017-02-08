@@ -49,41 +49,41 @@ static char TAG_VIEW_CONTROLLER_IGNORE_AUTO_HIDES_BOTTOM_BAR_WHEN_PUSHED;
 @implementation UINavigationController (IUAutoHidesBottomBarWhenPushed)
 
 + (void)load {
-    method_exchangeImplementations(class_getInstanceMethod(self, @selector(pushViewController:animated:)), class_getInstanceMethod(self, @selector(iu_pushViewController:animated:)));
-    method_exchangeImplementations(class_getInstanceMethod(self, @selector(popViewControllerAnimated:)), class_getInstanceMethod(self, @selector(iu_popViewControllerAnimated:)));
-    method_exchangeImplementations(class_getInstanceMethod(self, @selector(popToRootViewControllerAnimated:)), class_getInstanceMethod(self, @selector(iu_popToRootViewControllerAnimated:)));
-    method_exchangeImplementations(class_getInstanceMethod(self, @selector(popToViewController:animated:)), class_getInstanceMethod(self, @selector(iu_popToViewController:animated:)));
-    method_exchangeImplementations(class_getInstanceMethod(self, @selector(setViewControllers:animated:)), class_getInstanceMethod(self, @selector(iu_setViewControllers:animated:)));
+    method_exchangeImplementations(class_getInstanceMethod(self, @selector(pushViewController:animated:)), class_getInstanceMethod(self, @selector(iuAutoHidesBottomBarWhenPushed_UINavigationContorller_pushViewController:animated:)));
+    method_exchangeImplementations(class_getInstanceMethod(self, @selector(popViewControllerAnimated:)), class_getInstanceMethod(self, @selector(iuAutoHidesBottomBarWhenPushed_UINavigationContorller_popViewControllerAnimated:)));
+    method_exchangeImplementations(class_getInstanceMethod(self, @selector(popToRootViewControllerAnimated:)), class_getInstanceMethod(self, @selector(iuAutoHidesBottomBarWhenPushed_UINavigationContorller_popToRootViewControllerAnimated:)));
+    method_exchangeImplementations(class_getInstanceMethod(self, @selector(popToViewController:animated:)), class_getInstanceMethod(self, @selector(iuAutoHidesBottomBarWhenPushed_UINavigationContorller_popToViewController:animated:)));
+    method_exchangeImplementations(class_getInstanceMethod(self, @selector(setViewControllers:animated:)), class_getInstanceMethod(self, @selector(iuAutoHidesBottomBarWhenPushed_UINavigationContorller_setViewControllers:animated:)));
 }
 
 #pragma mark Override Push & Pop Method
-- (void)iu_pushViewController:(UIViewController *)viewController animated:(BOOL)animated {
+- (void)iuAutoHidesBottomBarWhenPushed_UINavigationContorller_pushViewController:(UIViewController *)viewController animated:(BOOL)animated {
     [viewController _setHidesBottomBarWhenPushedIfNotIgnored:[self.viewControllers count] != 0];
-    [self iu_pushViewController:viewController animated:animated];
+    [self iuAutoHidesBottomBarWhenPushed_UINavigationContorller_pushViewController:viewController animated:animated];
     [self _resetDelegate];
 }
 
-- (UIViewController *)iu_popViewControllerAnimated:(BOOL)animated {
+- (UIViewController *)iuAutoHidesBottomBarWhenPushed_UINavigationContorller_popViewControllerAnimated:(BOOL)animated {
     NSUInteger count = [self.viewControllers count];
     if (count > 1 && !self.viewControllers[count - 2].ignoreAutoHidesBottomBarWhenPushed) {
         [self.viewControllers[count - 2] _setHidesBottomBarWhenPushedIfNotIgnored:count > 2];
     }
-    return [self iu_popViewControllerAnimated:animated];
+    return [self iuAutoHidesBottomBarWhenPushed_UINavigationContorller_popViewControllerAnimated:animated];
 }
 
-- (NSArray<UIViewController *> *)iu_popToRootViewControllerAnimated:(BOOL)animated {
+- (NSArray<UIViewController *> *)iuAutoHidesBottomBarWhenPushed_UINavigationContorller_popToRootViewControllerAnimated:(BOOL)animated {
     [[self.viewControllers firstObject] _setHidesBottomBarWhenPushedIfNotIgnored:NO];
-    return [self iu_popToRootViewControllerAnimated:animated];
+    return [self iuAutoHidesBottomBarWhenPushed_UINavigationContorller_popToRootViewControllerAnimated:animated];
 }
 
-- (NSArray *)iu_popToViewController:(UIViewController *)viewController animated:(BOOL)animated {
+- (NSArray *)iuAutoHidesBottomBarWhenPushed_UINavigationContorller_popToViewController:(UIViewController *)viewController animated:(BOOL)animated {
     [viewController _setHidesBottomBarWhenPushedIfNotIgnored:[self.viewControllers indexOfObject:viewController] != 0];
-    return [self iu_popToViewController:viewController animated:animated];
+    return [self iuAutoHidesBottomBarWhenPushed_UINavigationContorller_popToViewController:viewController animated:animated];
 }
 
-- (void)iu_setViewControllers:(NSArray<UIViewController *> *)viewControllers animated:(BOOL)animated {
+- (void)iuAutoHidesBottomBarWhenPushed_UINavigationContorller_setViewControllers:(NSArray<UIViewController *> *)viewControllers animated:(BOOL)animated {
     [[viewControllers lastObject] _setHidesBottomBarWhenPushedIfNotIgnored:[viewControllers count] > 1];
-    [self iu_setViewControllers:viewControllers animated:animated];
+    [self iuAutoHidesBottomBarWhenPushed_UINavigationContorller_setViewControllers:viewControllers animated:animated];
     [self _resetDelegate];
 }
 
