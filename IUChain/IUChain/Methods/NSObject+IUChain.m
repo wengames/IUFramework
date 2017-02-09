@@ -8,15 +8,14 @@
 
 #import "NSObject+IUChain.h"
 #import <UIKit/UIKit.h>
-#import "objc/runtime.h"
 #import <objc/message.h>
+#import <IUMethodSwizzle/IUMethodSwizzle.h>
 
 #define IU_MESSAGE_SEND(type) ^(type obj) { [self setValue:@(obj) forKey:key]; return self; };
 
 @implementation NSObject (IUChain)
 
-id dynamicMethodIMP(id self, SEL _cmd)
-{
+id iuChainDynamicMethodIMP(id self, SEL _cmd) {
     NSString *selString = NSStringFromSelector(_cmd);
     if ([selString length] > 3) {
         NSString *key = [[selString substringWithRange:NSMakeRange(3, 1)] lowercaseString];
@@ -71,8 +70,10 @@ id dynamicMethodIMP(id self, SEL _cmd)
                     [self setValue:[NSValue valueWithRange:obj] forKey:key];
                     return self;
                 };
-            } else if ([@"q" isEqualToString:[argumentType lowercaseString]]) { // q NSInteger, int, long, long long
+            } else if ([@"q" isEqualToString:[argumentType lowercaseString]]) { // q NSInteger, long, long long
                 return IU_MESSAGE_SEND(NSInteger);
+            } else if ([@"i" isEqualToString:[argumentType lowercaseString]]) { // i int
+                return IU_MESSAGE_SEND(int);
             } else if ([@"s" isEqualToString:[argumentType lowercaseString]]) { // s short
                 return IU_MESSAGE_SEND(short);
             } else if ([@"d" isEqualToString:[argumentType lowercaseString]]) { // d CGFloat, double
@@ -103,7 +104,7 @@ id dynamicMethodIMP(id self, SEL _cmd)
 }
 
 + (void)load {
-    method_exchangeImplementations(class_getClassMethod(self, @selector(resolveInstanceMethod:)), class_getClassMethod(self, @selector(iuChain_NSObject_resolveInstanceMethod:)));
+    [self swizzleClassSelector:@selector(resolveInstanceMethod:) toSelector:@selector(iuChain_NSObject_resolveInstanceMethod:)];
 }
 
 + (BOOL)iuChain_NSObject_resolveInstanceMethod:(SEL)sel {
@@ -114,7 +115,7 @@ id dynamicMethodIMP(id self, SEL _cmd)
         if ([selString hasPrefix:@"set"] &&
             ![selString hasSuffix:@":"] &&
             [selString length] > 3 && [[[selString substringWithRange:NSMakeRange(3, 1)] uppercaseString] isEqualToString:[selString substringWithRange:NSMakeRange(3, 1)]]) {
-            class_addMethod([self class],sel,(IMP)dynamicMethodIMP,"@@:");
+            class_addMethod([self class],sel,(IMP)iuChainDynamicMethodIMP,"@@:");
             resolved = YES;
         }
     }

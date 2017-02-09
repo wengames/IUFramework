@@ -9,6 +9,7 @@
 #import "UITableView+IUDataBinder.h"
 #import "UIView+IUEmpty.h"
 #import "objc/runtime.h"
+#import <IUMethodSwizzle/IUMethodSwizzle.h>
 
 static char TAG_TABLE_VIEW_DATA_BINDER;
 
@@ -39,7 +40,7 @@ static char TAG_TABLE_VIEW_DATA_BINDER;
 
 + (void)load {
     if ([self instancesRespondToSelector:@selector(setLayoutMargins:)] || [self instancesRespondToSelector:@selector(setSeparatorInset:)]) {
-        method_exchangeImplementations(class_getInstanceMethod(self, @selector(initWithFrame:style:)), class_getInstanceMethod(self, @selector(iuDataBinder_UITableView_initWithFrame:style:)));
+        [self swizzleInstanceSelector:@selector(initWithFrame:style:) toSelector:@selector(iuDataBinder_UITableView_initWithFrame:style:)];
     }
 }
 
@@ -369,7 +370,7 @@ static char TAG_TABLE_VIEW_DATA_BINDER;
 
 + (void)load {
     if ([self instancesRespondToSelector:@selector(setLayoutMargins:)] || [self instancesRespondToSelector:@selector(setSeparatorInset:)]) {
-        method_exchangeImplementations(class_getInstanceMethod(self, @selector(initWithStyle:reuseIdentifier:)), class_getInstanceMethod(self, @selector(iuSeparatorSetting_UITableViewCell_initWithStyle:reuseIdentifier:)));
+        [self swizzleInstanceSelector:@selector(initWithStyle:reuseIdentifier:) toSelector:@selector(iuSeparatorSetting_UITableViewCell_initWithStyle:reuseIdentifier:)];
     }
 }
 

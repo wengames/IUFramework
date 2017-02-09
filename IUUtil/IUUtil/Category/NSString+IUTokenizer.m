@@ -26,12 +26,10 @@
     NSMutableArray *tokens = [@[] mutableCopy];
     CFStringTokenizerRef tokenizer = CFStringTokenizerCreate(NULL, (__bridge CFStringRef)self, CFRangeMake(0, self.length), options, NULL);
     CFRange range;
-    do {
-        CFStringTokenizerAdvanceToNextToken(tokenizer);
+    while (CFStringTokenizerAdvanceToNextToken(tokenizer) != kCFStringTokenizerTokenNone) {
         range = CFStringTokenizerGetCurrentTokenRange(tokenizer);
-        if (range.length == 0) break;
         [tokens addObject:[self substringWithRange:NSMakeRange(range.location, range.length)]];
-    } while (YES);
+    }
     return [tokens copy];
 }
 

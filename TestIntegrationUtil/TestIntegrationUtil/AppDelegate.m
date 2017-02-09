@@ -26,8 +26,10 @@
     NSLog(@"[[NSNull null] count] = %ld", [obj count]);
     NSLog(@"[[NSNull null] firstObject] = %@", [obj firstObject]);
     
+//    CIFilter
+    
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]].setBackgroundColor([UIColor colorWithWhite:0.7 alpha:1]).setRootViewController([[UINavigationController alloc] initWithRootViewController:[[IndexViewController alloc] init]]);
-    [(UINavigationController *)self.window.rootViewController fullScreenInteractivePopGestureRecognizer].enabled = YES;
+//    [(UINavigationController *)self.window.rootViewController fullScreenInteractivePopGestureRecognizer].enabled = YES;
     [self.window makeKeyAndVisible];
     
     return YES;

@@ -15,5 +15,7 @@
 #import <IUController/IUController.h>
 #import <IUUtil/IUUtil.h>
 #import <IURouter/IURouter.h>
+#import <IUImageTransform/IUImageTransform.h>
+#import <IUMethodSwizzle/IUMethodSwizzle.h>
 
 #endif /* PrefixHeader_pch */

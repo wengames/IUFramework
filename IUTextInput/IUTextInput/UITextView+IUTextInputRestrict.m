@@ -8,6 +8,7 @@
 
 #import "UITextView+IUTextInputRestrict.h"
 #import "objc/runtime.h"
+#import <IUMethodSwizzle/IUMethodSwizzle.h>
 
 @interface IUTextInputRestrict ()
 
@@ -53,8 +54,8 @@ static char TAG_TEXT_VIEW_PLACEHOLDER_LABEL;
 @implementation UITextView (IUTextInputRestrict)
 
 + (void)load {
-    method_exchangeImplementations(class_getInstanceMethod(self, @selector(layoutSubviews)), class_getInstanceMethod(self, @selector(iuTextInputRestrict_UITextView_layoutSubviews)));
-    method_exchangeImplementations(class_getInstanceMethod(self, @selector(setText:)), class_getInstanceMethod(self, @selector(iuTextInputRestrict_UITextView_setText:)));
+    [self swizzleInstanceSelector:@selector(layoutSubviews) toSelector:@selector(iuTextInputRestrict_UITextView_layoutSubviews)];
+    [self swizzleInstanceSelector:@selector(setText:) toSelector:@selector(iuTextInputRestrict_UITextView_setText:)];
 }
 
 - (void)iuTextInputRestrict_UITextView_layoutSubviews {

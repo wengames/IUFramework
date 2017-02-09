@@ -38,8 +38,6 @@
 		84D2EB3C1E49C52B00B2A2CD /* NSString+IURegex.m in Sources */ = {isa = PBXBuildFile; fileRef = 84D2EB221E49C52B00B2A2CD /* NSString+IURegex.m */; };
 		84D2EB3D1E49C52B00B2A2CD /* UIColor+IUGenerator.h in Headers */ = {isa = PBXBuildFile; fileRef = 84D2EB231E49C52B00B2A2CD /* UIColor+IUGenerator.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		84D2EB3E1E49C52B00B2A2CD /* UIColor+IUGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 84D2EB241E49C52B00B2A2CD /* UIColor+IUGenerator.m */; };
-		84D2EB3F1E49C52B00B2A2CD /* UIImage+IUTransform.h in Headers */ = {isa = PBXBuildFile; fileRef = 84D2EB251E49C52B00B2A2CD /* UIImage+IUTransform.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		84D2EB401E49C52B00B2A2CD /* UIImage+IUTransform.m in Sources */ = {isa = PBXBuildFile; fileRef = 84D2EB261E49C52B00B2A2CD /* UIImage+IUTransform.m */; };
 		84D2EB411E49C52B00B2A2CD /* UITableView+IUDataBinder.h in Headers */ = {isa = PBXBuildFile; fileRef = 84D2EB271E49C52B00B2A2CD /* UITableView+IUDataBinder.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		84D2EB421E49C52B00B2A2CD /* UITableView+IUDataBinder.m in Sources */ = {isa = PBXBuildFile; fileRef = 84D2EB281E49C52B00B2A2CD /* UITableView+IUDataBinder.m */; };
 		84D2EB431E49C52B00B2A2CD /* UIView+IUEmpty.h in Headers */ = {isa = PBXBuildFile; fileRef = 84D2EB291E49C52B00B2A2CD /* UIView+IUEmpty.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -80,8 +78,6 @@
 		84D2EB221E49C52B00B2A2CD /* NSString+IURegex.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+IURegex.m"; sourceTree = "<group>"; };
 		84D2EB231E49C52B00B2A2CD /* UIColor+IUGenerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+IUGenerator.h"; sourceTree = "<group>"; };
 		84D2EB241E49C52B00B2A2CD /* UIColor+IUGenerator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+IUGenerator.m"; sourceTree = "<group>"; };
-		84D2EB251E49C52B00B2A2CD /* UIImage+IUTransform.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+IUTransform.h"; sourceTree = "<group>"; };
-		84D2EB261E49C52B00B2A2CD /* UIImage+IUTransform.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+IUTransform.m"; sourceTree = "<group>"; };
 		84D2EB271E49C52B00B2A2CD /* UITableView+IUDataBinder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableView+IUDataBinder.h"; sourceTree = "<group>"; };
 		84D2EB281E49C52B00B2A2CD /* UITableView+IUDataBinder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableView+IUDataBinder.m"; sourceTree = "<group>"; };
 		84D2EB291E49C52B00B2A2CD /* UIView+IUEmpty.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+IUEmpty.h"; sourceTree = "<group>"; };
@@ -136,8 +132,6 @@
 				84D2EB4E1E4B166000B2A2CD /* NSString+IUTokenizer.m */,
 				84D2EB231E49C52B00B2A2CD /* UIColor+IUGenerator.h */,
 				84D2EB241E49C52B00B2A2CD /* UIColor+IUGenerator.m */,
-				84D2EB251E49C52B00B2A2CD /* UIImage+IUTransform.h */,
-				84D2EB261E49C52B00B2A2CD /* UIImage+IUTransform.m */,
 				84D2EB271E49C52B00B2A2CD /* UITableView+IUDataBinder.h */,
 				84D2EB281E49C52B00B2A2CD /* UITableView+IUDataBinder.m */,
 				84D2EB291E49C52B00B2A2CD /* UIView+IUEmpty.h */,
@@ -189,7 +183,6 @@
 				84DFC6081E34D26D000A588C /* IUUtil.h in Headers */,
 				84D2EB431E49C52B00B2A2CD /* UIView+IUEmpty.h in Headers */,
 				84D2EB471E49C52B00B2A2CD /* UIViewController+IUAlertController.h in Headers */,
-				84D2EB3F1E49C52B00B2A2CD /* UIImage+IUTransform.h in Headers */,
 				84D2EB3D1E49C52B00B2A2CD /* UIColor+IUGenerator.h in Headers */,
 				84D2EB451E49C52B00B2A2CD /* UIView+IUTouchAreaExpand.h in Headers */,
 				84D2EB331E49C52B00B2A2CD /* IUTabPageView.h in Headers */,
@@ -305,7 +298,6 @@
 				84D2EB481E49C52B00B2A2CD /* UIViewController+IUAlertController.m in Sources */,
 				84D2EB321E49C52B00B2A2CD /* IUForceTouchGestureRecognizer.m in Sources */,
 				84D2EB381E49C52B00B2A2CD /* NSDate+IUQuickDate.m in Sources */,
-				84D2EB401E49C52B00B2A2CD /* UIImage+IUTransform.m in Sources */,
 				84D2EB461E49C52B00B2A2CD /* UIView+IUTouchAreaExpand.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

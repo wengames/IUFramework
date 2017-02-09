@@ -8,13 +8,14 @@
 
 #import "UIView+IUTouchAreaExpand.h"
 #import <objc/runtime.h>
+#import <IUMethodSwizzle/IUMethodSwizzle.h>
 
 static char TAG_VIEW_TOUCH_AREA_EXPAND_INSETS;
 
 @implementation UIView (IUTouchAreaExpand)
 
 + (void)load {
-    method_exchangeImplementations(class_getInstanceMethod(self, @selector(pointInside:withEvent:)), class_getInstanceMethod(self, @selector(iuTouchAreaExpand_UIView_pointInside:withEvent:)));
+    [self swizzleInstanceSelector:@selector(pointInside:withEvent:) toSelector:@selector(iuTouchAreaExpand_UIView_pointInside:withEvent:)];
 }
 
 - (void)setExpandEdge:(CGFloat)edge {

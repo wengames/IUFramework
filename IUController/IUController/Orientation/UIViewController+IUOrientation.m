@@ -7,12 +7,12 @@
 //
 
 #import "UIViewController+IUOrientation.h"
-#import "objc/runtime.h"
+#import <IUMethodSwizzle/IUMethodSwizzle.h>
 
 @implementation UIViewController (IUOrientation)
 
 + (void)load {
-    method_exchangeImplementations(class_getInstanceMethod(self, @selector(viewWillAppear:)), class_getInstanceMethod(self, @selector(iuOrientation_UIViewController_viewWillAppear:)));
+    [self swizzleInstanceSelector:@selector(viewWillAppear:) toSelector:@selector(iuOrientation_UIViewController_viewWillAppear:)];
 }
 
 - (void)iuOrientation_UIViewController_viewWillAppear:(BOOL)animated {

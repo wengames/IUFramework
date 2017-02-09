@@ -8,6 +8,7 @@
 
 #import "UINavigationController+IUAutoHidesBottomBarWhenPushed.h"
 #import "objc/runtime.h"
+#import <IUMethodSwizzle/IUMethodSwizzle.h>
 
 static char TAG_NAVIGATION_CONTROLLER_INNER_DELEGATE;
 static char TAG_VIEW_CONTROLLER_IGNORE_AUTO_HIDES_BOTTOM_BAR_WHEN_PUSHED;
@@ -49,11 +50,11 @@ static char TAG_VIEW_CONTROLLER_IGNORE_AUTO_HIDES_BOTTOM_BAR_WHEN_PUSHED;
 @implementation UINavigationController (IUAutoHidesBottomBarWhenPushed)
 
 + (void)load {
-    method_exchangeImplementations(class_getInstanceMethod(self, @selector(pushViewController:animated:)), class_getInstanceMethod(self, @selector(iuAutoHidesBottomBarWhenPushed_UINavigationContorller_pushViewController:animated:)));
-    method_exchangeImplementations(class_getInstanceMethod(self, @selector(popViewControllerAnimated:)), class_getInstanceMethod(self, @selector(iuAutoHidesBottomBarWhenPushed_UINavigationContorller_popViewControllerAnimated:)));
-    method_exchangeImplementations(class_getInstanceMethod(self, @selector(popToRootViewControllerAnimated:)), class_getInstanceMethod(self, @selector(iuAutoHidesBottomBarWhenPushed_UINavigationContorller_popToRootViewControllerAnimated:)));
-    method_exchangeImplementations(class_getInstanceMethod(self, @selector(popToViewController:animated:)), class_getInstanceMethod(self, @selector(iuAutoHidesBottomBarWhenPushed_UINavigationContorller_popToViewController:animated:)));
-    method_exchangeImplementations(class_getInstanceMethod(self, @selector(setViewControllers:animated:)), class_getInstanceMethod(self, @selector(iuAutoHidesBottomBarWhenPushed_UINavigationContorller_setViewControllers:animated:)));
+    [self swizzleInstanceSelector:@selector(pushViewController:animated:) toSelector:@selector(iuAutoHidesBottomBarWhenPushed_UINavigationContorller_pushViewController:animated:)];
+    [self swizzleInstanceSelector:@selector(popViewControllerAnimated:) toSelector:@selector(iuAutoHidesBottomBarWhenPushed_UINavigationContorller_popViewControllerAnimated:)];
+    [self swizzleInstanceSelector:@selector(popToRootViewControllerAnimated:) toSelector:@selector(iuAutoHidesBottomBarWhenPushed_UINavigationContorller_popToRootViewControllerAnimated:)];
+    [self swizzleInstanceSelector:@selector(popToViewController:animated:) toSelector:@selector(iuAutoHidesBottomBarWhenPushed_UINavigationContorller_popToViewController:animated:)];
+    [self swizzleInstanceSelector:@selector(setViewControllers:animated:) toSelector:@selector(iuAutoHidesBottomBarWhenPushed_UINavigationContorller_setViewControllers:animated:)];
 }
 
 #pragma mark Override Push & Pop Method

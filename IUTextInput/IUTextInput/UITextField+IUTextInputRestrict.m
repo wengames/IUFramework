@@ -8,6 +8,7 @@
 
 #import "UITextField+IUTextInputRestrict.h"
 #import "objc/runtime.h"
+#import <IUMethodSwizzle/IUMethodSwizzle.h>
 
 static char TAG_TEXT_FIELD_TEXT_INPUT_RESTRICT;
 static char TAG_TEXT_FIELD_MAX_TEXT_LENGTH;
@@ -22,7 +23,7 @@ static char TAG_TEXT_FIELD_MAX_TEXT_LENGTH;
 @implementation UITextField (IUTextInputRestrict)
 
 + (void)load {
-    method_exchangeImplementations(class_getInstanceMethod(self, @selector(setText:)), class_getInstanceMethod(self, @selector(iuTextInputRestrict_UITextField_setText:)));
+    [self swizzleInstanceSelector:@selector(setText:) toSelector:@selector(iuTextInputRestrict_UITextField_setText:)];
 }
 
 - (void)iuTextInputRestrict_UITextField_setText:(NSString *)text {

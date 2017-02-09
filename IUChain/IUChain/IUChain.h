@@ -10,9 +10,6 @@
 
 #ifdef __OBJC__
 
-// other class can add chain method if IUChainEnable is defined
-#define IUChainEnable
-
 #import "NSObject+IUChain.h"
     #import "UIGestureRecognizer+IUChain.h"
     #import "UIView+IUChain.h"

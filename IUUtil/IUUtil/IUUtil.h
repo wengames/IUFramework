@@ -15,7 +15,6 @@
 #import "NSString+IUEvaluate.h"
 #import "NSString+IUTokenizer.h"
 
-#import "UIImage+IUTransform.h"
 #import "UIColor+IUGenerator.h"
 
 #import "UIView+IUEmpty.h"

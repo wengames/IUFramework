@@ -78,24 +78,9 @@ static char TAG_OBJECT_PREVIEW_CONTROLLER_CREATOR;
     }
 }
 
-- (void)viewWillAppearForTheFirstTime:(BOOL)animated {
-    // override point
-}
-
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    
-    // 直系导航控制器
-    if ([self.parentViewController isKindOfClass:[UINavigationController class]]) {
-        [self.navigationController setNavigationBarHidden:self.navigationBarHidden animated:animated];
-    }
-    
     [self addObserverForKeyboard];
-    
-    if (!self.viewHasAppeared) {
-        self.viewHasAppeared = YES;
-        [self viewWillAppearForTheFirstTime:animated];
-    }
 }
 
 - (void)viewWillDisappear:(BOOL)animated {

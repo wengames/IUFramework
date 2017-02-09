@@ -23,16 +23,18 @@
 #import "UINavigationController+IUOrientation.h"
 #import "UITabBarController+IUOrientation.h"
 
-// push & pop
+// navigation controller
 #import "UINavigationController+IUAutoHidesBottomBarWhenPushed.h"
 #import "UINavigationController+IUFullScreenInteractivePopGestureRecognizer.h"
+#import "UIViewController+IUNavigationBarHidden.h"
+
+// view controller
+#import "UIViewController+IUAppear.h"
+#import "IUViewController.h"
 
 // transition
 #import "IUTransitionAnimator.h"
 #import "IUTransitioningDelegate.h"
 #import "UIViewController+IUMagicTransition.h"
-
-// base view controller
-#import "IUViewController.h"
 
 #endif

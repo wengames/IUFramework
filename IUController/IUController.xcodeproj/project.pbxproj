@@ -22,8 +22,6 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
-		84A3674E1E3738C60058F21B /* IUViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 84A3674C1E3738C60058F21B /* IUViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		84A3674F1E3738C60058F21B /* IUViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A3674D1E3738C60058F21B /* IUViewController.m */; };
 		84D2EA661E48169100B2A2CD /* UIViewController+IUStatusBarStyle.h in Headers */ = {isa = PBXBuildFile; fileRef = 84D2EA641E48169100B2A2CD /* UIViewController+IUStatusBarStyle.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		84D2EA671E48169100B2A2CD /* UIViewController+IUStatusBarStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = 84D2EA651E48169100B2A2CD /* UIViewController+IUStatusBarStyle.m */; };
 		84D2EA6A1E48170C00B2A2CD /* UIViewController+IUStatusBarHidden.h in Headers */ = {isa = PBXBuildFile; fileRef = 84D2EA681E48170C00B2A2CD /* UIViewController+IUStatusBarHidden.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -44,13 +42,22 @@
 		84D2EA891E4818E300B2A2CD /* IUTransitionAnimator.m in Sources */ = {isa = PBXBuildFile; fileRef = 84D2EA851E4818E300B2A2CD /* IUTransitionAnimator.m */; };
 		84D2EA8A1E4818E300B2A2CD /* IUTransitioningDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = 84D2EA861E4818E300B2A2CD /* IUTransitioningDelegate.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		84D2EA8B1E4818E300B2A2CD /* IUTransitioningDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 84D2EA871E4818E300B2A2CD /* IUTransitioningDelegate.m */; };
-		84D2EA911E481A3500B2A2CD /* UINavigationController+IUAutoHidesBottomBarWhenPushed.h in Headers */ = {isa = PBXBuildFile; fileRef = 84D2EA8D1E481A3500B2A2CD /* UINavigationController+IUAutoHidesBottomBarWhenPushed.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		84D2EA921E481A3500B2A2CD /* UINavigationController+IUAutoHidesBottomBarWhenPushed.m in Sources */ = {isa = PBXBuildFile; fileRef = 84D2EA8E1E481A3500B2A2CD /* UINavigationController+IUAutoHidesBottomBarWhenPushed.m */; };
-		84D2EA931E481A3500B2A2CD /* UINavigationController+IUFullScreenInteractivePopGestureRecognizer.h in Headers */ = {isa = PBXBuildFile; fileRef = 84D2EA8F1E481A3500B2A2CD /* UINavigationController+IUFullScreenInteractivePopGestureRecognizer.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		84D2EA941E481A3500B2A2CD /* UINavigationController+IUFullScreenInteractivePopGestureRecognizer.m in Sources */ = {isa = PBXBuildFile; fileRef = 84D2EA901E481A3500B2A2CD /* UINavigationController+IUFullScreenInteractivePopGestureRecognizer.m */; };
 		84D2EB4B1E49C7F000B2A2CD /* UIViewController+IUMagicTransition.h in Headers */ = {isa = PBXBuildFile; fileRef = 84D2EB491E49C7F000B2A2CD /* UIViewController+IUMagicTransition.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		84D2EB4C1E49C7F000B2A2CD /* UIViewController+IUMagicTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 84D2EB4A1E49C7F000B2A2CD /* UIViewController+IUMagicTransition.m */; };
+		84D2EB641E4B2CF100B2A2CD /* UINavigationController+IUAutoHidesBottomBarWhenPushed.h in Headers */ = {isa = PBXBuildFile; fileRef = 84D2EB5E1E4B2CF100B2A2CD /* UINavigationController+IUAutoHidesBottomBarWhenPushed.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		84D2EB651E4B2CF100B2A2CD /* UINavigationController+IUAutoHidesBottomBarWhenPushed.m in Sources */ = {isa = PBXBuildFile; fileRef = 84D2EB5F1E4B2CF100B2A2CD /* UINavigationController+IUAutoHidesBottomBarWhenPushed.m */; };
+		84D2EB661E4B2CF100B2A2CD /* UINavigationController+IUFullScreenInteractivePopGestureRecognizer.h in Headers */ = {isa = PBXBuildFile; fileRef = 84D2EB601E4B2CF100B2A2CD /* UINavigationController+IUFullScreenInteractivePopGestureRecognizer.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		84D2EB671E4B2CF100B2A2CD /* UINavigationController+IUFullScreenInteractivePopGestureRecognizer.m in Sources */ = {isa = PBXBuildFile; fileRef = 84D2EB611E4B2CF100B2A2CD /* UINavigationController+IUFullScreenInteractivePopGestureRecognizer.m */; };
+		84D2EB681E4B2CF100B2A2CD /* UIViewController+IUNavigationBarHidden.h in Headers */ = {isa = PBXBuildFile; fileRef = 84D2EB621E4B2CF100B2A2CD /* UIViewController+IUNavigationBarHidden.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		84D2EB691E4B2CF100B2A2CD /* UIViewController+IUNavigationBarHidden.m in Sources */ = {isa = PBXBuildFile; fileRef = 84D2EB631E4B2CF100B2A2CD /* UIViewController+IUNavigationBarHidden.m */; };
+		84D2EB6F1E4B2D1800B2A2CD /* IUViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 84D2EB6B1E4B2D1800B2A2CD /* IUViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		84D2EB701E4B2D1800B2A2CD /* IUViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84D2EB6C1E4B2D1800B2A2CD /* IUViewController.m */; };
+		84D2EB711E4B2D1800B2A2CD /* UIViewController+IUAppear.h in Headers */ = {isa = PBXBuildFile; fileRef = 84D2EB6D1E4B2D1800B2A2CD /* UIViewController+IUAppear.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		84D2EB721E4B2D1800B2A2CD /* UIViewController+IUAppear.m in Sources */ = {isa = PBXBuildFile; fileRef = 84D2EB6E1E4B2D1800B2A2CD /* UIViewController+IUAppear.m */; };
+		84D2EB751E4B2F6A00B2A2CD /* UIViewController+IUPreviewing.h in Headers */ = {isa = PBXBuildFile; fileRef = 84D2EB731E4B2F6A00B2A2CD /* UIViewController+IUPreviewing.h */; };
+		84D2EB761E4B2F6A00B2A2CD /* UIViewController+IUPreviewing.m in Sources */ = {isa = PBXBuildFile; fileRef = 84D2EB741E4B2F6A00B2A2CD /* UIViewController+IUPreviewing.m */; };
 		84DFC6321E34D2CC000A588C /* IUController.h in Headers */ = {isa = PBXBuildFile; fileRef = 84DFC6301E34D2CC000A588C /* IUController.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		84FBCD4A1E4C5FF000A35006 /* IUMethodSwizzle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84FBCD491E4C5FF000A35006 /* IUMethodSwizzle.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,8 +71,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		84A3674C1E3738C60058F21B /* IUViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IUViewController.h; sourceTree = "<group>"; };
-		84A3674D1E3738C60058F21B /* IUViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IUViewController.m; sourceTree = "<group>"; };
 		84D2EA641E48169100B2A2CD /* UIViewController+IUStatusBarStyle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+IUStatusBarStyle.h"; sourceTree = "<group>"; };
 		84D2EA651E48169100B2A2CD /* UIViewController+IUStatusBarStyle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+IUStatusBarStyle.m"; sourceTree = "<group>"; };
 		84D2EA681E48170C00B2A2CD /* UIViewController+IUStatusBarHidden.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+IUStatusBarHidden.h"; sourceTree = "<group>"; };
@@ -86,15 +91,24 @@
 		84D2EA851E4818E300B2A2CD /* IUTransitionAnimator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IUTransitionAnimator.m; sourceTree = "<group>"; };
 		84D2EA861E4818E300B2A2CD /* IUTransitioningDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IUTransitioningDelegate.h; sourceTree = "<group>"; };
 		84D2EA871E4818E300B2A2CD /* IUTransitioningDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IUTransitioningDelegate.m; sourceTree = "<group>"; };
-		84D2EA8D1E481A3500B2A2CD /* UINavigationController+IUAutoHidesBottomBarWhenPushed.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationController+IUAutoHidesBottomBarWhenPushed.h"; sourceTree = "<group>"; };
-		84D2EA8E1E481A3500B2A2CD /* UINavigationController+IUAutoHidesBottomBarWhenPushed.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationController+IUAutoHidesBottomBarWhenPushed.m"; sourceTree = "<group>"; };
-		84D2EA8F1E481A3500B2A2CD /* UINavigationController+IUFullScreenInteractivePopGestureRecognizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationController+IUFullScreenInteractivePopGestureRecognizer.h"; sourceTree = "<group>"; };
-		84D2EA901E481A3500B2A2CD /* UINavigationController+IUFullScreenInteractivePopGestureRecognizer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationController+IUFullScreenInteractivePopGestureRecognizer.m"; sourceTree = "<group>"; };
 		84D2EB491E49C7F000B2A2CD /* UIViewController+IUMagicTransition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+IUMagicTransition.h"; sourceTree = "<group>"; };
 		84D2EB4A1E49C7F000B2A2CD /* UIViewController+IUMagicTransition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+IUMagicTransition.m"; sourceTree = "<group>"; };
+		84D2EB5E1E4B2CF100B2A2CD /* UINavigationController+IUAutoHidesBottomBarWhenPushed.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationController+IUAutoHidesBottomBarWhenPushed.h"; sourceTree = "<group>"; };
+		84D2EB5F1E4B2CF100B2A2CD /* UINavigationController+IUAutoHidesBottomBarWhenPushed.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationController+IUAutoHidesBottomBarWhenPushed.m"; sourceTree = "<group>"; };
+		84D2EB601E4B2CF100B2A2CD /* UINavigationController+IUFullScreenInteractivePopGestureRecognizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationController+IUFullScreenInteractivePopGestureRecognizer.h"; sourceTree = "<group>"; };
+		84D2EB611E4B2CF100B2A2CD /* UINavigationController+IUFullScreenInteractivePopGestureRecognizer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationController+IUFullScreenInteractivePopGestureRecognizer.m"; sourceTree = "<group>"; };
+		84D2EB621E4B2CF100B2A2CD /* UIViewController+IUNavigationBarHidden.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+IUNavigationBarHidden.h"; sourceTree = "<group>"; };
+		84D2EB631E4B2CF100B2A2CD /* UIViewController+IUNavigationBarHidden.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+IUNavigationBarHidden.m"; sourceTree = "<group>"; };
+		84D2EB6B1E4B2D1800B2A2CD /* IUViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IUViewController.h; sourceTree = "<group>"; };
+		84D2EB6C1E4B2D1800B2A2CD /* IUViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IUViewController.m; sourceTree = "<group>"; };
+		84D2EB6D1E4B2D1800B2A2CD /* UIViewController+IUAppear.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+IUAppear.h"; sourceTree = "<group>"; };
+		84D2EB6E1E4B2D1800B2A2CD /* UIViewController+IUAppear.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+IUAppear.m"; sourceTree = "<group>"; };
+		84D2EB731E4B2F6A00B2A2CD /* UIViewController+IUPreviewing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+IUPreviewing.h"; sourceTree = "<group>"; };
+		84D2EB741E4B2F6A00B2A2CD /* UIViewController+IUPreviewing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+IUPreviewing.m"; sourceTree = "<group>"; };
 		84DFC62D1E34D2CC000A588C /* IUController.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = IUController.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		84DFC6301E34D2CC000A588C /* IUController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IUController.h; sourceTree = "<group>"; };
 		84DFC6311E34D2CC000A588C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		84FBCD491E4C5FF000A35006 /* IUMethodSwizzle.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IUMethodSwizzle.framework; path = "../../../../Library/Developer/Xcode/DerivedData/IUFramework-egbnowvfnsxwcufwgjnrhpvcgmot/Build/Products/Debug-iphoneos/IUMethodSwizzle.framework"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +116,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				84FBCD4A1E4C5FF000A35006 /* IUMethodSwizzle.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -151,15 +166,30 @@
 			path = StatusBar;
 			sourceTree = "<group>";
 		};
-		84D2EA8C1E481A3500B2A2CD /* Push&Pop */ = {
+		84D2EB5D1E4B2CF100B2A2CD /* NavigationController */ = {
 			isa = PBXGroup;
 			children = (
-				84D2EA8D1E481A3500B2A2CD /* UINavigationController+IUAutoHidesBottomBarWhenPushed.h */,
-				84D2EA8E1E481A3500B2A2CD /* UINavigationController+IUAutoHidesBottomBarWhenPushed.m */,
-				84D2EA8F1E481A3500B2A2CD /* UINavigationController+IUFullScreenInteractivePopGestureRecognizer.h */,
-				84D2EA901E481A3500B2A2CD /* UINavigationController+IUFullScreenInteractivePopGestureRecognizer.m */,
+				84D2EB5E1E4B2CF100B2A2CD /* UINavigationController+IUAutoHidesBottomBarWhenPushed.h */,
+				84D2EB5F1E4B2CF100B2A2CD /* UINavigationController+IUAutoHidesBottomBarWhenPushed.m */,
+				84D2EB601E4B2CF100B2A2CD /* UINavigationController+IUFullScreenInteractivePopGestureRecognizer.h */,
+				84D2EB611E4B2CF100B2A2CD /* UINavigationController+IUFullScreenInteractivePopGestureRecognizer.m */,
+				84D2EB621E4B2CF100B2A2CD /* UIViewController+IUNavigationBarHidden.h */,
+				84D2EB631E4B2CF100B2A2CD /* UIViewController+IUNavigationBarHidden.m */,
 			);
-			path = "Push&Pop";
+			path = NavigationController;
+			sourceTree = "<group>";
+		};
+		84D2EB6A1E4B2D1800B2A2CD /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				84D2EB6B1E4B2D1800B2A2CD /* IUViewController.h */,
+				84D2EB6C1E4B2D1800B2A2CD /* IUViewController.m */,
+				84D2EB6D1E4B2D1800B2A2CD /* UIViewController+IUAppear.h */,
+				84D2EB6E1E4B2D1800B2A2CD /* UIViewController+IUAppear.m */,
+				84D2EB731E4B2F6A00B2A2CD /* UIViewController+IUPreviewing.h */,
+				84D2EB741E4B2F6A00B2A2CD /* UIViewController+IUPreviewing.m */,
+			);
+			path = ViewController;
 			sourceTree = "<group>";
 		};
 		84DFC6231E34D2CC000A588C = {
@@ -167,6 +197,7 @@
 			children = (
 				84DFC62F1E34D2CC000A588C /* IUController */,
 				84DFC62E1E34D2CC000A588C /* Products */,
+				84FBCD481E4C5FF000A35006 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -182,15 +213,22 @@
 			isa = PBXGroup;
 			children = (
 				84DFC6301E34D2CC000A588C /* IUController.h */,
-				84A3674C1E3738C60058F21B /* IUViewController.h */,
-				84A3674D1E3738C60058F21B /* IUViewController.m */,
-				84D2EA8C1E481A3500B2A2CD /* Push&Pop */,
+				84D2EB6A1E4B2D1800B2A2CD /* ViewController */,
+				84D2EB5D1E4B2CF100B2A2CD /* NavigationController */,
 				84D2EA611E48165D00B2A2CD /* Transition */,
 				84D2EA621E48165D00B2A2CD /* Orientation */,
 				84D2EA631E48165D00B2A2CD /* StatusBar */,
 				84DFC6311E34D2CC000A588C /* Info.plist */,
 			);
 			path = IUController;
+			sourceTree = "<group>";
+		};
+		84FBCD481E4C5FF000A35006 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				84FBCD491E4C5FF000A35006 /* IUMethodSwizzle.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -209,12 +247,15 @@
 				84D2EA7E1E48183400B2A2CD /* UITabBarController+IUStatusBar.h in Headers */,
 				84D2EA7A1E48180200B2A2CD /* UINavigationController+IUStatusBar.h in Headers */,
 				84D2EA821E48188300B2A2CD /* UITabBarController+IUOrientation.h in Headers */,
-				84D2EA911E481A3500B2A2CD /* UINavigationController+IUAutoHidesBottomBarWhenPushed.h in Headers */,
-				84D2EA931E481A3500B2A2CD /* UINavigationController+IUFullScreenInteractivePopGestureRecognizer.h in Headers */,
+				84D2EB641E4B2CF100B2A2CD /* UINavigationController+IUAutoHidesBottomBarWhenPushed.h in Headers */,
+				84D2EB681E4B2CF100B2A2CD /* UIViewController+IUNavigationBarHidden.h in Headers */,
+				84D2EB661E4B2CF100B2A2CD /* UINavigationController+IUFullScreenInteractivePopGestureRecognizer.h in Headers */,
+				84D2EB711E4B2D1800B2A2CD /* UIViewController+IUAppear.h in Headers */,
+				84D2EB751E4B2F6A00B2A2CD /* UIViewController+IUPreviewing.h in Headers */,
+				84D2EB6F1E4B2D1800B2A2CD /* IUViewController.h in Headers */,
 				84D2EB4B1E49C7F000B2A2CD /* UIViewController+IUMagicTransition.h in Headers */,
 				84D2EA721E48179B00B2A2CD /* UIViewController+IUOrientation.h in Headers */,
 				84D2EA6A1E48170C00B2A2CD /* UIViewController+IUStatusBarHidden.h in Headers */,
-				84A3674E1E3738C60058F21B /* IUViewController.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -313,14 +354,17 @@
 				84D2EB4C1E49C7F000B2A2CD /* UIViewController+IUMagicTransition.m in Sources */,
 				84D2EA891E4818E300B2A2CD /* IUTransitionAnimator.m in Sources */,
 				84D2EA6B1E48170C00B2A2CD /* UIViewController+IUStatusBarHidden.m in Sources */,
+				84D2EB671E4B2CF100B2A2CD /* UINavigationController+IUFullScreenInteractivePopGestureRecognizer.m in Sources */,
+				84D2EB721E4B2D1800B2A2CD /* UIViewController+IUAppear.m in Sources */,
 				84D2EA7F1E48183400B2A2CD /* UITabBarController+IUStatusBar.m in Sources */,
-				84D2EA941E481A3500B2A2CD /* UINavigationController+IUFullScreenInteractivePopGestureRecognizer.m in Sources */,
 				84D2EA771E4817C100B2A2CD /* UINavigationController+IUOrientation.m in Sources */,
 				84D2EA831E48188300B2A2CD /* UITabBarController+IUOrientation.m in Sources */,
 				84D2EA6F1E48173A00B2A2CD /* UIViewController+IUStatusBarAutoRefresh.m in Sources */,
+				84D2EB761E4B2F6A00B2A2CD /* UIViewController+IUPreviewing.m in Sources */,
+				84D2EB701E4B2D1800B2A2CD /* IUViewController.m in Sources */,
 				84D2EA7B1E48180200B2A2CD /* UINavigationController+IUStatusBar.m in Sources */,
-				84A3674F1E3738C60058F21B /* IUViewController.m in Sources */,
-				84D2EA921E481A3500B2A2CD /* UINavigationController+IUAutoHidesBottomBarWhenPushed.m in Sources */,
+				84D2EB691E4B2CF100B2A2CD /* UIViewController+IUNavigationBarHidden.m in Sources */,
+				84D2EB651E4B2CF100B2A2CD /* UINavigationController+IUAutoHidesBottomBarWhenPushed.m in Sources */,
 				84D2EA8B1E4818E300B2A2CD /* IUTransitioningDelegate.m in Sources */,
 				84D2EA731E48179B00B2A2CD /* UIViewController+IUOrientation.m in Sources */,
 			);

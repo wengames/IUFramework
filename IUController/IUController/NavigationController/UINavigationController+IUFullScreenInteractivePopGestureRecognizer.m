@@ -9,6 +9,7 @@
 #import "UINavigationController+IUFullScreenInteractivePopGestureRecognizer.h"
 #import "IUTransitioningDelegate.h"
 #import <objc/runtime.h>
+#import <IUMethodSwizzle/IUMethodSwizzle.h>
 
 static char TAG_TRANSITION_GESTURE_RECOGNIZER_HELPER;
 
@@ -37,13 +38,19 @@ static char TAG_TRANSITION_GESTURE_RECOGNIZER_HELPER;
 @implementation UINavigationController (IUFullScreenInteractivePopGestureRecognizer)
 
 + (void)load {
-    method_exchangeImplementations(class_getInstanceMethod(self, @selector(setDelegate:)), class_getInstanceMethod(self, @selector(iuFullScreenInteractivePopGestureRecognizer_UINavigationController_setDelegate:)));
-    method_exchangeImplementations(class_getInstanceMethod(self, @selector(viewWillAppear:)), class_getInstanceMethod(self, @selector(iuFullScreenInteractivePopGestureRecognizer_UINavigationController_viewWillAppear:)));
+    [self swizzleInstanceSelector:@selector(setDelegate:) toSelector:@selector(iuFullScreenInteractivePopGestureRecognizer_UINavigationController_setDelegate:)];
+    [self swizzleInstanceSelector:@selector(viewWillAppear:) toSelector:@selector(iuFullScreenInteractivePopGestureRecognizer_UINavigationController_viewWillAppear:)];
+    [self swizzleInstanceSelector:@selector(viewDidLoad) toSelector:@selector(iuFullScreenInteractivePopGestureRecognizer_UINavigationController_viewDidLoad)];
 }
 
 - (void)iuFullScreenInteractivePopGestureRecognizer_UINavigationController_viewWillAppear:(BOOL)animated {
     [self iuFullScreenInteractivePopGestureRecognizer_UINavigationController_viewWillAppear:animated];
     [[self.viewControllers firstObject] _showDismissButtonItem:self.presentingViewController];
+}
+
+- (void)iuFullScreenInteractivePopGestureRecognizer_UINavigationController_viewDidLoad {
+    [self iuFullScreenInteractivePopGestureRecognizer_UINavigationController_viewDidLoad];
+    self.fullScreenInteractivePopGestureRecognizer.enabled = YES;
 }
 
 - (void)iuFullScreenInteractivePopGestureRecognizer_UINavigationController_setDelegate:(id<UINavigationControllerDelegate>)delegate {
@@ -93,7 +100,6 @@ static char TAG_TRANSITION_GESTURE_RECOGNIZER_HELPER;
 - (UIPanGestureRecognizer *)panGestureRecognizer {
     if (_panGestureRecognizer == nil) {
         _panGestureRecognizer = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(pan:)];
-        _panGestureRecognizer.enabled = NO;
         _panGestureRecognizer.delegate = self;
     }
     return _panGestureRecognizer;
@@ -162,7 +168,7 @@ static char TAG_VIEW_CONTROLLER_DISSMISS_BUTTON_ITEM_CREATED;
 @implementation UIViewController (IUPopBack)
 
 + (void)load {
-    method_exchangeImplementations(class_getInstanceMethod(self, @selector(willMoveToParentViewController:)), class_getInstanceMethod(self, @selector(iuPopBack_UIViewController_willMoveToParentViewController:)));
+    [self swizzleInstanceSelector:@selector(willMoveToParentViewController:) toSelector:@selector(iuPopBack_UIViewController_willMoveToParentViewController:)];
 }
 
 - (void)iuPopBack_UIViewController_willMoveToParentViewController:(UIViewController *)parent {
