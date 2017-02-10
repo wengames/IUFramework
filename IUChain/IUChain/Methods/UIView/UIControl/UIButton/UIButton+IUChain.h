@@ -23,6 +23,6 @@ IUChainMethod_UIControl(returnClass) \
 
 @interface UIButton (IUChain)
 
-IUChainMethod_UIButton(UIButton)
+@IUChainMethod_UIButton(UIButton)
 
 @end

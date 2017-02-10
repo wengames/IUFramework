@@ -319,7 +319,7 @@
             ws.xButton.frame = CGRectMake(0, frame.origin.y + frame.size.height - keyboardHeight/4.f, tempWindow.bounds.size.width/3.f, keyboardHeight/4.f);
         }];
         
-        [UIView animateWithDuration:[info[UIKeyboardAnimationDurationUserInfoKey] doubleValue] delay:0 options:[info[UIKeyboardAnimationCurveUserInfoKey] intValue] >> 16 animations:^{
+        [UIView animateWithDuration:[info[UIKeyboardAnimationDurationUserInfoKey] doubleValue] delay:0 options:[info[UIKeyboardAnimationCurveUserInfoKey] intValue] << 16 animations:^{
             ws.xButton.frame = CGRectMake(0, tempWindow.bounds.size.height - keyboardHeight/4.f, tempWindow.bounds.size.width/3.f, keyboardHeight/4.f);
         } completion:^(BOOL finished) {
             if (![self.inputView isFirstResponder]) {
@@ -342,7 +342,7 @@
     NSDictionary *info = notification.userInfo;
     CGFloat keyboardHeight = [info[UIKeyboardFrameBeginUserInfoKey] CGRectValue].size.height;
     if (ws.xButton.superview) {
-        [UIView animateWithDuration:[info[UIKeyboardAnimationDurationUserInfoKey] doubleValue] delay:0 options:[info[UIKeyboardAnimationCurveUserInfoKey] intValue] >> 16 animations:^{
+        [UIView animateWithDuration:[info[UIKeyboardAnimationDurationUserInfoKey] doubleValue] delay:0 options:[info[UIKeyboardAnimationCurveUserInfoKey] intValue] << 16 animations:^{
             ws.xButton.frame = CGRectMake(0, ws.xButton.superview.bounds.size.height + keyboardHeight - keyboardHeight/4.f, ws.xButton.superview.bounds.size.width/3.f, keyboardHeight/4.f);
         } completion:^(BOOL finished) {
             if (finished && ![ws.inputView isFirstResponder]) {

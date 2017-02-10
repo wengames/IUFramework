@@ -25,6 +25,6 @@ IUChainMethod_UIControl(returnClass) \
 
 @interface UISlider (IUChain)
 
-IUChainMethod_UISlider(UISlider)
+@IUChainMethod_UISlider(UISlider)
 
 @end

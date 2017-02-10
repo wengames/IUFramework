@@ -9,6 +9,52 @@
 #import "AppDelegate.h"
 #import "IndexViewController.h"
 
+@interface Father : NSObject
+
+@end
+
+@implementation Father
+
+- (void)call {
+    NSLog(@"father call");
+}
+
+@end
+
+@interface Son : Father
+
+@end
+
+@implementation Son
+
++ (void)load {
+    [self swizzleInstanceSelector:@selector(call) toSelector:@selector(_call)];
+}
+
+- (void)_call {
+    [self _call];
+    NSLog(@"son call");
+}
+
+@end
+
+@interface Grandson : Son
+
+@end
+
+@implementation Grandson
+
++ (void)load {
+    [self swizzleInstanceSelector:@selector(call) toSelector:@selector(__call)];
+}
+
+- (void)__call {
+    [self __call];
+    NSLog(@"grandson call");
+}
+
+@end
+
 @interface AppDelegate ()
 
 @end
@@ -26,12 +72,18 @@
     NSLog(@"[[NSNull null] count] = %ld", [obj count]);
     NSLog(@"[[NSNull null] firstObject] = %@", [obj firstObject]);
     
-//    CIFilter
+    [[Father new] call];
+    [[Son new] call];
+    [[Grandson new] call];
     
-    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]].setBackgroundColor([UIColor colorWithWhite:0.7 alpha:1]).setRootViewController([[UINavigationController alloc] initWithRootViewController:[[IndexViewController alloc] init]]);
-//    [(UINavigationController *)self.window.rootViewController fullScreenInteractivePopGestureRecognizer].enabled = YES;
+    UITabBarController *tabBarController = [[UITabBarController alloc] init];
+    tabBarController.viewControllers = @[
+                                         [[UINavigationController alloc] initWithRootViewController:[[IndexViewController alloc] init]],
+                                         [[UINavigationController alloc] initWithRootViewController:[[IndexViewController alloc] init]]
+                                         ];
+    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]].setBackgroundColor([UIColor colorWithWhite:0.7 alpha:1]).setRootViewController(tabBarController);
     [self.window makeKeyAndVisible];
-    
+        
     return YES;
 }
 

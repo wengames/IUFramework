@@ -52,6 +52,6 @@ IUChainMethod_NSObject(returnClass) \
 
 @interface UIView (IUChain)
 
-IUChainMethod_UIView(UIView)
+@IUChainMethod_UIView(UIView)
 
 @end

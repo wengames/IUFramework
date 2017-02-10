@@ -29,6 +29,7 @@
 		84DFC5C51E3493FC000A588C /* UITextView+IUTextInputRestrict.m in Sources */ = {isa = PBXBuildFile; fileRef = 84DFC5C31E3493FC000A588C /* UITextView+IUTextInputRestrict.m */; };
 		84DFC5C81E349407000A588C /* UITextField+IUTextInputRestrict.h in Headers */ = {isa = PBXBuildFile; fileRef = 84DFC5C61E349407000A588C /* UITextField+IUTextInputRestrict.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		84DFC5C91E349407000A588C /* UITextField+IUTextInputRestrict.m in Sources */ = {isa = PBXBuildFile; fileRef = 84DFC5C71E349407000A588C /* UITextField+IUTextInputRestrict.m */; };
+		84FBCD591E4C706100A35006 /* IUMethodSwizzle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84FBCD581E4C706100A35006 /* IUMethodSwizzle.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +52,7 @@
 		84DFC5C31E3493FC000A588C /* UITextView+IUTextInputRestrict.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITextView+IUTextInputRestrict.m"; sourceTree = "<group>"; };
 		84DFC5C61E349407000A588C /* UITextField+IUTextInputRestrict.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITextField+IUTextInputRestrict.h"; sourceTree = "<group>"; };
 		84DFC5C71E349407000A588C /* UITextField+IUTextInputRestrict.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITextField+IUTextInputRestrict.m"; sourceTree = "<group>"; };
+		84FBCD581E4C706100A35006 /* IUMethodSwizzle.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IUMethodSwizzle.framework; path = "../../../../Library/Developer/Xcode/DerivedData/IUFramework-egbnowvfnsxwcufwgjnrhpvcgmot/Build/Products/Debug-iphonesimulator/IUMethodSwizzle.framework"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +60,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				84FBCD591E4C706100A35006 /* IUMethodSwizzle.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -69,6 +72,7 @@
 			children = (
 				84DFC5B21E349385000A588C /* IUTextInput */,
 				84DFC5B11E349385000A588C /* Products */,
+				84FBCD571E4C706100A35006 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -93,6 +97,14 @@
 				84DFC5B41E349385000A588C /* Info.plist */,
 			);
 			path = IUTextInput;
+			sourceTree = "<group>";
+		};
+		84FBCD571E4C706100A35006 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				84FBCD581E4C706100A35006 /* IUMethodSwizzle.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

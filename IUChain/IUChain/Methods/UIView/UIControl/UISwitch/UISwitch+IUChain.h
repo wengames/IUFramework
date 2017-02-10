@@ -21,6 +21,6 @@ IUChainMethod_UIControl(returnClass) \
 
 @interface UISwitch (IUChain)
 
-IUChainMethod_UISwitch(UISwitch)
+@IUChainMethod_UISwitch(UISwitch)
 
 @end

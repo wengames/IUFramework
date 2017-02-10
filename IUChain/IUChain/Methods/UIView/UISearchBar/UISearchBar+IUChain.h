@@ -38,6 +38,6 @@ IUChainProtocolMethod_UITextInputTraits(returnClass) \
 
 @interface UISearchBar (IUChain)
 
-IUChainMethod_UISearchBar(UISearchBar)
+@IUChainMethod_UISearchBar(UISearchBar)
 
 @end

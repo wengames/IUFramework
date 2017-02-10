@@ -39,6 +39,6 @@ IUChainProtocolMethod_UIContentSizeCategoryAdjusting(returnClass) \
 
 @interface UITextView (IUChain)
 
-IUChainMethod_UITextView(UITextView)
+@IUChainMethod_UITextView(UITextView)
 
 @end

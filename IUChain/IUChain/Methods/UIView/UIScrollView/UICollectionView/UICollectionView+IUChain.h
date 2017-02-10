@@ -27,6 +27,6 @@ IUChainMethod_UIScrollView(returnClass) \
 
 @interface UICollectionView (IUChain)
 
-IUChainMethod_UICollectionView(UICollectionView)
+@IUChainMethod_UICollectionView(UICollectionView)
 
 @end

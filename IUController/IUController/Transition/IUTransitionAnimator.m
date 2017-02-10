@@ -37,7 +37,7 @@
 - (instancetype)init {
     if (self = [super init]) {
         self.duration = 0.35f;
-        self.animationCurve = UIViewAnimationCurveEaseOut;
+        self.animationCurve = UIViewAnimationCurveLinear;
     }
     return self;
 }

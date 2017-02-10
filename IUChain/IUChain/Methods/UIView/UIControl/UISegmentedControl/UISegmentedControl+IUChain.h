@@ -19,6 +19,6 @@ IUChainMethod_UIControl(returnClass) \
 
 @interface UISegmentedControl (IUChain)
 
-IUChainMethod_UISegmentedControl(UISegmentedControl)
+@IUChainMethod_UISegmentedControl(UISegmentedControl)
 
 @end

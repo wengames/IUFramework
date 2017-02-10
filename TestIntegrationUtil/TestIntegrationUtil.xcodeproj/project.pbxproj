@@ -34,6 +34,7 @@
 		84DFC65C1E34D396000A588C /* IUNetworking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84DFC65B1E34D396000A588C /* IUNetworking.framework */; };
 		84DFC65D1E34D396000A588C /* IUNetworking.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 84DFC65B1E34D396000A588C /* IUNetworking.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		84FBCD441E4C5F5900A35006 /* IUMethodSwizzle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84FBCD431E4C5F5900A35006 /* IUMethodSwizzle.framework */; };
+		84FBCD561E4C6D9900A35006 /* filter_test.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 84FBCD551E4C6D9900A35006 /* filter_test.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -91,6 +92,7 @@
 		84DFC65B1E34D396000A588C /* IUNetworking.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = IUNetworking.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		84DFC6651E372371000A588C /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		84FBCD431E4C5F5900A35006 /* IUMethodSwizzle.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IUMethodSwizzle.framework; path = "../IUMethodSwizzle/build/Debug-iphoneos/IUMethodSwizzle.framework"; sourceTree = "<group>"; };
+		84FBCD551E4C6D9900A35006 /* filter_test.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = filter_test.jpg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -134,6 +136,7 @@
 			children = (
 				841F52691E30931600223BB5 /* AppDelegate.h */,
 				841F526A1E30931600223BB5 /* AppDelegate.m */,
+				84FBCD551E4C6D9900A35006 /* filter_test.jpg */,
 				84D2EA2B1E45A7E400B2A2CD /* Index */,
 				84D2EA281E45A7E400B2A2CD /* Pushed */,
 				84D2EA271E45A7E400B2A2CD /* Non_Navi_Pushed */,
@@ -297,6 +300,7 @@
 				841F52761E30931600223BB5 /* LaunchScreen.storyboard in Resources */,
 				841F52731E30931600223BB5 /* Assets.xcassets in Resources */,
 				841F52711E30931600223BB5 /* Main.storyboard in Resources */,
+				84FBCD561E4C6D9900A35006 /* filter_test.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

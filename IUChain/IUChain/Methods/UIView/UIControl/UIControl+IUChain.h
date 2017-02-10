@@ -21,6 +21,6 @@ IUChainMethod_UIView(returnClass) \
 
 @interface UIControl (IUChain)
 
-IUChainMethod_UIControl(UIControl)
+@IUChainMethod_UIControl(UIControl)
 
 @end

@@ -14,5 +14,7 @@
 #import "UIImage+IUColor.h"
 #import "UIImage+IURotation.h"
 #import "UIImage+IUGif.h"
+#import "UIImage+IUFilter.h"
+#import "IUFilterParameterEffectPreviewViewController.h"
 
 #endif

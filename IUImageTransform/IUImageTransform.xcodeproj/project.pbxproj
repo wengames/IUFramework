@@ -31,6 +31,10 @@
 		848207C21E4C135400AFEC88 /* UIImage+IURotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 848207C01E4C135300AFEC88 /* UIImage+IURotation.m */; };
 		848207C51E4C13C600AFEC88 /* UIImage+IUGif.h in Headers */ = {isa = PBXBuildFile; fileRef = 848207C31E4C13C600AFEC88 /* UIImage+IUGif.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		848207C61E4C13C600AFEC88 /* UIImage+IUGif.m in Sources */ = {isa = PBXBuildFile; fileRef = 848207C41E4C13C600AFEC88 /* UIImage+IUGif.m */; };
+		84FBCD4D1E4C67C800A35006 /* UIImage+IUFilter.h in Headers */ = {isa = PBXBuildFile; fileRef = 84FBCD4B1E4C67C800A35006 /* UIImage+IUFilter.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		84FBCD4E1E4C67C800A35006 /* UIImage+IUFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = 84FBCD4C1E4C67C800A35006 /* UIImage+IUFilter.m */; };
+		84FBCD511E4C684900A35006 /* IUFilterParameterEffectPreviewViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 84FBCD4F1E4C684900A35006 /* IUFilterParameterEffectPreviewViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		84FBCD521E4C684900A35006 /* IUFilterParameterEffectPreviewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84FBCD501E4C684900A35006 /* IUFilterParameterEffectPreviewViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +59,10 @@
 		848207C01E4C135300AFEC88 /* UIImage+IURotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+IURotation.m"; sourceTree = "<group>"; };
 		848207C31E4C13C600AFEC88 /* UIImage+IUGif.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+IUGif.h"; sourceTree = "<group>"; };
 		848207C41E4C13C600AFEC88 /* UIImage+IUGif.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+IUGif.m"; sourceTree = "<group>"; };
+		84FBCD4B1E4C67C800A35006 /* UIImage+IUFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+IUFilter.h"; sourceTree = "<group>"; };
+		84FBCD4C1E4C67C800A35006 /* UIImage+IUFilter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+IUFilter.m"; sourceTree = "<group>"; };
+		84FBCD4F1E4C684900A35006 /* IUFilterParameterEffectPreviewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IUFilterParameterEffectPreviewViewController.h; sourceTree = "<group>"; };
+		84FBCD501E4C684900A35006 /* IUFilterParameterEffectPreviewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IUFilterParameterEffectPreviewViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,6 +104,10 @@
 				848207C01E4C135300AFEC88 /* UIImage+IURotation.m */,
 				848207C31E4C13C600AFEC88 /* UIImage+IUGif.h */,
 				848207C41E4C13C600AFEC88 /* UIImage+IUGif.m */,
+				84FBCD4B1E4C67C800A35006 /* UIImage+IUFilter.h */,
+				84FBCD4C1E4C67C800A35006 /* UIImage+IUFilter.m */,
+				84FBCD4F1E4C684900A35006 /* IUFilterParameterEffectPreviewViewController.h */,
+				84FBCD501E4C684900A35006 /* IUFilterParameterEffectPreviewViewController.m */,
 				848207A71E4C123000AFEC88 /* Info.plist */,
 			);
 			path = IUImageTransform;
@@ -112,6 +124,8 @@
 				848207C11E4C135300AFEC88 /* UIImage+IURotation.h in Headers */,
 				848207A81E4C123000AFEC88 /* IUImageTransform.h in Headers */,
 				848207B91E4C12CE00AFEC88 /* UIImage+IUTransform.h in Headers */,
+				84FBCD4D1E4C67C800A35006 /* UIImage+IUFilter.h in Headers */,
+				84FBCD511E4C684900A35006 /* IUFilterParameterEffectPreviewViewController.h in Headers */,
 				848207BD1E4C131700AFEC88 /* UIImage+IUColor.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -211,6 +225,8 @@
 				848207BA1E4C12CE00AFEC88 /* UIImage+IUTransform.m in Sources */,
 				848207C61E4C13C600AFEC88 /* UIImage+IUGif.m in Sources */,
 				848207BE1E4C131700AFEC88 /* UIImage+IUColor.m in Sources */,
+				84FBCD521E4C684900A35006 /* IUFilterParameterEffectPreviewViewController.m in Sources */,
+				84FBCD4E1E4C67C800A35006 /* UIImage+IUFilter.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -405,6 +421,7 @@
 				848207B11E4C127E00AFEC88 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

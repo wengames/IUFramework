@@ -45,6 +45,6 @@ IUChainProtocolMethod_UIContentSizeCategoryAdjusting(returnClass) \
 
 @interface UITextField (IUChain)
 
-IUChainMethod_UITextField(UITextField)
+@IUChainMethod_UITextField(UITextField)
 
 @end

@@ -37,11 +37,11 @@ IUChainMethod_UIView(returnClass) \
 @property (nonatomic, readonly) returnClass *(^setRefreshControl)(UIRefreshControl *); \
 
 #define IUChainMethod_UIScrollViewDelegate(returnClass) \
-@property (nonatomic, readonly) returnClass *(^setDelegate)(id<UIScrollViewDelegate>); \
+property (nonatomic, readonly) returnClass *(^setDelegate)(id<UIScrollViewDelegate>); \
 
 @interface UIScrollView (IUChain)
 
-IUChainMethod_UIScrollView(UIScrollView)
-IUChainMethod_UIScrollViewDelegate(UIScrollView) // conflict with subclasses
+@IUChainMethod_UIScrollView(UIScrollView)
+@IUChainMethod_UIScrollViewDelegate(UIScrollView) // conflict with subclasses
 
 @end

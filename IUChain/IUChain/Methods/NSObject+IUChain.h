@@ -9,11 +9,11 @@
 #import <Foundation/Foundation.h>
 
 #define IUChainMethod_NSObject(returnClass) \
-@property (nonatomic, readonly) returnClass *(^bind)(__strong id *);
+property (nonatomic, readonly) returnClass *(^bind)(__strong id *);
 
 // dynamic implement chain method
 @interface NSObject (IUChain)
 
-IUChainMethod_NSObject(NSObject)
+@IUChainMethod_NSObject(NSObject)
 
 @end

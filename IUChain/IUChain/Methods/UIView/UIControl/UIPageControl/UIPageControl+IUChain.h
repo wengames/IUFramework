@@ -22,6 +22,6 @@ IUChainMethod_UIControl(returnClass) \
 
 @interface UIPageControl (IUChain)
 
-IUChainMethod_UIPageControl(UIPageControl)
+@IUChainMethod_UIPageControl(UIPageControl)
 
 @end

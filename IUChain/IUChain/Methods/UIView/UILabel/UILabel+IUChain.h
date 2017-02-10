@@ -34,6 +34,6 @@ IUChainMethod_UIView(returnClass) \
 
 @interface UILabel (IUChain)
 
-IUChainMethod_UILabel(UILabel)
+@IUChainMethod_UILabel(UILabel)
 
 @end

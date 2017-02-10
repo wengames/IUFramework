@@ -32,6 +32,6 @@ IUChainMethod_UIScrollView(returnClass) \
 
 @interface UITableView (IUChain)
 
-IUChainMethod_UITableView(UITableView)
+@IUChainMethod_UITableView(UITableView)
 
 @end

@@ -19,6 +19,6 @@ IUChainMethod_UIView(returnClass) \
 
 @interface UIWindow (IUChain)
 
-IUChainMethod_UIWindow(UIWindow)
+@IUChainMethod_UIWindow(UIWindow)
 
 @end

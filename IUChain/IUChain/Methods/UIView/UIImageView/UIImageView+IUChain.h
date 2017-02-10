@@ -25,6 +25,6 @@ IUChainMethod_UIView(returnClass) \
 
 @interface UIImageView (IUChain)
 
-IUChainMethod_UIImageView(UIImageView)
+@IUChainMethod_UIImageView(UIImageView)
 
 @end

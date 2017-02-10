@@ -24,6 +24,6 @@ IUChainMethod_NSObject(returnClass) \
 
 @interface UIGestureRecognizer (IUChain)
 
-IUChainMethod_UIGestureRecognizer(UIGestureRecognizer)
+@IUChainMethod_UIGestureRecognizer(UIGestureRecognizer)
 
 @end
