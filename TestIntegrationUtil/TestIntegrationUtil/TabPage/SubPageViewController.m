@@ -10,6 +10,8 @@
 
 @interface SubPageViewController ()
 
+@property (nonatomic, strong) UIView *magicView;
+
 @end
 
 @implementation SubPageViewController
@@ -38,7 +40,26 @@
     [super viewDidLoad];
     
     self.view.backgroundColor = [UIColor randomColor];
-    [self.view addSubview:[[UIView alloc] initWithFrame:CGRectMake(self.view.bounds.size.width - 100, self.view.bounds.size.height - 100, 100, 100)].setAutoresizingMask(UIViewAutoresizingFlexibleLeftMargin|UIViewAutoresizingFlexibleTopMargin).setBackgroundColor([self.view.backgroundColor invertColor])];
+    [self.view addSubview:self.magicView];
+}
+
+- (UIView *)magicView {
+    if (_magicView == nil) {
+         [[UIView alloc] init]
+         .bind(&_magicView)
+         .setFrame(CGRectMake(self.view.bounds.size.width - 100, self.view.bounds.size.height - 100, 100, 100))
+         .setAutoresizingMask(UIViewAutoresizingFlexibleLeftMargin|UIViewAutoresizingFlexibleTopMargin)
+         .setBackgroundColor([self.view.backgroundColor invertColor]).intoView(self.view);
+    }
+    return _magicView;
+}
+
+- (NSArray *)magicViewsTransitionToViewController:(UIViewController *)viewController {
+    return @[self.magicView];
+}
+
+- (NSArray *)magicViewsTransitionFromViewController:(UIViewController *)viewController {
+    return @[self.magicView];
 }
 
 @end

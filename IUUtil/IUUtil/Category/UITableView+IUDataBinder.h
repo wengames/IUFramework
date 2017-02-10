@@ -12,7 +12,7 @@
 
 // or implement -[valueForKey:@"cellClassName"]
 // if NOT implement, it will find cell class name by transform self class name
-// (append "TableViewCell", "TableCell", "Cell" and remove "Model" at last)
+// (append "TableViewCell", "TableCell", "Cell" and remove "Model" in tail)
 @optional
 - (NSString *)cellClassName; // class which conforms Protocol IUTableViewCellModelSettable
 
@@ -42,6 +42,7 @@
 @protocol IUTableViewPreviewing <UITableViewDelegate>
 
 @optional
+// implements preview action
 - (UIViewController *)tableView:(UITableView *)tableView viewControllerToPreviewAtIndexPath:(NSIndexPath *)indexPath;
 
 @end

@@ -464,6 +464,7 @@ typedef void(^_IUTransitionCompletion)(BOOL finished);
                 
                 /* move animation */
                 fromMagicView.frame = [containerView convertRect:toMagicView.bounds fromView:toMagicView];
+                [fromMagicView layoutIfNeeded];
                 
                 /* lift drop animation */
 #define _kLiftHeight   8

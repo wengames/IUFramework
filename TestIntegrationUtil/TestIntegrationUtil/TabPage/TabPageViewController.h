@@ -8,6 +8,6 @@
 
 #import <IUController/IUController.h>
 
-@interface TabPageViewController : IUViewController
+@interface TabPageViewController : UIViewController
 
 @end

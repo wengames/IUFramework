@@ -8,6 +8,6 @@
 
 #import <IUController/IUController.h>
 
-@interface NonNaviPushedViewController : IUViewController
+@interface NonNaviPushedViewController : UIViewController
 
 @end

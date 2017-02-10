@@ -30,8 +30,8 @@
 
 // view controller
 #import "UIViewController+IUAppear.h"
+#import "UIViewController+IUPreviewing.h"
 #import "UIViewController+IUSubviews.h"
-#import "IUViewController.h"
 
 // transition
 #import "IUTransitionAnimator.h"

@@ -43,6 +43,14 @@
     self.tabPageViewController.viewControllers = [viewControllers copy];
 }
 
+- (NSArray *)magicViewsTransitionToViewController:(UIViewController *)viewController {
+    return [self.tabPageViewController.viewControllers[self.tabPageViewController.tabPageView.selectedIndex] magicViewsTransitionToViewController:viewController];
+}
+
+- (NSArray *)magicViewsTransitionFromViewController:(UIViewController *)viewController {
+    return [self.tabPageViewController.viewControllers[self.tabPageViewController.tabPageView.selectedIndex] magicViewsTransitionFromViewController:viewController];
+}
+
 - (IUTabPageViewController *)tabPageViewController {
     if (_tabPageViewController == nil) {
         _tabPageViewController = [[IUTabPageViewController alloc] init];

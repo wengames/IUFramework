@@ -8,6 +8,6 @@
 
 #import <IUController/IUController.h>
 
-@interface IndexViewController : IUViewController
+@interface IndexViewController : UIViewController
 
 @end

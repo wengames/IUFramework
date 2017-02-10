@@ -9,26 +9,6 @@
 #import "IUViewController.h"
 #import "objc/runtime.h"
 
-@interface NSObject (IUPreviewing)
-
-@property (strong, nonatomic) IUViewController *(^previewControllerCreator)();
-
-@end
-
-static char TAG_OBJECT_PREVIEW_CONTROLLER_CREATOR;
-
-@implementation NSObject (IUPreviewing)
-
-- (void)setPreviewControllerCreator:(IUViewController *(^)())previewControllerCreator {
-    objc_setAssociatedObject(self, &TAG_OBJECT_PREVIEW_CONTROLLER_CREATOR, previewControllerCreator, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
-}
-
-- (IUViewController *(^)())previewControllerCreator {
-    return objc_getAssociatedObject(self, &TAG_OBJECT_PREVIEW_CONTROLLER_CREATOR);
-}
-
-@end
-
 @interface UIViewController (IUViewOwner)
 
 - (BOOL)hasView:(UIView *)view;
@@ -46,9 +26,6 @@ static char TAG_OBJECT_PREVIEW_CONTROLLER_CREATOR;
 @property (nonatomic, strong) UIView *maskView;
 @property (nonatomic, strong) UIActivityIndicatorView *loadingIndicatorView;
 
-@property (nonatomic, strong) UILabel *peekTitleLabel;
-@property (nonatomic, assign) BOOL     isPeek;
-
 @end
 
 @interface IUViewController ()
@@ -57,27 +34,9 @@ static char TAG_OBJECT_PREVIEW_CONTROLLER_CREATOR;
 
 @implementation IUViewController
 
-@synthesize scrollView                       = _scrollView,
-            tableView                        = _tableView,
-            collectionViewLayout             = _collectionViewLayout,
-            collectionView                   = _collectionView,
-            hideKeyboardTapGestureRecognizer = _hideKeyboardTapGestureRecognizer;
-
-- (instancetype)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
-    if (self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil]) {
-        self.tableViewSytle = UITableViewStylePlain;
-    }
-    return self;
-}
+@synthesize hideKeyboardTapGestureRecognizer = _hideKeyboardTapGestureRecognizer;
 
 #pragma mark - Life Cycle
-- (void)willMoveToParentViewController:(UIViewController *)parent {
-    [super willMoveToParentViewController:parent];
-    if (self.parentViewController) {
-        [self.peekTitleLabel removeFromSuperview];
-    }
-}
-
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     [self addObserverForKeyboard];
@@ -91,21 +50,6 @@ static char TAG_OBJECT_PREVIEW_CONTROLLER_CREATOR;
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
     [self hideKeyboard];
-    [self setNeedsStatusBarAppearanceUpdate];
-}
-
-- (void)viewDidDisappear:(BOOL)animated {
-    [super viewDidDisappear:animated];
-    [self setNeedsStatusBarAppearanceUpdate];
-}
-
-- (void)viewDidLayoutSubviews {
-    [super viewDidLayoutSubviews];
-    //禁止多按钮事件
-    [self setExclusiveTouchForButtonsInView:self.view];
-    if (self.peekTitleLabel.superview) {
-        self.view.frame = CGRectMake(0, self.view.bounds.origin.y + self.peekTitleLabel.bounds.size.height, self.view.bounds.size.width, self.view.frame.size.height);
-    }
 }
 
 - (void)viewDidLoad {
@@ -115,10 +59,6 @@ static char TAG_OBJECT_PREVIEW_CONTROLLER_CREATOR;
     
     self.edgesForExtendedLayout = UIRectEdgeNone;
     self.automaticallyAdjustsScrollViewInsets = NO;
-    
-    if (self.navigationController == nil) {
-        self.peekTitleLabel.text = self.navigationItem.title;
-    }
 }
 
 #pragma mark - Actions
@@ -163,138 +103,11 @@ static char TAG_OBJECT_PREVIEW_CONTROLLER_CREATOR;
     [[NSNotificationCenter defaultCenter] removeObserver:self name:UITextViewTextDidChangeNotification object:nil];
 }
 
-/// 禁止多按钮事件
-- (void)setExclusiveTouchForButtonsInView:(UIView *)view {
-    for (UIView *subview in [view subviews]) {
-        if([subview isKindOfClass:[UIButton class]]) {
-            [((UIButton *)subview) setExclusiveTouch:YES];
-        } else if ([subview isKindOfClass:[UIView class]]) {
-            [self setExclusiveTouchForButtonsInView:subview];
-        }
-    }
-}
-
-#pragma mark - Lazy Loading
-#pragma mark scrollView
-- (UIScrollView *)scrollView {
-    if (_scrollView == nil) {
-        _scrollView = [[UIScrollView alloc] init];
-        _scrollView.frame = self.view.bounds;
-        _scrollView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
-        _scrollView.contentSize = _scrollView.bounds.size;
-        _scrollView.showsVerticalScrollIndicator = NO;
-        _scrollView.showsHorizontalScrollIndicator = NO;
-        _scrollView.backgroundColor = self.view.backgroundColor;
-        [self.view addSubview:_scrollView];
-    }
-    return _scrollView;
-}
-
-#pragma mark tableView
-- (void)setTableViewSytle:(UITableViewStyle)tableViewSytle {
-    if (_tableViewSytle == tableViewSytle) return;
-    NSAssert(_tableView == nil, @"IUFramework error: call -setTableViewSytle: before -tableView invoked if you want to change the tableViewSytle");
-    _tableViewSytle = tableViewSytle;
-}
-
-- (UITableView *)tableView {
-    if (_tableView == nil) {
-        _tableView = [[UITableView alloc] initWithFrame:CGRectZero style:self.tableViewSytle];
-        _tableView.frame = self.view.bounds;
-        _tableView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
-        _tableView.tableHeaderView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 0, 0.01)];
-        _tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 0, 0.01)];
-        _tableView.sectionHeaderHeight = 0;
-        _tableView.sectionFooterHeight = 0;
-        _tableView.showsVerticalScrollIndicator = NO;
-        _tableView.showsHorizontalScrollIndicator = NO;
-        _tableView.backgroundColor = self.view.backgroundColor;
-        _tableView.dataSource = self;
-        _tableView.delegate = self;
-        [self.view addSubview:_tableView];
-    }
-    return _tableView;
-}
-
-#pragma mark collectionView
-- (void)setCollectionViewLayout:(UICollectionViewLayout *)collectionViewLayout {
-    if (_collectionViewLayout == collectionViewLayout) return;
-    NSAssert(_collectionView == nil, @"IUFramework error: call -setCollectionViewLayout: before -collectionView invoked if you want to change the collectionViewLayout");
-    _collectionViewLayout = collectionViewLayout;
-}
-
-- (UICollectionViewLayout *)collectionViewLayout {
-    if (_collectionViewLayout == nil) {
-        UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
-        layout.minimumLineSpacing = 0;
-        layout.minimumInteritemSpacing = 0;
-        layout.sectionInset = UIEdgeInsetsZero;
-        layout.itemSize = self.view.bounds.size;
-        _collectionViewLayout = layout;
-    }
-    return _collectionViewLayout;
-}
-
-- (UICollectionView *)collectionView {
-    if (_collectionView == nil) {
-        _collectionView = [[UICollectionView alloc] initWithFrame:CGRectZero collectionViewLayout:self.collectionViewLayout];
-        _collectionView.frame = self.view.bounds;
-        _collectionView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
-        _collectionView.showsVerticalScrollIndicator = NO;
-        _collectionView.showsHorizontalScrollIndicator = NO;
-        _collectionView.backgroundColor = self.view.backgroundColor;
-        _collectionView.dataSource = self;
-        _collectionView.delegate = self;
-        [self.view addSubview:_collectionView];
-    }
-    return _collectionView;
-}
-
-- (UILabel *)peekTitleLabel {
-    if (!self.isPeek) return nil;
-    if (_peekTitleLabel == nil) {
-        _peekTitleLabel = [[UILabel alloc] init];
-        _peekTitleLabel.frame = CGRectMake(0, -44, self.view.bounds.size.width, 44);
-        _peekTitleLabel.autoresizingMask = UIViewAutoresizingFlexibleWidth;
-        _peekTitleLabel.textAlignment = NSTextAlignmentCenter;
-        
-        UINavigationBar *navigationBar = [UINavigationBar appearance];
-        _peekTitleLabel.backgroundColor = navigationBar.barTintColor ?: [UIColor colorWithWhite:198/255.f alpha:1];
-        _peekTitleLabel.textColor = navigationBar.titleTextAttributes[NSForegroundColorAttributeName] ?: [UIColor blackColor];
-        _peekTitleLabel.font = navigationBar.titleTextAttributes[NSFontAttributeName] ?: [UIFont boldSystemFontOfSize:18];
-        [self.view addSubview:_peekTitleLabel];
-    }
-    return _peekTitleLabel;
-}
-
 - (UITapGestureRecognizer *)hideKeyboardTapGestureRecognizer {
     if (_hideKeyboardTapGestureRecognizer == nil) {
         _hideKeyboardTapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(hideKeyboard)];
     }
     return _hideKeyboardTapGestureRecognizer;
-}
-
-#pragma mark - UIViewControllerPreviewingDelegate
-- (void)registerPreviewingWithSourceView:(UIView *)sourceView viewControllerCreator:(IUViewController *(^)())creator {
-    if (creator && [self respondsToSelector:@selector(traitCollection)] &&
-        [self.traitCollection respondsToSelector:@selector(forceTouchCapability)] &&
-        self.traitCollection.forceTouchCapability != UIForceTouchCapabilityUnavailable) {
-        sourceView.previewControllerCreator = creator;
-        [self registerForPreviewingWithDelegate:self sourceView:sourceView];
-    }
-}
-
-- (nullable UIViewController *)previewingContext:(id <UIViewControllerPreviewing>)previewingContext viewControllerForLocation:(CGPoint)location {
-    IUViewController *viewController = nil;
-    if (previewingContext.sourceView.previewControllerCreator) {
-        viewController = previewingContext.sourceView.previewControllerCreator();
-        viewController.isPeek = YES;
-    }
-    return viewController;
-}
-
-- (void)previewingContext:(id <UIViewControllerPreviewing>)previewingContext commitViewController:(UIViewController *)viewControllerToCommit {
-    [self.navigationController pushViewController:viewControllerToCommit animated:NO];
 }
 
 #pragma mark - UITextFieldDelegate
@@ -305,20 +118,20 @@ static char TAG_OBJECT_PREVIEW_CONTROLLER_CREATOR;
 }
 
 #pragma mark - Keyboard Observer Method
-- (UIScrollView *)keyboardFittingScrollView {
-    if (_keyboardFittingScrollView == nil) {
-        if (_scrollView) {
-            return _scrollView;
-        }
-        if (_tableView) {
-            return _tableView;
-        }
-        if (_collectionView) {
-            return _collectionView;
-        }
-    }
-    return nil;
-}
+//- (UIScrollView *)keyboardFittingScrollView {
+//    if (_keyboardFittingScrollView == nil) {
+//        if (_scrollView) {
+//            return _scrollView;
+//        }
+//        if (_tableView) {
+//            return _tableView;
+//        }
+//        if (_collectionView) {
+//            return _collectionView;
+//        }
+//    }
+//    return _keyboardFittingScrollView;
+//}
 
 - (void)_editingViewChanged:(NSNotification *)notification {
     _editingView = [self ownView:notification.object] ? notification.object : nil;

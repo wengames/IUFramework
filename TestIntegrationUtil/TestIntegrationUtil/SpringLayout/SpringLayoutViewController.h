@@ -8,6 +8,6 @@
 
 #import <IUController/IUController.h>
 
-@interface SpringLayoutViewController : IUViewController
+@interface SpringLayoutViewController : UIViewController
 
 @end

@@ -45,19 +45,6 @@
     [self resetData];
         
     [self.view addSubview:[[UIImageView alloc] initWithFrame:CGRectMake(0, 400, 100, 100)].setImage([[UIImage imageNamed:@"filter_test.jpg"] blurredImageWithRadius:50]).setBackgroundColor([UIColor cyanColor]).bind(&_magicView)];
-    
-//    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-//        [UIView animateWithDuration:2 animations:^{
-//            CGRect frame = self.navigationController.navigationBar.frame;
-//            CGSize size = self.navigationController.preferredContentSize;
-//            
-//            NSLog(@"%@", NSStringFromCGSize(size));
-//            frame.size.height = 1;
-//            self.navigationController.navigationBar.frame = frame;
-//            
-////            self.navigationController.preferredContentSize = size;
-//        }];
-//    });
 }
 
 - (NSArray *)magicViewsTransitionToViewController:(UIViewController *)viewController {

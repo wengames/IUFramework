@@ -42,6 +42,8 @@ static char TAG_TABLE_VIEW_DATA_BINDER;
     if ([self instancesRespondToSelector:@selector(setLayoutMargins:)] || [self instancesRespondToSelector:@selector(setSeparatorInset:)]) {
         [self swizzleInstanceSelector:@selector(initWithFrame:style:) toSelector:@selector(iuDataBinder_UITableView_initWithFrame:style:)];
     }
+    [self swizzleInstanceSelector:@selector(setDataSource:) toSelector:@selector(iuDataBinder_UITableView_setDataSource:)];
+    [self swizzleInstanceSelector:@selector(setDelegate:) toSelector:@selector(iuDataBinder_UITableView_setDelegate:)];
 }
 
 - (instancetype)iuDataBinder_UITableView_initWithFrame:(CGRect)frame style:(UITableViewStyle)style {
@@ -51,6 +53,22 @@ static char TAG_TABLE_VIEW_DATA_BINDER;
         if ([obj respondsToSelector:@selector(setSeparatorInset:)]) obj.separatorInset = UIEdgeInsetsZero;
     }
     return obj;
+}
+
+- (void)iuDataBinder_UITableView_setDataSource:(id<UITableViewDataSource>)dataSource {
+    if (objc_getAssociatedObject(self, &TAG_TABLE_VIEW_DATA_BINDER)) {
+        self.dataBinder.dataSource = dataSource;
+    } else {
+        [self iuDataBinder_UITableView_setDataSource:dataSource];
+    }
+}
+
+- (void)iuDataBinder_UITableView_setDelegate:(id<IUTableViewPreviewing>)delegate {
+    if (objc_getAssociatedObject(self, &TAG_TABLE_VIEW_DATA_BINDER)) {
+        self.dataBinder.delegate = delegate;
+    } else {
+        [self iuDataBinder_UITableView_setDelegate:delegate];
+    }
 }
 
 - (IUTableViewDataBinder *)dataBinder {
@@ -63,8 +81,8 @@ static char TAG_TABLE_VIEW_DATA_BINDER;
         dataBinder.dataSource = self.dataSource;
         dataBinder.delegate = self.delegate;
         
-        self.dataSource = dataBinder;
-        self.delegate = dataBinder;
+        [self iuDataBinder_UITableView_setDataSource:dataBinder];
+        [self iuDataBinder_UITableView_setDelegate:dataBinder];
     }
     return dataBinder;
 }
@@ -154,33 +172,14 @@ static char TAG_TABLE_VIEW_DATA_BINDER;
 
 #pragma mark UITableViewDelegate
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    if ([self.dataSource respondsToSelector:_cmd]) {
-        return [self.dataSource numberOfSectionsInTableView:tableView];
-    }
     return [self.datas count];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    if ([self.dataSource respondsToSelector:_cmd]) {
-        return [self.dataSource tableView:tableView numberOfRowsInSection:section];
-    }
     return _isDatasTwoOrder ? [self.datas[section] count] : 1;
 }
 
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    if ([self.delegate respondsToSelector:_cmd]) {
-        return [self.delegate tableView:tableView heightForRowAtIndexPath:indexPath];
-    }
-    
-    id data = _isDatasTwoOrder ? self.datas[indexPath.section][indexPath.row] : self.datas[indexPath.section];
-    return [self cellHeightWithData:data inTableView:tableView];
-}
-
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    if ([self.dataSource respondsToSelector:_cmd]) {
-        return [self.dataSource tableView:tableView cellForRowAtIndexPath:indexPath];
-    }
-    
     id data = _isDatasTwoOrder ? self.datas[indexPath.section][indexPath.row] : self.datas[indexPath.section];
     
     Class cellClass = [self cellClassWithData:data];
@@ -203,6 +202,15 @@ static char TAG_TABLE_VIEW_DATA_BINDER;
     return cell;
 }
 
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    if ([self.delegate respondsToSelector:_cmd]) {
+        return [self.delegate tableView:tableView heightForRowAtIndexPath:indexPath];
+    }
+    
+    id data = _isDatasTwoOrder ? self.datas[indexPath.section][indexPath.row] : self.datas[indexPath.section];
+    return [self cellHeightWithData:data inTableView:tableView];
+}
+
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     if ([self.delegate respondsToSelector:_cmd]) {
         [self.delegate tableView:tableView didSelectRowAtIndexPath:indexPath];
@@ -215,15 +223,18 @@ static char TAG_TABLE_VIEW_DATA_BINDER;
 - (nullable UIViewController *)previewingContext:(id <UIViewControllerPreviewing>)previewingContext viewControllerForLocation:(CGPoint)location {
     if ([self.delegate respondsToSelector:@selector(tableView:viewControllerToPreviewAtIndexPath:)]) {
         UIViewController *viewController = [self.delegate tableView:self.tableView viewControllerToPreviewAtIndexPath:[self.tableView indexPathForCell:previewingContext.sourceView]];
-//        if ([viewController respondsToSelector:@selector(setIsPeek)]) {
-//            [viewController setValue:@YES forKey:@"isPeek"];
-//        }
-        return viewController;
+        if (viewController) {
+            @try { [viewController setValue:nil forKey:@"dismissButtonItem"]; } @catch (NSException *exception) {}
+            return [[UINavigationController alloc] initWithRootViewController:viewController];
+        }
     }
     return nil;
 }
 
 - (void)previewingContext:(id <UIViewControllerPreviewing>)previewingContext commitViewController:(UIViewController *)viewControllerToCommit {
+    while ([viewControllerToCommit isKindOfClass:[UINavigationController class]]) {
+        viewControllerToCommit = [(UINavigationController *)viewControllerToCommit topViewController];
+    }
     [self.tableView.viewController.navigationController pushViewController:viewControllerToCommit animated:NO];
 }
 

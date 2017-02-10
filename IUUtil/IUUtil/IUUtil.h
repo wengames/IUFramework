@@ -22,6 +22,7 @@
 #import "UIView+IUEmpty.h"
 #import "UIView+IUTouchAreaExpand.h"
 #import "UITableView+IUDataBinder.h"
+#import "UIButton+IUColor.h"
 
 #import "UIViewController+IUAlertController.h"
 

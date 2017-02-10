@@ -45,12 +45,12 @@ static char TAG_TRANSITION_GESTURE_RECOGNIZER_HELPER;
 
 - (void)iuFullScreenInteractivePopGestureRecognizer_UINavigationController_viewWillAppear:(BOOL)animated {
     [self iuFullScreenInteractivePopGestureRecognizer_UINavigationController_viewWillAppear:animated];
-    [[self.viewControllers firstObject] _showDismissButtonItem:self.presentingViewController];
+    [[self.viewControllers firstObject] _showDismissButtonItem:self.presentingViewController != nil];
 }
 
 - (void)iuFullScreenInteractivePopGestureRecognizer_UINavigationController_viewDidLoad {
     [self iuFullScreenInteractivePopGestureRecognizer_UINavigationController_viewDidLoad];
-    self.fullScreenInteractivePopGestureRecognizer.enabled = YES;
+    self.transitionGestureRecognizerHelper.panGestureRecognizer.enabled = YES;
 }
 
 - (void)iuFullScreenInteractivePopGestureRecognizer_UINavigationController_setDelegate:(id<UINavigationControllerDelegate>)delegate {

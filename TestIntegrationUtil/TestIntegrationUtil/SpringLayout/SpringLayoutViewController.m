@@ -55,14 +55,6 @@
 //    [self.view addSubview:[[UIView alloc] initWithFrame:CGRectMake(200, 300, 100, 100)].setBackgroundColor([UIColor cyanColor]).bind(&_magicView)];
 }
 
-- (NSArray *)magicViewsTransitionToViewController:(UIViewController *)viewController {
-    return [self.collectionView cellForItemAtIndexPath:[NSIndexPath indexPathForItem:2 inSection:0]] ? @[[self.collectionView cellForItemAtIndexPath:[NSIndexPath indexPathForItem:2 inSection:0]]] : nil;
-}
-
-- (NSArray *)magicViewsTransitionFromViewController:(UIViewController *)viewController {
-    return [self.collectionView cellForItemAtIndexPath:[NSIndexPath indexPathForItem:2 inSection:0]] ? @[[self.collectionView cellForItemAtIndexPath:[NSIndexPath indexPathForItem:2 inSection:0]]] : nil;
-}
-
 #pragma mark - UICollectionViewDelegate
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
     return 10;

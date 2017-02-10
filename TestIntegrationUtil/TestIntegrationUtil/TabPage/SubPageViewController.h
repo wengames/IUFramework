@@ -8,6 +8,6 @@
 
 #import <IUController/IUController.h>
 
-@interface SubPageViewController : IUViewController
+@interface SubPageViewController : UIViewController
 
 @end

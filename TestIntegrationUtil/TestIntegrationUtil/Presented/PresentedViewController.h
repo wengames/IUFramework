@@ -8,6 +8,6 @@
 
 #import <IUController/IUController.h>
 
-@interface PresentedViewController : IUViewController
+@interface PresentedViewController : UIViewController
 
 @end

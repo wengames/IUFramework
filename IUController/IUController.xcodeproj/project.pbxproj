@@ -50,11 +50,11 @@
 		84D2EB671E4B2CF100B2A2CD /* UINavigationController+IUFullScreenInteractivePopGestureRecognizer.m in Sources */ = {isa = PBXBuildFile; fileRef = 84D2EB611E4B2CF100B2A2CD /* UINavigationController+IUFullScreenInteractivePopGestureRecognizer.m */; };
 		84D2EB681E4B2CF100B2A2CD /* UIViewController+IUNavigationBarHidden.h in Headers */ = {isa = PBXBuildFile; fileRef = 84D2EB621E4B2CF100B2A2CD /* UIViewController+IUNavigationBarHidden.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		84D2EB691E4B2CF100B2A2CD /* UIViewController+IUNavigationBarHidden.m in Sources */ = {isa = PBXBuildFile; fileRef = 84D2EB631E4B2CF100B2A2CD /* UIViewController+IUNavigationBarHidden.m */; };
-		84D2EB6F1E4B2D1800B2A2CD /* IUViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 84D2EB6B1E4B2D1800B2A2CD /* IUViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		84D2EB6F1E4B2D1800B2A2CD /* IUViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 84D2EB6B1E4B2D1800B2A2CD /* IUViewController.h */; };
 		84D2EB701E4B2D1800B2A2CD /* IUViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84D2EB6C1E4B2D1800B2A2CD /* IUViewController.m */; };
 		84D2EB711E4B2D1800B2A2CD /* UIViewController+IUAppear.h in Headers */ = {isa = PBXBuildFile; fileRef = 84D2EB6D1E4B2D1800B2A2CD /* UIViewController+IUAppear.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		84D2EB721E4B2D1800B2A2CD /* UIViewController+IUAppear.m in Sources */ = {isa = PBXBuildFile; fileRef = 84D2EB6E1E4B2D1800B2A2CD /* UIViewController+IUAppear.m */; };
-		84D2EB751E4B2F6A00B2A2CD /* UIViewController+IUPreviewing.h in Headers */ = {isa = PBXBuildFile; fileRef = 84D2EB731E4B2F6A00B2A2CD /* UIViewController+IUPreviewing.h */; };
+		84D2EB751E4B2F6A00B2A2CD /* UIViewController+IUPreviewing.h in Headers */ = {isa = PBXBuildFile; fileRef = 84D2EB731E4B2F6A00B2A2CD /* UIViewController+IUPreviewing.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		84D2EB761E4B2F6A00B2A2CD /* UIViewController+IUPreviewing.m in Sources */ = {isa = PBXBuildFile; fileRef = 84D2EB741E4B2F6A00B2A2CD /* UIViewController+IUPreviewing.m */; };
 		84DFC6321E34D2CC000A588C /* IUController.h in Headers */ = {isa = PBXBuildFile; fileRef = 84DFC6301E34D2CC000A588C /* IUController.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		84FBCD4A1E4C5FF000A35006 /* IUMethodSwizzle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84FBCD491E4C5FF000A35006 /* IUMethodSwizzle.framework */; };
@@ -257,12 +257,12 @@
 				84D2EB681E4B2CF100B2A2CD /* UIViewController+IUNavigationBarHidden.h in Headers */,
 				84D2EB661E4B2CF100B2A2CD /* UINavigationController+IUFullScreenInteractivePopGestureRecognizer.h in Headers */,
 				84D2EB711E4B2D1800B2A2CD /* UIViewController+IUAppear.h in Headers */,
-				84D2EB751E4B2F6A00B2A2CD /* UIViewController+IUPreviewing.h in Headers */,
-				84D2EB6F1E4B2D1800B2A2CD /* IUViewController.h in Headers */,
 				84FBCDBE1E4D74F400A35006 /* UIViewController+IUSubviews.h in Headers */,
 				84D2EB4B1E49C7F000B2A2CD /* UIViewController+IUMagicTransition.h in Headers */,
+				84D2EB751E4B2F6A00B2A2CD /* UIViewController+IUPreviewing.h in Headers */,
 				84D2EA721E48179B00B2A2CD /* UIViewController+IUOrientation.h in Headers */,
 				84D2EA6A1E48170C00B2A2CD /* UIViewController+IUStatusBarHidden.h in Headers */,
+				84D2EB6F1E4B2D1800B2A2CD /* IUViewController.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

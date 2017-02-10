@@ -62,6 +62,7 @@
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    
     NSDate *date = [NSDate date];
     NSLog(@"今天星期%ld, %@", (long)[date weekday], [date stringWithFormat:@"yyyy-MM-dd HH:mm:ss"]);
     

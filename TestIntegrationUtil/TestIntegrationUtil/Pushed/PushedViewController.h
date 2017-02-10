@@ -8,6 +8,6 @@
 
 #import <IUController/IUController.h>
 
-@interface PushedViewController : IUViewController
+@interface PushedViewController : UIViewController
 
 @end

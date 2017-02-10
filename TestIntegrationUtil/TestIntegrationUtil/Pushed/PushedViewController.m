@@ -24,7 +24,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    UIButton *button = [UIButton buttonWithType:UIButtonTypeSystem].setFrame(CGRectMake(50, 150, 200, 200));
+    UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom].setFrame(CGRectMake(50, 150, 200, 200));
+    button.titleColor = [UIColor whiteColor];
     button.backgroundColor = [UIColor greenColor];
     button.tag = 1;
     [button setTitle:@"button1" forState:UIControlStateNormal];
@@ -33,9 +34,10 @@
     
     [self.view addSubview:[[UIView alloc] initWithFrame:CGRectMake(100, 100, 200, 300)].setBackgroundColor([UIColor colorWithWhite:0 alpha:0.3]).setUserInteractionEnabled(NO)];
     
-    button = [UIButton buttonWithType:UIButtonTypeSystem].setFrame(CGRectMake(100, 200, 100, 100));
-    button.expandInsets = UIEdgeInsetsMake(100, 0, 100, 100);
+    button = [UIButton buttonWithType:UIButtonTypeCustom].setFrame(CGRectMake(100, 200, 100, 100));
+    button.titleColor = [UIColor blackColor];
     button.backgroundColor = [UIColor cyanColor];
+    button.expandInsets = UIEdgeInsetsMake(100, 0, 100, 100);
     button.tag = 2;
     [button setTitle:@"button2" forState:UIControlStateNormal];
     [button addTarget:self action:@selector(tapButton:) forControlEvents:UIControlEventTouchUpInside];
