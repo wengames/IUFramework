@@ -19,6 +19,7 @@ typedef enum {
 typedef enum {
     IUTransitionTypeDefault = 0,
     IUTransitionTypeFade,
+    IUTransitionTypeErase,
     IUTransitionTypeCustom
 } IUTransitionType;
 

@@ -23,8 +23,15 @@
 
 + (instancetype)preview {
     IUFilterParameterEffectPreviewViewController *viewController = [[self alloc] init];
-    [[UIApplication sharedApplication].keyWindow.rootViewController presentViewController:viewController animated:NO completion:nil];
+    [[UIApplication sharedApplication].keyWindow.rootViewController presentViewController:[[UINavigationController alloc] initWithRootViewController:viewController] animated:YES completion:nil];
     return viewController;
+}
+
+- (instancetype)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
+    if (self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil]) {
+        self.navigationItem.title = @"FilterParameterEffectPreview";
+    }
+    return self;
 }
 
 - (void)viewDidLoad {
@@ -59,9 +66,10 @@
         _pickerView = [[UIPickerView alloc] init];
         _pickerView.showsSelectionIndicator = YES;
         _pickerView.backgroundColor = [UIColor whiteColor];
-        _pickerView.frame = CGRectMake(0, self.view.bounds.size.height - 200, self.view.bounds.size.width, 200);
         _pickerView.dataSource = self;
         _pickerView.delegate = self;
+        [_pickerView layoutIfNeeded];
+        _pickerView.frame = CGRectMake(0, self.view.bounds.size.height - 200, self.view.bounds.size.width, 200);
         _pickerView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleTopMargin;
         [self.view addSubview:_pickerView];
     }
@@ -98,7 +106,8 @@
 
 - (NSArray *)filterNames {
     if (_filterNames == nil) {
-        _filterNames = [CIFilter filterNamesInCategory:self.filterCategories[[self.pickerView selectedRowInComponent:1]]];
+        _filterNames = [CIFilter filterNamesInCategory:self.filterCategories[[self.pickerView selectedRowInComponent:0]]];
+        [self.pickerView reloadComponent:1];
     }
     return _filterNames;
 }
@@ -130,7 +139,7 @@
 - (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component {
     if (component == 0) {
         self.filterNames = [CIFilter filterNamesInCategory:self.filterCategories[row]];
-        [pickerView reloadComponent:1];
+        [self.pickerView reloadComponent:1];
     }
     [self reloadImage];
 }

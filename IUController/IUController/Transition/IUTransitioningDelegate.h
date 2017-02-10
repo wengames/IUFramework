@@ -11,10 +11,12 @@
 
 @interface IUTransitioningDelegate : NSObject <UIViewControllerTransitioningDelegate,UINavigationControllerDelegate>
 
+@property (nonatomic, readonly) BOOL isTransitioning;
+
 @property (nonatomic, weak)   id<UINavigationControllerDelegate> delegate; // set to get other method in Protocol UINavigationControllerDelegate invoked if needed
 
 @property (nonatomic, assign) IUTransitionType type;
-@property (nonatomic, strong) void(^config)(IUTransitionAnimator *animator);
+@property (nonatomic, strong) void(^animatorConfiguration)(IUTransitionAnimator *animator);
 
 @property (nonatomic, strong, readonly) UIPercentDrivenInteractiveTransition *interactiveTransition;
 - (void)beginInteractiveTransition; // call before transition began

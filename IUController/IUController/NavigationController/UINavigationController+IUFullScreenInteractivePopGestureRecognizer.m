@@ -83,6 +83,26 @@ static char TAG_TRANSITION_GESTURE_RECOGNIZER_HELPER;
     return self.transitionGestureRecognizerHelper.edgePanGestureRecognizer;
 }
 
+- (void)setPopDuration:(float)duration {
+    self.transitionGestureRecognizerHelper.transitioningDelegate.animatorConfiguration = ^(IUTransitionAnimator *animator){
+        animator.duration = duration;
+    };
+}
+
+- (void)setPopType:(IUNavigationPopType)type {
+    switch (type) {
+        case IUNavigationPopTypeDefault:
+            self.transitionGestureRecognizerHelper.transitioningDelegate.type = IUTransitionTypeDefault;
+            break;
+        case IUNavigationPopTypeErase:
+            self.transitionGestureRecognizerHelper.transitioningDelegate.type = IUTransitionTypeErase;
+            break;
+
+        default:
+            break;
+    }
+}
+
 @end
 
 @implementation _IUNavigationControllerGestureRecognizerHelper
@@ -93,6 +113,7 @@ static char TAG_TRANSITION_GESTURE_RECOGNIZER_HELPER;
     if (_edgePanGestureRecognizer == nil) {
         _edgePanGestureRecognizer = [[UIScreenEdgePanGestureRecognizer alloc] initWithTarget:self action:@selector(pan:)];
         _edgePanGestureRecognizer.edges = UIRectEdgeLeft;
+        _edgePanGestureRecognizer.delegate = self;
     }
     return _edgePanGestureRecognizer;
 }
@@ -109,7 +130,7 @@ static char TAG_TRANSITION_GESTURE_RECOGNIZER_HELPER;
 - (IUTransitioningDelegate *)transitioningDelegate {
     if (_transitioningDelegate == nil) {
         _transitioningDelegate = [IUTransitioningDelegate transitioningDelegateWithType:IUTransitionTypeDefault];
-        _transitioningDelegate.config = ^(IUTransitionAnimator *animator){
+        _transitioningDelegate.animatorConfiguration = ^(IUTransitionAnimator *animator){
             animator.duration = .25f;
         };
     }
@@ -148,13 +169,12 @@ static char TAG_TRANSITION_GESTURE_RECOGNIZER_HELPER;
 
 #pragma mark UIGestureRecognizerDelegate
 - (BOOL)gestureRecognizerShouldBegin:(UIGestureRecognizer *)gestureRecognizer {
-    if ([gestureRecognizer isKindOfClass:[UIPanGestureRecognizer class]]) {
+    if (self.transitioningDelegate.isTransitioning) return NO;
+    if (gestureRecognizer == self.panGestureRecognizer) {
         CGPoint velocity = [(UIPanGestureRecognizer *)gestureRecognizer velocityInView:gestureRecognizer.view];
-        if (velocity.x > fabs(velocity.y)) {
-            return YES;
-        }
+        return velocity.x > fabs(velocity.y);
     }
-    return NO;
+    return YES;
 }
 
 @end

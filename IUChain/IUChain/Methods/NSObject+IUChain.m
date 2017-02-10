@@ -129,4 +129,9 @@ id iuChainDynamicMethodIMP(id self, SEL _cmd) {
     };
 }
 
+- (NSObject *)configure:(void (^)(NSObject *))configure {
+    configure(self);
+    return self;
+}
+
 @end

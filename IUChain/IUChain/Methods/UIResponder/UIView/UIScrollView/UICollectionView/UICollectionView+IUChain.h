@@ -14,8 +14,8 @@
 IUChainMethod_UIScrollView(returnClass) \
 \
 @property (nonatomic, readonly) returnClass *(^setCollectionViewLayout)(UICollectionViewLayout *); \
-@property (nonatomic, readonly) returnClass *(^setDataSource)(id <UICollectionViewDataSource>); \
-@property (nonatomic, readonly) returnClass *(^setDelegate)(id <UICollectionViewDelegate>); \
+@property (nonatomic, readonly) returnClass *(^setDataSource)(id<UICollectionViewDataSource>); \
+@property (nonatomic, readonly) returnClass *(^setDelegate)(id<UICollectionViewDelegate>); \
 @property (nonatomic, readonly) returnClass *(^setPrefetchDataSource)(id<UICollectionViewDataSourcePrefetching>); \
 @property (nonatomic, readonly) returnClass *(^setPrefetchingEnabled)(BOOL); \
 @property (nonatomic, readonly) returnClass *(^setBackgroundView)(UIView *); \

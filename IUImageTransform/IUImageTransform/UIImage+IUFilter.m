@@ -10,19 +10,23 @@
 
 @implementation UIImage (IUFilter)
 
-- (UIImage *)imageWithFilterName:(NSString *)filterName {
-    //将UIImage转换成CIImage
-    CIImage *ciImage = [[CIImage alloc] initWithImage:self];
-    
+- (UIImage *)imageWithFilterName:(NSString *)filterName options:(NSDictionary *)options {
     //创建滤镜
-    CIFilter *filter = [CIFilter filterWithName:filterName keysAndValues:kCIInputImageKey, ciImage, nil];
-    if (filter == nil) {
-        return self;
-    }
+    CIFilter *filter = [CIFilter filterWithName:filterName];
+    if (filter == nil) return self;
     
-    //已有的值不改变，其他的设为默认值
+    //将UIImage转换成CIImage
+    CIImage *inputImage = [[CIImage alloc] initWithImage:self];
+    [filter setValue:inputImage forKey:kCIInputImageKey];
+    
+    //配置参数为默认值
     [filter setDefaults];
     
+    //配置自定义参数
+    for (NSString *key in options) {
+        [filter setValue:options[key] forKey:key];
+    }
+        
     //获取绘制上下文
     CIContext *context = [CIContext contextWithOptions:nil];
     
@@ -30,7 +34,8 @@
     CIImage *outputImage = [filter outputImage];
     
     //创建CGImage句柄
-    CGImageRef cgImage = [context createCGImage:outputImage fromRect:[outputImage extent]];
+    CGRect rect = [@"CIGaussianBlur" isEqualToString:filterName] ? [inputImage extent] : [outputImage extent];
+    CGImageRef cgImage = [context createCGImage:outputImage fromRect:rect];
     
     //获取图片
     UIImage *image = [UIImage imageWithCGImage:cgImage];
@@ -38,13 +43,17 @@
     //释放CGImage句柄
     CGImageRelease(cgImage);
 
-    return image;
+    return image ?: self;
 }
 
 - (void)imageWithFilterName:(NSString *)filterName completion:(void (^)(UIImage *))completion {
+    [self imageWithFilterName:filterName options:nil completion:completion];
+}
+
+- (void)imageWithFilterName:(NSString *)filterName options:(NSDictionary *)options completion:(void(^)(UIImage *image))completion {
     if (completion == nil) return;
     dispatch_async(dispatch_get_global_queue(0, 0), ^{
-        UIImage *image = [self imageWithFilterName:filterName];
+        UIImage *image = [self imageWithFilterName:filterName options:options];
         dispatch_async(dispatch_get_main_queue(), ^{
             completion(image);
         });
@@ -52,7 +61,15 @@
 }
 
 - (UIImage *)invertImage {
-    return [self imageWithFilterName:@"CIColorInvert"];
+    return [self imageWithFilterName:@"CIColorInvert" options:nil];
+}
+
+- (UIImage *)blurredImage {
+    return [self imageWithFilterName:@"CIGaussianBlur" options:nil];
+}
+
+- (UIImage *)blurredImageWithRadius:(CGFloat)radius {
+    return [self imageWithFilterName:@"CIGaussianBlur" options:@{@"inputRadius":@(radius)}];
 }
 
 @end

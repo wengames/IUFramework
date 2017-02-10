@@ -11,6 +11,9 @@
 @interface UIImage (IUFilter)
 
 - (void)imageWithFilterName:(NSString *)filterName completion:(void(^)(UIImage *image))completion;
+- (void)imageWithFilterName:(NSString *)filterName options:(NSDictionary *)options completion:(void(^)(UIImage *image))completion;
 - (UIImage *)invertImage;
+- (UIImage *)blurredImage;
+- (UIImage *)blurredImageWithRadius:(CGFloat)radius;
 
 @end

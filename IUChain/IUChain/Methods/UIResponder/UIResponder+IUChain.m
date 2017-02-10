@@ -1,15 +1,15 @@
 //
-//  UIView+IUChain.m
+//  UIResponder+IUChain.m
 //  IUChain
 //
-//  Created by admin on 2017/1/19.
+//  Created by admin on 2017/2/10.
 //  Copyright © 2017年 刘海文. All rights reserved.
 //
 
-#import "UIView+IUChain.h"
+#import "UIResponder+IUChain.h"
 
 #pragma clang diagnostic ignored "-Wobjc-property-implementation"
 
-@implementation UIView (IUChain)
+@implementation UIResponder (IUChain)
 
 @end

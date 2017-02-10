@@ -215,9 +215,9 @@ static char TAG_TABLE_VIEW_DATA_BINDER;
 - (nullable UIViewController *)previewingContext:(id <UIViewControllerPreviewing>)previewingContext viewControllerForLocation:(CGPoint)location {
     if ([self.delegate respondsToSelector:@selector(tableView:viewControllerToPreviewAtIndexPath:)]) {
         UIViewController *viewController = [self.delegate tableView:self.tableView viewControllerToPreviewAtIndexPath:[self.tableView indexPathForCell:previewingContext.sourceView]];
-        if ([viewController respondsToSelector:@selector(setIsPeek)]) {
-            [viewController setValue:@YES forKey:@"isPeek"];
-        }
+//        if ([viewController respondsToSelector:@selector(setIsPeek)]) {
+//            [viewController setValue:@YES forKey:@"isPeek"];
+//        }
         return viewController;
     }
     return nil;

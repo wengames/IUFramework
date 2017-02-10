@@ -49,6 +49,8 @@
 		84D2EB4F1E4B166000B2A2CD /* NSString+IUTokenizer.h in Headers */ = {isa = PBXBuildFile; fileRef = 84D2EB4D1E4B166000B2A2CD /* NSString+IUTokenizer.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		84D2EB501E4B166000B2A2CD /* NSString+IUTokenizer.m in Sources */ = {isa = PBXBuildFile; fileRef = 84D2EB4E1E4B166000B2A2CD /* NSString+IUTokenizer.m */; };
 		84DFC6081E34D26D000A588C /* IUUtil.h in Headers */ = {isa = PBXBuildFile; fileRef = 84DFC6061E34D26D000A588C /* IUUtil.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		84FBCDBA1E4D71CC00A35006 /* UIResponder+IUController.h in Headers */ = {isa = PBXBuildFile; fileRef = 84FBCDB81E4D71CC00A35006 /* UIResponder+IUController.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		84FBCDBB1E4D71CC00A35006 /* UIResponder+IUController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84FBCDB91E4D71CC00A35006 /* UIResponder+IUController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -91,6 +93,8 @@
 		84DFC6031E34D26D000A588C /* IUUtil.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = IUUtil.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		84DFC6061E34D26D000A588C /* IUUtil.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IUUtil.h; sourceTree = "<group>"; };
 		84DFC6071E34D26D000A588C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		84FBCDB81E4D71CC00A35006 /* UIResponder+IUController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIResponder+IUController.h"; sourceTree = "<group>"; };
+		84FBCDB91E4D71CC00A35006 /* UIResponder+IUController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIResponder+IUController.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -138,6 +142,8 @@
 				84D2EB2A1E49C52B00B2A2CD /* UIView+IUEmpty.m */,
 				84D2EB2B1E49C52B00B2A2CD /* UIView+IUTouchAreaExpand.h */,
 				84D2EB2C1E49C52B00B2A2CD /* UIView+IUTouchAreaExpand.m */,
+				84FBCDB81E4D71CC00A35006 /* UIResponder+IUController.h */,
+				84FBCDB91E4D71CC00A35006 /* UIResponder+IUController.m */,
 				84D2EB2D1E49C52B00B2A2CD /* UIViewController+IUAlertController.h */,
 				84D2EB2E1E49C52B00B2A2CD /* UIViewController+IUAlertController.m */,
 			);
@@ -189,6 +195,7 @@
 				84D2EB3B1E49C52B00B2A2CD /* NSString+IURegex.h in Headers */,
 				84D2EB371E49C52B00B2A2CD /* NSDate+IUQuickDate.h in Headers */,
 				84D2EB411E49C52B00B2A2CD /* UITableView+IUDataBinder.h in Headers */,
+				84FBCDBA1E4D71CC00A35006 /* UIResponder+IUController.h in Headers */,
 				84D2EB4F1E4B166000B2A2CD /* NSString+IUTokenizer.h in Headers */,
 				84D2EB311E49C52B00B2A2CD /* IUForceTouchGestureRecognizer.h in Headers */,
 				84D2EB351E49C52B00B2A2CD /* IUTabPageViewController.h in Headers */,
@@ -293,6 +300,7 @@
 				84D2EB421E49C52B00B2A2CD /* UITableView+IUDataBinder.m in Sources */,
 				84D2EB3A1E49C52B00B2A2CD /* NSString+IUEvaluate.m in Sources */,
 				84D2EB441E49C52B00B2A2CD /* UIView+IUEmpty.m in Sources */,
+				84FBCDBB1E4D71CC00A35006 /* UIResponder+IUController.m in Sources */,
 				84D2EB341E49C52B00B2A2CD /* IUTabPageView.m in Sources */,
 				84D2EB3E1E49C52B00B2A2CD /* UIColor+IUGenerator.m in Sources */,
 				84D2EB481E49C52B00B2A2CD /* UIViewController+IUAlertController.m in Sources */,

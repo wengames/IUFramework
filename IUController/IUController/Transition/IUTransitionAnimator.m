@@ -10,14 +10,13 @@
 #import "UIViewController+IUMagicTransition.h"
 #import <objc/runtime.h>
 
-#define IUTransitionContentViewTag 49061
-#define IUTransitionDimmerViewTag  49062
-
-#define IUTransitionPushBackViewControllerOffsetCurve 0.3
+typedef void(^_IUTransitionPrepare)(void);
+typedef void(^_IUTransitionAnimations)(void);
+typedef void(^_IUTransitionCompletion)(BOOL finished);
 
 @interface IUTransitionAnimator ()
 
-@property (nonatomic, strong) UIView *contentView;
+@property (nonatomic, strong) void(^__completeCallback)(void);
 
 @end
 
@@ -42,47 +41,6 @@
     return self;
 }
 
-- (void)setDimmerColor:(UIColor *)dimmerColor {
-    _dimmerColor = dimmerColor;
-    self.contentView.backgroundColor = _dimmerColor;
-}
-
-- (void)setDimmerView:(UIView *)dimmerView {
-    if (_dimmerView.superview) {
-        [_dimmerView.superview insertSubview:dimmerView aboveSubview:_dimmerView];
-        [_dimmerView removeFromSuperview];
-    }
-    _dimmerView = dimmerView;
-}
-
-- (UIView *)contentView {
-    if (_contentView == nil) {
-        _contentView = [[UIView alloc] init];
-        _contentView.tag = IUTransitionContentViewTag;
-    }
-    return _contentView;
-}
-
-- (UIView *)contentViewWithContainerView:(UIView *)containerView {
-    UIView *contentView = [containerView viewWithTag:IUTransitionContentViewTag];
-    if (contentView == nil && self.dimmerColor) {
-        contentView = self.contentView;
-        contentView.frame = containerView.bounds;
-        [containerView addSubview:contentView];
-    }
-    return contentView;
-}
-
-- (UIView *)dimmerViewWithContainerView:(UIView *)containerView {
-    UIView *dimmerView = [containerView viewWithTag:IUTransitionDimmerViewTag];
-    if (dimmerView == nil && self.dimmerView) {
-        dimmerView = self.dimmerView;
-        dimmerView.tag = IUTransitionDimmerViewTag;
-        [containerView addSubview:dimmerView];
-    }
-    return dimmerView;
-}
-
 #pragma mark UIViewControllerTransitioningDelegate
 - (NSTimeInterval)transitionDuration:(id <UIViewControllerContextTransitioning>)transitionContext {
     return _duration;
@@ -93,9 +51,9 @@
     UIViewController *fromViewController = [transitionContext viewControllerForKey:UITransitionContextFromViewControllerKey];
     UIViewController *toViewController   = [transitionContext viewControllerForKey:UITransitionContextToViewControllerKey];
     
-    void(^initAnimation)(void) = ^{};
-    void(^animations)(void) = ^{};
-    void(^completion)(BOOL) = ^(BOOL finished){};
+    _IUTransitionPrepare prepare = ^{};
+    _IUTransitionAnimations animations = ^{};
+    _IUTransitionCompletion completion = ^(BOOL finished){};
     
     // add view on container
     {
@@ -103,8 +61,8 @@
             case IUTransitionOperationPush:
             case IUTransitionOperationPresent:
                 if (toViewController.view.superview == nil) {
-                    initAnimation = ^{
-                        initAnimation();
+                    prepare = ^{
+                        prepare();
                         [containerView addSubview:toViewController.view];
                     };
                 }
@@ -112,10 +70,9 @@
             case IUTransitionOperationPop:
             case IUTransitionOperationDismiss:
                 if (toViewController.view.superview == nil) {
-                    initAnimation = ^{
-                        initAnimation();
+                    prepare = ^{
+                        prepare();
                         [containerView insertSubview:toViewController.view atIndex:0];
-                        [containerView bringSubviewToFront:fromViewController.view];
                     };
                 }
                 break;
@@ -123,46 +80,53 @@
     }
     
     // dimmer
-    {
-        UIView *contentView = [self contentViewWithContainerView:containerView];
-        UIView *dimmerView = [self dimmerViewWithContainerView:containerView];
-        if (contentView || dimmerView) {
-            switch (self.operation) {
-                case IUTransitionOperationPush:
-                case IUTransitionOperationPresent:
-                {
-                    initAnimation = ^{
-                        initAnimation();
-                        if (contentView) contentView.alpha = 0.0;
-                        if (dimmerView) dimmerView.alpha = 0.0;
-                    };
-                    animations = ^{
-                        if (contentView) contentView.alpha = 1.0;
-                        if (dimmerView) dimmerView.alpha = 1.0;
-                    };
-                }
-                    break;
-                case IUTransitionOperationPop:
-                case IUTransitionOperationDismiss:
-                {
-                    animations = ^{
-                        if (contentView) contentView.alpha = 0.0;
-                        if (dimmerView) dimmerView.alpha = 0.0;
-                    };
-                }
-                    break;
-            }
-            
-            completion = ^(BOOL finished) {
-                completion(finished);
-                if (contentView) [contentView removeFromSuperview];
-                if (dimmerView)  [dimmerView removeFromSuperview];
-            };
+    do {
+        if (!self.dimmerColor && !self.dimmerView) break;
+        
+        UIView *dimmerBackgroundView = [[UIView alloc] initWithFrame:containerView.bounds];
+        dimmerBackgroundView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+        if (self.dimmerColor) dimmerBackgroundView.backgroundColor = self.dimmerColor;
+        if (self.dimmerView) {
+            UIView *dimmerView = self.dimmerView;
+            dimmerView.frame = dimmerBackgroundView.bounds;
+            dimmerView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+            [dimmerBackgroundView addSubview:dimmerView];
         }
-    }
+        
+        prepare = ^{
+            prepare();
+            [containerView insertSubview:dimmerBackgroundView belowSubview:fromViewController.view];
+        };
+        
+        switch (self.operation) {
+            case IUTransitionOperationPush:
+            case IUTransitionOperationPresent:
+            {
+                animations = ^{
+                    animations();
+                    dimmerBackgroundView.alpha = 1.0;
+                };
+            }
+                break;
+            case IUTransitionOperationPop:
+            case IUTransitionOperationDismiss:
+            {
+                animations = ^{
+                    animations();
+                    dimmerBackgroundView.alpha = 0.0;
+                };
+            }
+                break;
+        }
+        
+        completion = ^(BOOL finished) {
+            completion(finished);
+            [dimmerBackgroundView removeFromSuperview];
+        };
+    } while (0);
     
     // shadow
-    do {
+    {
         switch (self.type) {
             case IUTransitionTypeDefault:
                 switch (self.operation) {
@@ -173,8 +137,8 @@
                         CGFloat shadowRadius = toViewController.view.layer.shadowRadius;
                         CGFloat shadowOpacity = toViewController.view.layer.shadowOpacity;
 
-                        initAnimation = ^{
-                            initAnimation();
+                        prepare = ^{
+                            prepare();
                             toViewController.view.layer.shadowOffset = CGSizeMake(-5, 0);
                             toViewController.view.layer.shadowColor = [UIColor blackColor].CGColor;
                             toViewController.view.layer.shadowRadius = 2;
@@ -197,8 +161,8 @@
                         CGFloat shadowRadius = fromViewController.view.layer.shadowRadius;
                         CGFloat shadowOpacity = fromViewController.view.layer.shadowOpacity;
                         
-                        initAnimation = ^{
-                            initAnimation();
+                        prepare = ^{
+                            prepare();
                             fromViewController.view.layer.shadowOffset = CGSizeMake(-5, 0);
                             fromViewController.view.layer.shadowColor = [UIColor blackColor].CGColor;
                             fromViewController.view.layer.shadowRadius = 2;
@@ -220,105 +184,241 @@
                 }
                 break;
         }
-    } while (0);
+    }
     
     // view frame animation
-    {
-        initAnimation = ^{
-            initAnimation();
-            
+    do {
+        if (self.type == IUTransitionTypeCustom) break;
+        
+        #define IUTransitionDefaultDamping 0.3
+        
+        CGRect fromInitialFrame = [transitionContext initialFrameForViewController:fromViewController];
+        CGRect toFinalFrame = [transitionContext finalFrameForViewController:toViewController];
+        
+        _IUTransitionPrepare    custom_prepare    = ^{};
+        _IUTransitionAnimations custom_animations = ^{};
+        _IUTransitionCompletion custom_completion = ^(BOOL finished){};
+
+        switch (self.type) {
+            case IUTransitionTypeDefault:
+                switch (self.operation) {
+                    case IUTransitionOperationPush:
+                    {
+                        custom_prepare = ^{
+                            toViewController.view.frame = CGRectOffset(toFinalFrame, containerView.bounds.size.width, 0);
+                        };
+                        custom_animations = ^{
+                            fromViewController.view.frame = CGRectOffset(fromInitialFrame, -containerView.bounds.size.width * IUTransitionDefaultDamping, 0);
+                        };
+                    }
+                        break;
+                    case IUTransitionOperationPop:
+                    {
+                        custom_prepare = ^{
+                            toViewController.view.frame = CGRectOffset(toFinalFrame, -containerView.bounds.size.width * IUTransitionDefaultDamping, 0);
+                        };
+                        custom_animations = ^{
+                            fromViewController.view.frame = CGRectOffset(fromInitialFrame, containerView.bounds.size.width, 0);
+                        };
+                    }
+                        break;
+                    case IUTransitionOperationPresent:
+                    {
+                        custom_prepare = ^{
+                            toViewController.view.frame = CGRectOffset(toFinalFrame, 0, containerView.bounds.size.height);
+                        };
+                    }
+                        break;
+                    case IUTransitionOperationDismiss:
+                    {
+                        custom_animations = ^{
+                            fromViewController.view.frame = CGRectOffset(fromInitialFrame, 0, containerView.bounds.size.height);
+                        };
+                    }
+                        break;
+                }
+                break;
+            case IUTransitionTypeFade:
+                switch (self.operation) {
+                    case IUTransitionOperationPush:
+                    case IUTransitionOperationPresent:
+                    {
+                        custom_prepare = ^{
+                            toViewController.view.alpha = 0.0;
+                        };
+                        custom_animations = ^{
+                            toViewController.view.alpha = 1.0;
+                        };
+                    }
+                        break;
+                    case IUTransitionOperationPop:
+                    case IUTransitionOperationDismiss:
+                    {
+                        custom_animations = ^{
+                            fromViewController.view.alpha = 0.0;
+                        };
+                        custom_completion = ^(BOOL finished){
+                            fromViewController.view.alpha = 1.0;
+                        };
+                    }
+                        break;
+                }
+                break;
+            case IUTransitionTypeErase:
+            {
+                UIView *clipView = [[UIView alloc] init];
+                clipView.clipsToBounds = YES;
+#define _kEraserWidth 10
+                UIView *eraser = [[UIView alloc] init];
+                eraser.backgroundColor = [UINavigationBar appearance].barTintColor ?: [UIColor colorWithWhite:198/255.f alpha:1];
+
+                switch (self.operation) {
+                    case IUTransitionOperationPush:
+                    {
+                        custom_prepare = ^{                            
+                            [containerView insertSubview:clipView aboveSubview:toViewController.view];
+                            [containerView insertSubview:eraser aboveSubview:clipView];
+
+                            eraser.frame = CGRectMake(containerView.bounds.size.width, 0, _kEraserWidth, containerView.bounds.size.height);
+
+                            clipView.frame = CGRectOffset(toFinalFrame, containerView.bounds.size.width, 0);
+                            toViewController.view.frame = [clipView convertRect:CGRectOffset(toFinalFrame, containerView.bounds.size.width * IUTransitionDefaultDamping, 0) fromView:containerView];
+                            [clipView addSubview:toViewController.view];
+                            
+                        };
+                        custom_animations = ^{
+                            eraser.frame = CGRectMake(-_kEraserWidth, 0, _kEraserWidth, containerView.bounds.size.height);
+                            clipView.frame = toFinalFrame;
+                            toViewController.view.frame = [clipView convertRect:toFinalFrame fromView:containerView];
+                            fromViewController.view.frame = CGRectOffset(fromInitialFrame, -containerView.bounds.size.width * IUTransitionDefaultDamping, 0);
+                        };
+                        custom_completion = ^(BOOL finished) {
+                            if (![transitionContext transitionWasCancelled]) {
+                                toViewController.view.frame = toFinalFrame;
+                                [containerView addSubview:toViewController.view];
+                                [containerView insertSubview:toViewController.view aboveSubview:clipView];
+                            }
+                            [clipView removeFromSuperview];
+                            [eraser removeFromSuperview];
+                        };
+                    }
+                        break;
+                    case IUTransitionOperationPop:
+                    {
+                        custom_prepare = ^{
+                            [containerView insertSubview:clipView aboveSubview:fromViewController.view];
+                            [containerView insertSubview:eraser aboveSubview:clipView];
+                            
+                            eraser.frame = CGRectMake(-_kEraserWidth, 0, _kEraserWidth, containerView.bounds.size.height);
+                            
+                            clipView.frame = fromInitialFrame;
+                            fromViewController.view.frame = [clipView convertRect:fromInitialFrame fromView:containerView];
+                            [clipView addSubview:fromViewController.view];
+                        };
+                        custom_animations = ^{
+                            eraser.frame = CGRectMake(containerView.bounds.size.width, 0, _kEraserWidth, containerView.bounds.size.height);
+                            clipView.frame = CGRectOffset(fromInitialFrame, containerView.bounds.size.width, 0);
+                            fromViewController.view.frame = [clipView convertRect:CGRectOffset(fromInitialFrame, containerView.bounds.size.width * IUTransitionDefaultDamping, 0) fromView:containerView];
+                        };
+                        custom_completion = ^(BOOL finished) {
+                            if ([transitionContext transitionWasCancelled]) {
+                                fromViewController.view.frame = fromInitialFrame;
+                                [containerView insertSubview:fromViewController.view aboveSubview:clipView];
+                            }
+                            [clipView removeFromSuperview];
+                            [eraser removeFromSuperview];
+                        };
+                    }
+                        break;
+                    case IUTransitionOperationPresent:
+                    {
+                        custom_prepare = ^{
+                            [containerView insertSubview:clipView aboveSubview:toViewController.view];
+                            [containerView insertSubview:eraser aboveSubview:clipView];
+
+                            eraser.frame = CGRectMake(0, containerView.bounds.size.height, containerView.bounds.size.width, _kEraserWidth);
+                            
+                            clipView.frame = CGRectOffset(toFinalFrame, 0, containerView.bounds.size.height);
+                            toViewController.view.frame = [clipView convertRect:CGRectOffset(toFinalFrame, 0, containerView.bounds.size.height * IUTransitionDefaultDamping) fromView:containerView];
+                            [clipView addSubview:toViewController.view];
+                        };
+                        custom_animations = ^{
+                            eraser.frame = CGRectMake(0, -_kEraserWidth, containerView.bounds.size.width, _kEraserWidth);
+                            clipView.frame = toFinalFrame;
+                            toViewController.view.frame = [clipView convertRect:toFinalFrame fromView:containerView];
+                        };
+                        custom_completion = ^(BOOL finished) {
+                            if (![transitionContext transitionWasCancelled]) {
+                                toViewController.view.frame = toFinalFrame;
+                                [containerView insertSubview:toViewController.view aboveSubview:clipView];
+                            }
+                            [clipView removeFromSuperview];
+                            [eraser removeFromSuperview];
+                        };
+                    }
+                        break;
+                    case IUTransitionOperationDismiss:
+                    {
+                        custom_prepare = ^{
+                            [containerView insertSubview:clipView aboveSubview:fromViewController.view];
+                            [containerView insertSubview:eraser aboveSubview:clipView];
+                            eraser.frame = CGRectMake(0, -_kEraserWidth, containerView.bounds.size.width, _kEraserWidth);
+                            
+                            clipView.frame = fromInitialFrame;
+                            fromViewController.view.frame = [clipView convertRect:fromInitialFrame fromView:containerView];
+                            [clipView addSubview:fromViewController.view];
+                        };
+                        custom_animations = ^{
+                            eraser.frame = CGRectMake(0, containerView.bounds.size.height,  containerView.bounds.size.width, _kEraserWidth);
+                            clipView.frame = CGRectOffset(fromInitialFrame, 0, containerView.bounds.size.height);
+                            fromViewController.view.frame = [clipView convertRect:CGRectOffset(fromInitialFrame, 0, containerView.bounds.size.height * IUTransitionDefaultDamping) fromView:containerView];
+                        };
+                        custom_completion = ^(BOOL finished) {
+                            if ([transitionContext transitionWasCancelled]) {
+                                fromViewController.view.frame = fromInitialFrame;
+                                [containerView insertSubview:fromViewController.view aboveSubview:clipView];
+                            }
+                            [clipView removeFromSuperview];
+                            [eraser removeFromSuperview];
+                        };
+                    }
+                        break;
+                }
+            }
+                break;
+        }
+        
+        prepare = ^{
+            prepare();
             fromViewController.view.frame = [transitionContext initialFrameForViewController:fromViewController];
             if (!CGRectEqualToRect(CGRectZero, [transitionContext initialFrameForViewController:toViewController])) {
                 toViewController.view.frame = [transitionContext initialFrameForViewController:toViewController];
             }
-            CGRect toFinalFrame = [transitionContext finalFrameForViewController:toViewController];
-            
-            switch (self.type) {
-                case IUTransitionTypeDefault:
-                    switch (self.operation) {
-                        case IUTransitionOperationPush:
-                            toViewController.view.frame = CGRectOffset(toFinalFrame, containerView.bounds.size.width, 0);
-                            break;
-                        case IUTransitionOperationPop:
-                            toViewController.view.frame = CGRectOffset(toFinalFrame, -containerView.bounds.size.width * IUTransitionPushBackViewControllerOffsetCurve, 0);
-                            break;
-                        case IUTransitionOperationPresent:
-                            toViewController.view.frame = CGRectOffset(toFinalFrame, 0, containerView.bounds.size.height);
-                            break;
-                        case IUTransitionOperationDismiss:
-                            break;
-                    }
-                    break;
-                case IUTransitionTypeFade:
-                    switch (self.operation) {
-                        case IUTransitionOperationPush:
-                        case IUTransitionOperationPresent:
-                            toViewController.view.alpha = 0.0;
-                            break;
-                        case IUTransitionOperationPop:
-                        case IUTransitionOperationDismiss:
-                            break;
-                    }
-                    break;
-            }
+            custom_prepare();
         };
         
         animations = ^{
             animations();
-            
             toViewController.view.frame = [transitionContext finalFrameForViewController:toViewController];
             if (!CGRectEqualToRect(CGRectZero, [transitionContext finalFrameForViewController:fromViewController])) {
                 fromViewController.view.frame = [transitionContext finalFrameForViewController:fromViewController];
             }
-            CGRect fromInitialFrame = [transitionContext initialFrameForViewController:fromViewController];
-            
-            switch (self.type) {
-                case IUTransitionTypeDefault:
-                    switch (self.operation) {
-                        case IUTransitionOperationPush:
-                            fromViewController.view.frame = CGRectOffset(fromInitialFrame, -containerView.bounds.size.width * IUTransitionPushBackViewControllerOffsetCurve, 0);
-                            break;
-                        case IUTransitionOperationPop:
-                            fromViewController.view.frame = CGRectOffset(fromInitialFrame, containerView.bounds.size.width, 0);
-                            break;
-                        case IUTransitionOperationPresent:
-                            break;
-                        case IUTransitionOperationDismiss:
-                            fromViewController.view.frame = CGRectOffset(fromInitialFrame, 0, containerView.bounds.size.height);
-                            break;
-                    }
-                    break;
-                case IUTransitionTypeFade:
-                    switch (self.operation) {
-                        case IUTransitionOperationPush:
-                        case IUTransitionOperationPresent:
-                            toViewController.view.alpha = 1.0;
-                            break;
-                        case IUTransitionOperationPop:
-                        case IUTransitionOperationDismiss:
-                            fromViewController.view.alpha = 0.0;
-                            break;
-                    }
-                    break;
-            }
+            custom_animations();
         };
         
         completion = ^(BOOL finished) {
             completion(finished);
-            if (self.type == IUTransitionTypeFade) {
-                fromViewController.view.alpha = 1.0;
-                toViewController.view.alpha = 1.0;
-            }
+            custom_completion(finished);
         };
-    }
+    } while (0);
     
     // call delegate
     {
         __weak typeof(self.delegate) delegate = self.delegate;
         
         if ([delegate respondsToSelector:@selector(transitionAnimator:willBeginTransition:)]) {
-            initAnimation = ^{
-                initAnimation();
+            prepare = ^{
+                prepare();
                 [delegate transitionAnimator:self willBeginTransition:transitionContext];
             };
         }
@@ -351,12 +451,11 @@
             UIView *fromMagicView = fromMagicViews[i];
             UIView *toMagicView = toMagicViews[i];
             
-            initAnimation = ^{
-                initAnimation();
+            prepare = ^{
+                prepare();
                 fromMagicView.frame = [containerView convertRect:fromMagicView.bounds fromView:fromMagicView];
                 [containerView addSubview:fromMagicView];
                 fromMagicView.frame = [containerView convertRect:fromMagicView.bounds fromView:fromMagicView];
-                [fromMagicView layoutIfNeeded];
                 toMagicView.hidden = YES;
             };
             
@@ -365,7 +464,6 @@
                 
                 /* move animation */
                 fromMagicView.frame = [containerView convertRect:toMagicView.bounds fromView:toMagicView];
-                [fromMagicView layoutIfNeeded];
                 
                 /* lift drop animation */
 #define _kLiftHeight   8
@@ -449,13 +547,15 @@
     fromViewController.view.userInteractionEnabled = NO;
     toViewController.view.userInteractionEnabled = NO;
     
-    initAnimation();
+    prepare();
     
     [UIView animateWithDuration:[self transitionDuration:transitionContext]
                           delay:0.0
                         options:UIViewAnimationOptionBeginFromCurrentState | (self.animationCurve << 16)
-                     animations:animations
-                     completion:^(BOOL finished) {
+                     animations: ^{
+                         animations();
+                         [containerView layoutIfNeeded];
+                     } completion:^(BOOL finished) {
                          
                          [transitionContext completeTransition:!transitionContext.transitionWasCancelled];
                          
@@ -464,6 +564,8 @@
                          fromViewController.view.userInteractionEnabled = YES;
                          toViewController.view.userInteractionEnabled = YES;
                          
+                         // call block set in IUTransitioningDelegate
+                         if (self.__completeCallback) self.__completeCallback();
                      }];
 }
 

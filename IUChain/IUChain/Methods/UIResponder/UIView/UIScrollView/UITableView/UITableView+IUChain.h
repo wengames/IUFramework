@@ -13,8 +13,8 @@
 \
 IUChainMethod_UIScrollView(returnClass) \
 \
-@property (nonatomic, readonly) returnClass *(^setDataSource)(id <UITableViewDataSource>); \
-@property (nonatomic, readonly) returnClass *(^setDelegate)(id <UITableViewDelegate>); \
+@property (nonatomic, readonly) returnClass *(^setDataSource)(id<UITableViewDataSource>); \
+@property (nonatomic, readonly) returnClass *(^setDelegate)(id<UITableViewDelegate>); \
 @property (nonatomic, readonly) returnClass *(^setPrefetchDataSource)(id<UITableViewDataSourcePrefetching>); \
 @property (nonatomic, readonly) returnClass *(^setRowHeight)(CGFloat); \
 @property (nonatomic, readonly) returnClass *(^setSectionHeaderHeight)(CGFloat); \

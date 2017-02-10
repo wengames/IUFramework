@@ -17,30 +17,9 @@
 
 @end
 
-@interface _IUTextViewDelegateProxy : NSObject <UITextViewDelegate>
-
-@property (nonatomic, strong) id(^textInputRestrict)();
-
-@end
-
 @interface UITextView ()
 
-@property (nonatomic, strong, readonly) _IUTextViewDelegateProxy *proxy;
-@property (nonatomic, strong, readonly) UILabel *placeholderLabel;
-
-@end
-
-@implementation _IUTextViewDelegateProxy
-
-- (void)textViewDidChange:(NSNotification *)notification {
-    UITextView *textView = notification.object;
-    [self.textInputRestrict() _textDidChange:textView];
-    textView.placeholderLabel.hidden = [textView.text length] != 0;
-}
-
-- (void)dealloc {
-    [[NSNotificationCenter defaultCenter] removeObserver:self];
-}
+@property (nonatomic, strong, readonly) UILabel *__placeholderLabel;
 
 @end
 
@@ -74,19 +53,7 @@ static char TAG_TEXT_VIEW_PLACEHOLDER_LABEL;
     [[NSNotificationCenter defaultCenter] postNotificationName:UITextViewTextDidChangeNotification object:self];
 }
 
-- (_IUTextViewDelegateProxy *)proxy {
-    _IUTextViewDelegateProxy *proxy = objc_getAssociatedObject(self, &TAG_TEXT_VIEW_DELEGATE_PROXY);
-    if (proxy == nil) {
-        __weak typeof(self) weakSelf = self;
-        proxy = [[_IUTextViewDelegateProxy alloc] init];
-        objc_setAssociatedObject(self, &TAG_TEXT_VIEW_DELEGATE_PROXY, proxy, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
-        proxy.textInputRestrict = ^{ return weakSelf.textInputRestrict; };
-        [[NSNotificationCenter defaultCenter] addObserver:proxy selector:@selector(textViewDidChange:) name:UITextViewTextDidChangeNotification object:self];
-    }
-    return proxy;
-}
-
-- (UILabel *)placeholderLabel {
+- (UILabel *)__placeholderLabel {
     UILabel *placeholderLabel = objc_getAssociatedObject(self, &TAG_TEXT_VIEW_PLACEHOLDER_LABEL);
     if (placeholderLabel == nil) {
         placeholderLabel = [[UILabel alloc] init];
@@ -100,32 +67,33 @@ static char TAG_TEXT_VIEW_PLACEHOLDER_LABEL;
 }
 
 - (void)setPlaceholder:(NSString *)placeholder {
-    [self resetProxy];
-    self.placeholderLabel.frame = CGRectMake(self.textContainerInset.left + self.textContainer.lineFragmentPadding, self.textContainerInset.top, self.bounds.size.width - self.textContainerInset.left - self.textContainerInset.right - self.textContainer.lineFragmentPadding * 2, 0);
-    self.placeholderLabel.text = placeholder;
-    [self.placeholderLabel sizeToFit];
-    self.placeholderLabel.hidden = self.text.length != 0;
+    self.__placeholderLabel.frame = CGRectMake(self.textContainerInset.left + self.textContainer.lineFragmentPadding, self.textContainerInset.top, self.bounds.size.width - self.textContainerInset.left - self.textContainerInset.right - self.textContainer.lineFragmentPadding * 2, 0);
+    self.__placeholderLabel.text = placeholder;
+    [self.__placeholderLabel sizeToFit];
+    self.__placeholderLabel.hidden = self.text.length != 0;
 }
 
 - (NSString *)placeholder {
-    return self.placeholderLabel.text;
+    return self.__placeholderLabel.text;
 }
 
 - (void)setAttributedPlaceholder:(NSAttributedString *)attributedPlaceholder {
-    [self resetProxy];
-    self.placeholderLabel.frame = CGRectMake(self.textContainerInset.left + self.textContainer.lineFragmentPadding, self.textContainerInset.top, self.bounds.size.width - self.textContainerInset.left - self.textContainerInset.right - self.textContainer.lineFragmentPadding * 2, 0);
-    self.placeholderLabel.attributedText = attributedPlaceholder;
-    [self.placeholderLabel sizeToFit];
-    self.placeholderLabel.hidden = self.text.length != 0;
+    self.__placeholderLabel.frame = CGRectMake(self.textContainerInset.left + self.textContainer.lineFragmentPadding, self.textContainerInset.top, self.bounds.size.width - self.textContainerInset.left - self.textContainerInset.right - self.textContainer.lineFragmentPadding * 2, 0);
+    self.__placeholderLabel.attributedText = attributedPlaceholder;
+    [self.__placeholderLabel sizeToFit];
+    self.__placeholderLabel.hidden = self.text.length != 0;
 }
 
 - (NSAttributedString *)attributedPlaceholder {
-    return self.placeholderLabel.attributedText;
+    return self.__placeholderLabel.attributedText;
 }
 
 #pragma mark - Getter & Setter
 - (void)setTextInputRestrict:(IUTextInputRestrict *)textInputRestrict {
-    [self resetProxy];
+    IUTextInputRestrict *textInputRestrictBefore = objc_getAssociatedObject(self, &TAG_TEXT_VIEW_TEXT_INPUT_RESTRICT);
+    if (textInputRestrictBefore) {
+        [[NSNotificationCenter defaultCenter] removeObserver:textInputRestrictBefore name:UITextViewTextDidChangeNotification object:self];
+    }
     objc_setAssociatedObject(self, &TAG_TEXT_VIEW_TEXT_INPUT_RESTRICT, textInputRestrict, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
     if ([textInputRestrict isKindOfClass:[IUTextInputRestrictNumberOnly class]]) {
         self.keyboardType = UIKeyboardTypeNumberPad;
@@ -138,6 +106,8 @@ static char TAG_TEXT_VIEW_PLACEHOLDER_LABEL;
         [(IUTextInputRestrictIdentityCard *)textInputRestrict setInputView:self];
     }
     textInputRestrict.maxTextLength = self.maxTextLength;
+    
+    [[NSNotificationCenter defaultCenter] addObserver:textInputRestrict selector:@selector(textViewDidChange:) name:UITextViewTextDidChangeNotification object:self];
 }
 
 - (IUTextInputRestrict *)textInputRestrict {
@@ -151,7 +121,6 @@ static char TAG_TEXT_VIEW_PLACEHOLDER_LABEL;
 }
 
 - (void)setMaxTextLength:(NSUInteger)maxTextLength {
-    [self resetProxy];
     objc_setAssociatedObject(self, &TAG_TEXT_VIEW_MAX_TEXT_LENGTH, @(maxTextLength), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
     self.textInputRestrict.maxTextLength = maxTextLength;
     [self.textInputRestrict _textDidChange:self];
@@ -177,13 +146,6 @@ static char TAG_TEXT_VIEW_PLACEHOLDER_LABEL;
     }
     return [string copy];
 }
-
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wunused-getter-return-value"
-- (void)resetProxy {
-    self.proxy;
-}
-#pragma clang diagnostic pop
 
 @end
 

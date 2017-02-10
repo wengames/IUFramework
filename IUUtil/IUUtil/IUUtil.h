@@ -17,6 +17,8 @@
 
 #import "UIColor+IUGenerator.h"
 
+#import "UIResponder+IUController.h"
+
 #import "UIView+IUEmpty.h"
 #import "UIView+IUTouchAreaExpand.h"
 #import "UITableView+IUDataBinder.h"

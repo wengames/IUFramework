@@ -8,8 +8,15 @@
 
 #import "IUTransitioningDelegate.h"
 
+@interface IUTransitionAnimator ()
+
+@property (nonatomic, strong) void(^__completeCallback)(void);
+
+@end
+
 @interface IUTransitioningDelegate ()
 
+@property (nonatomic, assign) BOOL isTransitioning;
 @property (nonatomic, assign) BOOL interactiveTransitionEnabled; // defaults NO, set enabled when interactive transition began, and disable it later.
 
 @end
@@ -46,7 +53,7 @@
         presented.modalPresentationStyle = UIModalPresentationCustom;
     }
     IUTransitionAnimator *animator = [IUTransitionAnimator animatorWithTransitionOperation:IUTransitionOperationPresent type:self.type];
-    if (self.config) self.config(animator);
+    if (self.animatorConfiguration) self.animatorConfiguration(animator);
     return animator;
 }
 
@@ -58,7 +65,7 @@
 
 - (nullable id <UIViewControllerAnimatedTransitioning>)animationControllerForDismissedController:(UIViewController *)dismissed {
     IUTransitionAnimator *animator = [IUTransitionAnimator animatorWithTransitionOperation:IUTransitionOperationDismiss type:self.type];
-    if (self.config) self.config(animator);
+    if (self.animatorConfiguration) self.animatorConfiguration(animator);
     return animator;
 }
 
@@ -70,16 +77,19 @@
 
 #pragma mark - UINavigationControllerDelegate
 - (id<UIViewControllerAnimatedTransitioning>)navigationController:(UINavigationController *)navigationController animationControllerForOperation:(UINavigationControllerOperation)operation fromViewController:(UIViewController *)fromVC toViewController:(UIViewController *)toVC {
-    if ([self.delegate respondsToSelector:_cmd]) return [self.delegate navigationController:navigationController animationControllerForOperation:operation fromViewController:fromVC toViewController:toVC];
+    self.isTransitioning = YES;
     IUTransitionAnimator *animator = [IUTransitionAnimator animatorWithTransitionOperation:operation type:self.type];
-    if (self.config) self.config(animator);
+    if (self.animatorConfiguration) self.animatorConfiguration(animator);
+    __weak typeof(self) weakSelf = self;
+    animator.__completeCallback = ^ {
+        weakSelf.isTransitioning = NO;
+    };
     return animator;
 }
 
 - (id<UIViewControllerInteractiveTransitioning>)navigationController:(UINavigationController *)navigationController interactionControllerForAnimationController:(id<UIViewControllerAnimatedTransitioning>)animationController {
     id<UIViewControllerInteractiveTransitioning> transition = self.interactiveTransitionEnabled ? self.interactiveTransition : nil;
     self.interactiveTransitionEnabled = NO;
-    if ([self.delegate respondsToSelector:_cmd]) return [self.delegate navigationController:navigationController interactionControllerForAnimationController:animationController];
     return transition;
 }
 

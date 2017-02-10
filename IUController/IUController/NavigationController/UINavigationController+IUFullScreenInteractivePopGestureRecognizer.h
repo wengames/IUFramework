@@ -8,11 +8,19 @@
 
 #import <UIKit/UIKit.h>
 
+typedef enum {
+    IUNavigationPopTypeDefault,
+    IUNavigationPopTypeErase
+} IUNavigationPopType;
+
 @interface UINavigationController (IUFullScreenInteractivePopGestureRecognizer)
 
 // ignores interactivePopGestureRecognizer
 @property (nonatomic, readonly) UIGestureRecognizer *fullScreenInteractivePopGestureRecognizer; // enable defaults YES
 @property (nonatomic, readonly) UIGestureRecognizer *edgeScreenInteractivePopGestureRecognizer; // enable defaults YES
+
+- (void)setPopDuration:(float)duration;
+- (void)setPopType:(IUNavigationPopType)type;
 
 @end
 

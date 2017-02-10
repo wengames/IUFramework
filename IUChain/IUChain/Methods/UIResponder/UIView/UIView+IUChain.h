@@ -7,11 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "NSObject+IUChain.h"
+#import "UIResponder+IUChain.h"
 
 #define IUChainMethod_UIView(returnClass) \
 \
-IUChainMethod_NSObject(returnClass) \
+IUChainMethod_UIResponder(returnClass) \
 \
 @property (nonatomic, readonly) returnClass *(^setUserInteractionEnabled)(BOOL); \
 @property (nonatomic, readonly) returnClass *(^setTag)(NSInteger); \
@@ -49,6 +49,8 @@ IUChainMethod_NSObject(returnClass) \
 @property (nonatomic, readonly) returnClass *(^setMotionEffects)(NSArray<__kindof UIMotionEffect *> *); \
 \
 @property (nonatomic, readonly) returnClass *(^setTranslatesAutoresizingMaskIntoConstraints)(BOOL); \
+\
+@property (nonatomic, readonly) returnClass *(^intoView)(UIView *); \
 
 @interface UIView (IUChain)
 
