@@ -10,7 +10,7 @@
 
 // register UIViewControllerPreviewingDelegate as self,
 // auto put on a UINavigationController when peeking, if the controller is not kind of UINavigationController
-@interface UIViewController (IUPreviewing)
+@interface UIViewController (IUPreviewing) <UIViewControllerPreviewingDelegate>
 
 // return previewing action can be performed on current device and os or not
 - (BOOL)canRegisterForPreviewing;

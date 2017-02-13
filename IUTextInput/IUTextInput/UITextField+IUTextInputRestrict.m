@@ -7,8 +7,8 @@
 //
 
 #import "UITextField+IUTextInputRestrict.h"
-#import "objc/runtime.h"
-#import <IUMethodSwizzle/IUMethodSwizzle.h>
+#import <objc/runtime.h>
+#import "NSObject+IUMethodSwizzle.h"
 
 static char TAG_TEXT_FIELD_TEXT_INPUT_RESTRICT;
 static char TAG_TEXT_FIELD_MAX_TEXT_LENGTH;

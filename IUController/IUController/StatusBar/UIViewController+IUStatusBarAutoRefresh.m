@@ -8,7 +8,7 @@
 
 #import "UIViewController+IUStatusBarAutoRefresh.h"
 #import "objc/runtime.h"
-#import <IUMethodSwizzle/IUMethodSwizzle.h>
+#import "NSObject+IUMethodSwizzle.h"
 
 @implementation UIViewController (IUStatusBarAutoRefresh)
 

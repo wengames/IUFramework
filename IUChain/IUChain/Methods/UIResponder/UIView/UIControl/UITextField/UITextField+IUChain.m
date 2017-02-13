@@ -9,6 +9,7 @@
 #import "UITextField+IUChain.h"
 
 #pragma clang diagnostic ignored "-Wobjc-property-implementation"
+#pragma clang diagnostic ignored "-Wincomplete-implementation"
 
 @implementation UITextField (IUChain)
 

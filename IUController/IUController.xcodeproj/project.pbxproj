@@ -22,6 +22,8 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
+		8447F1361E5152BC00781DAC /* NSObject+IUMethodSwizzle.h in Headers */ = {isa = PBXBuildFile; fileRef = 8447F1341E5152BC00781DAC /* NSObject+IUMethodSwizzle.h */; };
+		8447F1371E5152BC00781DAC /* NSObject+IUMethodSwizzle.m in Sources */ = {isa = PBXBuildFile; fileRef = 8447F1351E5152BC00781DAC /* NSObject+IUMethodSwizzle.m */; };
 		84D2EA661E48169100B2A2CD /* UIViewController+IUStatusBarStyle.h in Headers */ = {isa = PBXBuildFile; fileRef = 84D2EA641E48169100B2A2CD /* UIViewController+IUStatusBarStyle.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		84D2EA671E48169100B2A2CD /* UIViewController+IUStatusBarStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = 84D2EA651E48169100B2A2CD /* UIViewController+IUStatusBarStyle.m */; };
 		84D2EA6A1E48170C00B2A2CD /* UIViewController+IUStatusBarHidden.h in Headers */ = {isa = PBXBuildFile; fileRef = 84D2EA681E48170C00B2A2CD /* UIViewController+IUStatusBarHidden.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -57,7 +59,6 @@
 		84D2EB751E4B2F6A00B2A2CD /* UIViewController+IUPreviewing.h in Headers */ = {isa = PBXBuildFile; fileRef = 84D2EB731E4B2F6A00B2A2CD /* UIViewController+IUPreviewing.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		84D2EB761E4B2F6A00B2A2CD /* UIViewController+IUPreviewing.m in Sources */ = {isa = PBXBuildFile; fileRef = 84D2EB741E4B2F6A00B2A2CD /* UIViewController+IUPreviewing.m */; };
 		84DFC6321E34D2CC000A588C /* IUController.h in Headers */ = {isa = PBXBuildFile; fileRef = 84DFC6301E34D2CC000A588C /* IUController.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		84FBCD4A1E4C5FF000A35006 /* IUMethodSwizzle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84FBCD491E4C5FF000A35006 /* IUMethodSwizzle.framework */; };
 		84FBCDBE1E4D74F400A35006 /* UIViewController+IUSubviews.h in Headers */ = {isa = PBXBuildFile; fileRef = 84FBCDBC1E4D74F400A35006 /* UIViewController+IUSubviews.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		84FBCDBF1E4D74F400A35006 /* UIViewController+IUSubviews.m in Sources */ = {isa = PBXBuildFile; fileRef = 84FBCDBD1E4D74F400A35006 /* UIViewController+IUSubviews.m */; };
 /* End PBXBuildFile section */
@@ -73,6 +74,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		8447F1341E5152BC00781DAC /* NSObject+IUMethodSwizzle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+IUMethodSwizzle.h"; sourceTree = "<group>"; };
+		8447F1351E5152BC00781DAC /* NSObject+IUMethodSwizzle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+IUMethodSwizzle.m"; sourceTree = "<group>"; };
 		84D2EA641E48169100B2A2CD /* UIViewController+IUStatusBarStyle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+IUStatusBarStyle.h"; sourceTree = "<group>"; };
 		84D2EA651E48169100B2A2CD /* UIViewController+IUStatusBarStyle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+IUStatusBarStyle.m"; sourceTree = "<group>"; };
 		84D2EA681E48170C00B2A2CD /* UIViewController+IUStatusBarHidden.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+IUStatusBarHidden.h"; sourceTree = "<group>"; };
@@ -113,6 +116,7 @@
 		84FBCD491E4C5FF000A35006 /* IUMethodSwizzle.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IUMethodSwizzle.framework; path = "../../../../Library/Developer/Xcode/DerivedData/IUFramework-egbnowvfnsxwcufwgjnrhpvcgmot/Build/Products/Debug-iphoneos/IUMethodSwizzle.framework"; sourceTree = "<group>"; };
 		84FBCDBC1E4D74F400A35006 /* UIViewController+IUSubviews.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+IUSubviews.h"; sourceTree = "<group>"; };
 		84FBCDBD1E4D74F400A35006 /* UIViewController+IUSubviews.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+IUSubviews.m"; sourceTree = "<group>"; };
+		84FBCDFC1E5149EF00A35006 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,7 +124,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				84FBCD4A1E4C5FF000A35006 /* IUMethodSwizzle.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -219,6 +222,8 @@
 			isa = PBXGroup;
 			children = (
 				84DFC6301E34D2CC000A588C /* IUController.h */,
+				8447F1341E5152BC00781DAC /* NSObject+IUMethodSwizzle.h */,
+				8447F1351E5152BC00781DAC /* NSObject+IUMethodSwizzle.m */,
 				84D2EB6A1E4B2D1800B2A2CD /* ViewController */,
 				84D2EB5D1E4B2CF100B2A2CD /* NavigationController */,
 				84D2EA611E48165D00B2A2CD /* Transition */,
@@ -232,6 +237,7 @@
 		84FBCD481E4C5FF000A35006 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				84FBCDFC1E5149EF00A35006 /* UIKit.framework */,
 				84FBCD491E4C5FF000A35006 /* IUMethodSwizzle.framework */,
 			);
 			name = Frameworks;
@@ -254,6 +260,7 @@
 				84D2EA7A1E48180200B2A2CD /* UINavigationController+IUStatusBar.h in Headers */,
 				84D2EA821E48188300B2A2CD /* UITabBarController+IUOrientation.h in Headers */,
 				84D2EB641E4B2CF100B2A2CD /* UINavigationController+IUAutoHidesBottomBarWhenPushed.h in Headers */,
+				8447F1361E5152BC00781DAC /* NSObject+IUMethodSwizzle.h in Headers */,
 				84D2EB681E4B2CF100B2A2CD /* UIViewController+IUNavigationBarHidden.h in Headers */,
 				84D2EB661E4B2CF100B2A2CD /* UINavigationController+IUFullScreenInteractivePopGestureRecognizer.h in Headers */,
 				84D2EB711E4B2D1800B2A2CD /* UIViewController+IUAppear.h in Headers */,
@@ -362,6 +369,7 @@
 				84D2EA891E4818E300B2A2CD /* IUTransitionAnimator.m in Sources */,
 				84D2EA6B1E48170C00B2A2CD /* UIViewController+IUStatusBarHidden.m in Sources */,
 				84D2EB671E4B2CF100B2A2CD /* UINavigationController+IUFullScreenInteractivePopGestureRecognizer.m in Sources */,
+				8447F1371E5152BC00781DAC /* NSObject+IUMethodSwizzle.m in Sources */,
 				84D2EB721E4B2D1800B2A2CD /* UIViewController+IUAppear.m in Sources */,
 				84D2EA7F1E48183400B2A2CD /* UITabBarController+IUStatusBar.m in Sources */,
 				84D2EA771E4817C100B2A2CD /* UINavigationController+IUOrientation.m in Sources */,
@@ -494,9 +502,14 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/IUController",
+				);
 				INFOPLIST_FILE = IUController/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
 				PRODUCT_BUNDLE_IDENTIFIER = liuhaiwen.IUController;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -512,9 +525,14 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/IUController",
+				);
 				INFOPLIST_FILE = IUController/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
 				PRODUCT_BUNDLE_IDENTIFIER = liuhaiwen.IUController;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;

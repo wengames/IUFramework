@@ -8,7 +8,7 @@
 
 #import "UIViewController+IUAppear.h"
 #import <objc/runtime.h>
-#import <IUMethodSwizzle/IUMethodSwizzle.h>
+#import "NSObject+IUMethodSwizzle.h"
 
 static char TAG_VIEW_WILL_APPEAR;
 static char TAG_VIEW_DID_APPEAR;

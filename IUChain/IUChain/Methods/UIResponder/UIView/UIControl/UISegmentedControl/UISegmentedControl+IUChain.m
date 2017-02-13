@@ -9,6 +9,7 @@
 #import "UISegmentedControl+IUChain.h"
 
 #pragma clang diagnostic ignored "-Wobjc-property-implementation"
+#pragma clang diagnostic ignored "-Wincomplete-implementation"
 
 @implementation UISegmentedControl (IUChain)
 

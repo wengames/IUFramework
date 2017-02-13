@@ -73,10 +73,14 @@
 
     __block NSUInteger backCount = self.backCount;
     __block void(^action)(void) = ^{
+        
         if (controller.presentingViewController && backCount > 0) {
             backCount--;
             [controller dismissViewControllerAnimated:YES completion:^{
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Warc-retain-cycles"
                 action();
+#pragma clang diagnostic pop
             }];
         } else {
             [controller presentViewController:self.controller() animated:YES completion:nil];

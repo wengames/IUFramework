@@ -8,7 +8,7 @@
 
 #import "UIViewController+IUNavigationBarHidden.h"
 #import <objc/runtime.h>
-#import <IUMethodSwizzle/IUMethodSwizzle.h>
+#import "NSObject+IUMethodSwizzle.h"
 
 static char TAG_NAVIGATION_BAR_HIDDEN;
 
@@ -29,7 +29,7 @@ static char TAG_NAVIGATION_BAR_HIDDEN;
 }
 
 - (BOOL)navigationBarHidden {
-    return objc_getAssociatedObject(self, &TAG_NAVIGATION_BAR_HIDDEN);
+    return [objc_getAssociatedObject(self, &TAG_NAVIGATION_BAR_HIDDEN) boolValue];
 }
 
 @end

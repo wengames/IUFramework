@@ -8,7 +8,7 @@
 
 #import "UIView+IUTouchAreaExpand.h"
 #import <objc/runtime.h>
-#import <IUMethodSwizzle/IUMethodSwizzle.h>
+#import "NSObject+IUMethodSwizzle.h"
 
 static char TAG_VIEW_TOUCH_AREA_EXPAND_INSETS;
 

@@ -70,7 +70,17 @@
 - (IURouterBehavior *)behaviorWebRoute:(NSString *)route {
     if (self.webViewController == nil) return nil;
     NSString *url = [route isKindOfClass:[NSURL class]] ? [(NSURL *)route absoluteString] : route;
-    return ([url hasPrefix:@"http://"] || [url hasPrefix:@"https://"]) ? self.webViewController(url) : nil;
+    if ([url hasPrefix:@"http://"] || [url hasPrefix:@"https://"]) {
+        IURouterBehavior *behavior = [[IURouterBehavior alloc] init];
+        UIViewController *(^webViewController)(NSString *url) = self.webViewController;
+        if (webViewController) {
+            behavior.controller = ^{
+                return webViewController(url);
+            };
+        }
+        return behavior;
+    }
+    return nil;
 }
 
 - (IURouterBehavior *)behaviorNativeRoute:(NSString *)route {

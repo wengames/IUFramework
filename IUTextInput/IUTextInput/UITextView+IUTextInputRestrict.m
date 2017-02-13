@@ -7,8 +7,8 @@
 //
 
 #import "UITextView+IUTextInputRestrict.h"
-#import "objc/runtime.h"
-#import <IUMethodSwizzle/IUMethodSwizzle.h>
+#import <objc/runtime.h>
+#import "NSObject+IUMethodSwizzle.h"
 
 @interface IUTextInputRestrict ()
 
@@ -27,7 +27,6 @@
 
 static char TAG_TEXT_VIEW_TEXT_INPUT_RESTRICT;
 static char TAG_TEXT_VIEW_MAX_TEXT_LENGTH;
-static char TAG_TEXT_VIEW_DELEGATE_PROXY;
 static char TAG_TEXT_VIEW_PLACEHOLDER_LABEL;
 
 @implementation UITextView (IUTextInputRestrict)

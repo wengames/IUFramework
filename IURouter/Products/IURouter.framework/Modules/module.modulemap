@@ -1,0 +1,6 @@
+framework module IURouter {
+  umbrella header "IURouter.h"
+
+  export *
+  module * { export * }
+}

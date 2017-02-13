@@ -1,6 +1,0 @@
-framework module IUChain {
-  umbrella header "IUChain.h"
-
-  export *
-  module * { export * }
-}

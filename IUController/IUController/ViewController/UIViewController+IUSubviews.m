@@ -8,13 +8,17 @@
 
 #import "UIViewController+IUSubviews.h"
 #import <objc/runtime.h>
-#import <IUMethodSwizzle/IUMethodSwizzle.h>
+#import "NSObject+IUMethodSwizzle.h"
 
 static char TAG_VIEW_CONTROLLER_SCROLL_VIEW;
 static char TAG_VIEW_CONTROLLER_TABLE_VIEW_STYLE;
 static char TAG_VIEW_CONTROLLER_TABLE_VIEW;
 static char TAG_VIEW_CONTROLLER_COLLECTION_VIEW_LAYOUT;
 static char TAG_VIEW_CONTROLLER_COLLECTION_VIEW;
+
+@interface UIViewController (_IUSubviewsDelegate) <UITableViewDelegate,UITableViewDataSource,UICollectionViewDataSource,UICollectionViewDelegate>
+
+@end
 
 @implementation UIViewController (IUSubviews)
 
@@ -97,7 +101,7 @@ static char TAG_VIEW_CONTROLLER_COLLECTION_VIEW;
 }
 
 - (UICollectionView *)collectionView {
-    UITableView *collectionView = objc_getAssociatedObject(self, &TAG_VIEW_CONTROLLER_COLLECTION_VIEW);
+    UICollectionView *collectionView = objc_getAssociatedObject(self, &TAG_VIEW_CONTROLLER_COLLECTION_VIEW);
     if (collectionView == nil) {
         collectionView = [[UICollectionView alloc] initWithFrame:CGRectZero collectionViewLayout:self.collectionViewLayout];
         objc_setAssociatedObject(self, &TAG_VIEW_CONTROLLER_COLLECTION_VIEW, collectionView, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
@@ -113,12 +117,23 @@ static char TAG_VIEW_CONTROLLER_COLLECTION_VIEW;
     return collectionView;
 }
 
-#pragma mark delegate
+@end
+
+@implementation UIViewController (_IUSubviewsDelegate)
+
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return 0;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return nil;
+}
+
+- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
+    return 0;
+}
+
+- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     return nil;
 }
 

@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface UIViewController (IUSubviews) <UITableViewDataSource,UICollectionViewDataSource>
+@interface UIViewController (IUSubviews)
 
 // a scroll view fits view size, lazy loading
 @property (nonatomic, strong, readonly) UIScrollView     *scrollView;

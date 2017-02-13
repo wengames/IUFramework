@@ -9,7 +9,7 @@
 #import "UINavigationController+IUFullScreenInteractivePopGestureRecognizer.h"
 #import "IUTransitioningDelegate.h"
 #import <objc/runtime.h>
-#import <IUMethodSwizzle/IUMethodSwizzle.h>
+#import "NSObject+IUMethodSwizzle.h"
 
 static char TAG_TRANSITION_GESTURE_RECOGNIZER_HELPER;
 
@@ -23,7 +23,7 @@ static char TAG_TRANSITION_GESTURE_RECOGNIZER_HELPER;
 
 @end
 
-@interface UIViewController ()
+@interface UIViewController (_IUShowDismissButtonItem)
 
 - (void)_showDismissButtonItem:(BOOL)show;
 
@@ -328,6 +328,21 @@ static char TAG_VIEW_CONTROLLER_DISSMISS_BUTTON_ITEM_CREATED;
     return dismissButtonItem;
 }
 
+- (void)popBack {
+    NSUInteger count = [self.navigationController.viewControllers count];
+    if (count > 1) {
+        [self.navigationController popViewControllerAnimated:([self.navigationController.viewControllers[count - 2] supportedInterfaceOrientations] & (1 << self.navigationController.interfaceOrientation))];
+    }
+}
+
+- (void)dismiss {
+    [self.navigationController dismissViewControllerAnimated:YES completion:nil];
+}
+
+@end
+
+@implementation UIViewController (_IUShowDismissButtonItem)
+
 - (void)_showDismissButtonItem:(BOOL)show {
     NSMutableArray *items = [self.navigationItem.leftBarButtonItems ?: @[] mutableCopy];
     if (show) {
@@ -340,17 +355,6 @@ static char TAG_VIEW_CONTROLLER_DISSMISS_BUTTON_ITEM_CREATED;
         }
     }
     self.navigationItem.leftBarButtonItems = [items copy];
-}
-
-- (void)popBack {
-    NSUInteger count = [self.navigationController.viewControllers count];
-    if (count > 1) {
-        [self.navigationController popViewControllerAnimated:([self.navigationController.viewControllers[count - 2] supportedInterfaceOrientations] & (1 << self.navigationController.interfaceOrientation))];
-    }
-}
-
-- (void)dismiss {
-    [self.navigationController dismissViewControllerAnimated:YES completion:nil];
 }
 
 @end

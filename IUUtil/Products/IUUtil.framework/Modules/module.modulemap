@@ -1,0 +1,6 @@
+framework module IUUtil {
+  umbrella header "IUUtil.h"
+
+  export *
+  module * { export * }
+}

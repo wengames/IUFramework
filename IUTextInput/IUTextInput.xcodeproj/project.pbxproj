@@ -22,6 +22,8 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
+		8447F13C1E5153E900781DAC /* NSObject+IUMethodSwizzle.h in Headers */ = {isa = PBXBuildFile; fileRef = 8447F13A1E5153E900781DAC /* NSObject+IUMethodSwizzle.h */; };
+		8447F13D1E5153E900781DAC /* NSObject+IUMethodSwizzle.m in Sources */ = {isa = PBXBuildFile; fileRef = 8447F13B1E5153E900781DAC /* NSObject+IUMethodSwizzle.m */; };
 		84DFC5B51E349385000A588C /* IUTextInput.h in Headers */ = {isa = PBXBuildFile; fileRef = 84DFC5B31E349385000A588C /* IUTextInput.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		84DFC5C01E3493BF000A588C /* IUTextInputRestrict.h in Headers */ = {isa = PBXBuildFile; fileRef = 84DFC5BE1E3493BF000A588C /* IUTextInputRestrict.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		84DFC5C11E3493BF000A588C /* IUTextInputRestrict.m in Sources */ = {isa = PBXBuildFile; fileRef = 84DFC5BF1E3493BF000A588C /* IUTextInputRestrict.m */; };
@@ -29,7 +31,6 @@
 		84DFC5C51E3493FC000A588C /* UITextView+IUTextInputRestrict.m in Sources */ = {isa = PBXBuildFile; fileRef = 84DFC5C31E3493FC000A588C /* UITextView+IUTextInputRestrict.m */; };
 		84DFC5C81E349407000A588C /* UITextField+IUTextInputRestrict.h in Headers */ = {isa = PBXBuildFile; fileRef = 84DFC5C61E349407000A588C /* UITextField+IUTextInputRestrict.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		84DFC5C91E349407000A588C /* UITextField+IUTextInputRestrict.m in Sources */ = {isa = PBXBuildFile; fileRef = 84DFC5C71E349407000A588C /* UITextField+IUTextInputRestrict.m */; };
-		84FBCD591E4C706100A35006 /* IUMethodSwizzle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84FBCD581E4C706100A35006 /* IUMethodSwizzle.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,6 +44,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		8447F13A1E5153E900781DAC /* NSObject+IUMethodSwizzle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+IUMethodSwizzle.h"; sourceTree = "<group>"; };
+		8447F13B1E5153E900781DAC /* NSObject+IUMethodSwizzle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+IUMethodSwizzle.m"; sourceTree = "<group>"; };
 		84DFC5B01E349385000A588C /* IUTextInput.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = IUTextInput.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		84DFC5B31E349385000A588C /* IUTextInput.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IUTextInput.h; sourceTree = "<group>"; };
 		84DFC5B41E349385000A588C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -60,7 +63,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				84FBCD591E4C706100A35006 /* IUMethodSwizzle.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -88,6 +90,8 @@
 			isa = PBXGroup;
 			children = (
 				84DFC5B31E349385000A588C /* IUTextInput.h */,
+				8447F13A1E5153E900781DAC /* NSObject+IUMethodSwizzle.h */,
+				8447F13B1E5153E900781DAC /* NSObject+IUMethodSwizzle.m */,
 				84DFC5BE1E3493BF000A588C /* IUTextInputRestrict.h */,
 				84DFC5BF1E3493BF000A588C /* IUTextInputRestrict.m */,
 				84DFC5C61E349407000A588C /* UITextField+IUTextInputRestrict.h */,
@@ -114,6 +118,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8447F13C1E5153E900781DAC /* NSObject+IUMethodSwizzle.h in Headers */,
 				84DFC5C81E349407000A588C /* UITextField+IUTextInputRestrict.h in Headers */,
 				84DFC5C41E3493FC000A588C /* UITextView+IUTextInputRestrict.h in Headers */,
 				84DFC5C01E3493BF000A588C /* IUTextInputRestrict.h in Headers */,
@@ -215,6 +220,7 @@
 				84DFC5C91E349407000A588C /* UITextField+IUTextInputRestrict.m in Sources */,
 				84DFC5C51E3493FC000A588C /* UITextView+IUTextInputRestrict.m in Sources */,
 				84DFC5C11E3493BF000A588C /* IUTextInputRestrict.m in Sources */,
+				8447F13D1E5153E900781DAC /* NSObject+IUMethodSwizzle.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

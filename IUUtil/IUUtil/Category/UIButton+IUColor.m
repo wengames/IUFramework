@@ -8,7 +8,7 @@
 
 #import "UIButton+IUColor.h"
 #import "UIColor+IUGenerator.h"
-#import <IUMethodSwizzle/IUMethodSwizzle.h>
+#import "NSObject+IUMethodSwizzle.h"
 
 UIImage *imageWithColor(UIColor *color) {
     CGRect rect = CGRectMake(0, 0, 1, 1);

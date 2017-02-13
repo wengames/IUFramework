@@ -76,6 +76,8 @@ typedef void(^_IUTransitionCompletion)(BOOL finished);
                     };
                 }
                 break;
+            default:
+                break;
         }
     }
     
@@ -116,6 +118,8 @@ typedef void(^_IUTransitionCompletion)(BOOL finished);
                     dimmerBackgroundView.alpha = 0.0;
                 };
             }
+                break;
+            default:
                 break;
         }
         
@@ -181,7 +185,11 @@ typedef void(^_IUTransitionCompletion)(BOOL finished);
                     case IUTransitionOperationPresent:
                     case IUTransitionOperationDismiss:
                         break;
+                    default:
+                        break;
                 }
+                break;
+            default:
                 break;
         }
     }
@@ -236,6 +244,8 @@ typedef void(^_IUTransitionCompletion)(BOOL finished);
                         };
                     }
                         break;
+                    default:
+                        break;
                 }
                 break;
             case IUTransitionTypeFade:
@@ -261,6 +271,8 @@ typedef void(^_IUTransitionCompletion)(BOOL finished);
                             fromViewController.view.alpha = 1.0;
                         };
                     }
+                        break;
+                    default:
                         break;
                 }
                 break;
@@ -383,8 +395,12 @@ typedef void(^_IUTransitionCompletion)(BOOL finished);
                         };
                     }
                         break;
+                    default:
+                        break;
                 }
             }
+                break;
+            default:
                 break;
         }
         
@@ -445,7 +461,7 @@ typedef void(^_IUTransitionCompletion)(BOOL finished);
         
         if ([fromMagicViews count] == 0 || [fromMagicViews count] != [toMagicViews count]) break;
 
-        static const NSString *MAGIC_VIEW_ANIMATION_KEY = @"MAGIC_VIEW_ANIMATION_KEY";
+        static NSString *MAGIC_VIEW_ANIMATION_KEY = @"MAGIC_VIEW_ANIMATION_KEY";
         
         for (int i = 0; i < [fromMagicViews count]; i++) {
             UIView *fromMagicView = fromMagicViews[i];

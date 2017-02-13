@@ -1,0 +1,6 @@
+framework module IUImageTransform {
+  umbrella header "IUImageTransform.h"
+
+  export *
+  module * { export * }
+}

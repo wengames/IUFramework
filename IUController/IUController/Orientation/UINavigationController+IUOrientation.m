@@ -19,7 +19,6 @@
 }
 
 - (UIInterfaceOrientation)preferredInterfaceOrientationForPresentation {
-    NSLog(@"%d", self.topViewController ? [self.topViewController preferredInterfaceOrientationForPresentation] : [super preferredInterfaceOrientationForPresentation]);
     return self.topViewController ? [self.topViewController preferredInterfaceOrientationForPresentation] : [super preferredInterfaceOrientationForPresentation];
 }
 

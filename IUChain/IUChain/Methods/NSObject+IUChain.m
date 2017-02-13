@@ -9,7 +9,7 @@
 #import "NSObject+IUChain.h"
 #import <UIKit/UIKit.h>
 #import <objc/message.h>
-#import <IUMethodSwizzle/IUMethodSwizzle.h>
+#import "NSObject+IUMethodSwizzle.h"
 
 #define IU_MESSAGE_SEND(type) ^(type obj) { [self setValue:@(obj) forKey:key]; return self; };
 

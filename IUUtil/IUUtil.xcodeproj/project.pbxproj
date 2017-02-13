@@ -22,6 +22,8 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
+		8447F1401E51547000781DAC /* NSObject+IUMethodSwizzle.h in Headers */ = {isa = PBXBuildFile; fileRef = 8447F13E1E51547000781DAC /* NSObject+IUMethodSwizzle.h */; };
+		8447F1411E51547000781DAC /* NSObject+IUMethodSwizzle.m in Sources */ = {isa = PBXBuildFile; fileRef = 8447F13F1E51547000781DAC /* NSObject+IUMethodSwizzle.m */; };
 		84D2EB2F1E49C52B00B2A2CD /* IUCollectionViewSpringFlowLayout.h in Headers */ = {isa = PBXBuildFile; fileRef = 84D2EB141E49C52B00B2A2CD /* IUCollectionViewSpringFlowLayout.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		84D2EB301E49C52B00B2A2CD /* IUCollectionViewSpringFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 84D2EB151E49C52B00B2A2CD /* IUCollectionViewSpringFlowLayout.m */; };
 		84D2EB311E49C52B00B2A2CD /* IUForceTouchGestureRecognizer.h in Headers */ = {isa = PBXBuildFile; fileRef = 84D2EB161E49C52B00B2A2CD /* IUForceTouchGestureRecognizer.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -53,7 +55,6 @@
 		84FBCDBB1E4D71CC00A35006 /* UIResponder+IUController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84FBCDB91E4D71CC00A35006 /* UIResponder+IUController.m */; };
 		84FBCDCC1E4DEEA700A35006 /* UIButton+IUColor.h in Headers */ = {isa = PBXBuildFile; fileRef = 84FBCDCA1E4DEEA700A35006 /* UIButton+IUColor.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		84FBCDCD1E4DEEA700A35006 /* UIButton+IUColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 84FBCDCB1E4DEEA700A35006 /* UIButton+IUColor.m */; };
-		84FBCDD01E4DF04C00A35006 /* IUMethodSwizzle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84FBCDCF1E4DF04C00A35006 /* IUMethodSwizzle.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,6 +68,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		8447F13E1E51547000781DAC /* NSObject+IUMethodSwizzle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+IUMethodSwizzle.h"; sourceTree = "<group>"; };
+		8447F13F1E51547000781DAC /* NSObject+IUMethodSwizzle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+IUMethodSwizzle.m"; sourceTree = "<group>"; };
 		84D2EB141E49C52B00B2A2CD /* IUCollectionViewSpringFlowLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IUCollectionViewSpringFlowLayout.h; sourceTree = "<group>"; };
 		84D2EB151E49C52B00B2A2CD /* IUCollectionViewSpringFlowLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IUCollectionViewSpringFlowLayout.m; sourceTree = "<group>"; };
 		84D2EB161E49C52B00B2A2CD /* IUForceTouchGestureRecognizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IUForceTouchGestureRecognizer.h; sourceTree = "<group>"; };
@@ -108,7 +111,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				84FBCDD01E4DF04C00A35006 /* IUMethodSwizzle.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -180,6 +182,8 @@
 			isa = PBXGroup;
 			children = (
 				84DFC6061E34D26D000A588C /* IUUtil.h */,
+				8447F13E1E51547000781DAC /* NSObject+IUMethodSwizzle.h */,
+				8447F13F1E51547000781DAC /* NSObject+IUMethodSwizzle.m */,
 				84D2EB131E49C52B00B2A2CD /* Class */,
 				84D2EB1C1E49C52B00B2A2CD /* Category */,
 				84DFC6071E34D26D000A588C /* Info.plist */,
@@ -218,6 +222,7 @@
 				84FBCDCC1E4DEEA700A35006 /* UIButton+IUColor.h in Headers */,
 				84D2EB311E49C52B00B2A2CD /* IUForceTouchGestureRecognizer.h in Headers */,
 				84D2EB351E49C52B00B2A2CD /* IUTabPageViewController.h in Headers */,
+				8447F1401E51547000781DAC /* NSObject+IUMethodSwizzle.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -327,6 +332,7 @@
 				84D2EB321E49C52B00B2A2CD /* IUForceTouchGestureRecognizer.m in Sources */,
 				84D2EB381E49C52B00B2A2CD /* NSDate+IUQuickDate.m in Sources */,
 				84D2EB461E49C52B00B2A2CD /* UIView+IUTouchAreaExpand.m in Sources */,
+				8447F1411E51547000781DAC /* NSObject+IUMethodSwizzle.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

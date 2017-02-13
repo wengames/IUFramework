@@ -11,15 +11,15 @@
 @implementation UIResponder (IUController)
 
 - (UIViewController *)viewController {
-    return [self nearestResponderOfClass:[UIViewController class]];
+    return (UIViewController *)[self nearestResponderOfClass:[UIViewController class]];
 }
 
 - (UINavigationController *)navigationController {
-    return [self nearestResponderOfClass:[UIViewController class]];
+    return (UINavigationController *)[self nearestResponderOfClass:[UIViewController class]];
 }
 
 - (UITabBarController *)tabBarController {
-    return [self nearestResponderOfClass:[UITabBarController class]];
+    return (UITabBarController *)[self nearestResponderOfClass:[UITabBarController class]];
 }
 
 - (UIResponder *)nearestResponderOfClass:(Class)clazz {

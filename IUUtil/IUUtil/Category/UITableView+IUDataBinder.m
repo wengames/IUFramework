@@ -8,12 +8,13 @@
 
 #import "UITableView+IUDataBinder.h"
 #import "UIView+IUEmpty.h"
+#import "UIResponder+IUController.h"
 #import "objc/runtime.h"
-#import <IUMethodSwizzle/IUMethodSwizzle.h>
+#import "NSObject+IUMethodSwizzle.h"
 
 static char TAG_TABLE_VIEW_DATA_BINDER;
 
-@interface IUTableViewDataBinder : NSObject <UITableViewDataSource,UITableViewDelegate>
+@interface IUTableViewDataBinder : NSObject <UITableViewDataSource,UITableViewDelegate,UIViewControllerPreviewingDelegate>
 {
     BOOL _isDatasTwoOrder;
 }
@@ -30,7 +31,7 @@ static char TAG_TABLE_VIEW_DATA_BINDER;
 
 @end
 
-@interface UITableView () <UITableViewDataSource,UITableViewDelegate>
+@interface UITableView () <UITableViewDataSource,IUTableViewPreviewing>
 
 @property (nonatomic, strong, readonly) IUTableViewDataBinder *dataBinder;
 
@@ -63,9 +64,9 @@ static char TAG_TABLE_VIEW_DATA_BINDER;
     }
 }
 
-- (void)iuDataBinder_UITableView_setDelegate:(id<IUTableViewPreviewing>)delegate {
+- (void)iuDataBinder_UITableView_setDelegate:(id<UITableViewDelegate>)delegate {
     if (objc_getAssociatedObject(self, &TAG_TABLE_VIEW_DATA_BINDER)) {
-        self.dataBinder.delegate = delegate;
+        self.dataBinder.delegate = (id<IUTableViewPreviewing>)delegate;
     } else {
         [self iuDataBinder_UITableView_setDelegate:delegate];
     }
@@ -79,7 +80,7 @@ static char TAG_TABLE_VIEW_DATA_BINDER;
         
         dataBinder.tableView = self;
         dataBinder.dataSource = self.dataSource;
-        dataBinder.delegate = self.delegate;
+        dataBinder.delegate = (id<IUTableViewPreviewing>)self.delegate;
         
         [self iuDataBinder_UITableView_setDataSource:dataBinder];
         [self iuDataBinder_UITableView_setDelegate:dataBinder];
@@ -97,14 +98,6 @@ static char TAG_TABLE_VIEW_DATA_BINDER;
 
 - (void)setDatas:(NSArray *)datas animated:(BOOL)animated {
     [self.dataBinder setDatas:datas animated:animated];
-}
-
-- (UIViewController *)viewController {
-    UIResponder *responder = self;
-    while (responder != nil && ![responder isKindOfClass:[UIViewController class]]) {
-        responder = [responder nextResponder];
-    }
-    return responder;
 }
 
 @end
@@ -222,7 +215,7 @@ static char TAG_TABLE_VIEW_DATA_BINDER;
 #pragma mark UIViewControllerPreviewingDelegate
 - (nullable UIViewController *)previewingContext:(id <UIViewControllerPreviewing>)previewingContext viewControllerForLocation:(CGPoint)location {
     if ([self.delegate respondsToSelector:@selector(tableView:viewControllerToPreviewAtIndexPath:)]) {
-        UIViewController *viewController = [self.delegate tableView:self.tableView viewControllerToPreviewAtIndexPath:[self.tableView indexPathForCell:previewingContext.sourceView]];
+        UIViewController *viewController = [self.delegate tableView:self.tableView viewControllerToPreviewAtIndexPath:[self.tableView indexPathForCell:(UITableViewCell *)previewingContext.sourceView]];
         if (viewController) {
             @try { [viewController setValue:nil forKey:@"dismissButtonItem"]; } @catch (NSException *exception) {}
             return [[UINavigationController alloc] initWithRootViewController:viewController];
@@ -296,7 +289,7 @@ static char TAG_TABLE_VIEW_DATA_BINDER;
 - (CGFloat)cellHeightWithData:(id)data inTableView:(UITableView *)tableView {
     if (data == nil) return 0;
     Class cellClass = [self cellClassWithData:data];
-    UITableViewCell <IUTableViewCellModelSettable> *templateCell = [self templateCellWithCellClass:cellClass];
+    UITableViewCell <IUTableViewCellModelSettable> *templateCell = (UITableViewCell <IUTableViewCellModelSettable> *)[self templateCellWithCellClass:cellClass];
     [templateCell prepareForReuse];
     if ([templateCell respondsToSelector:@selector(setModel:)]) templateCell.model = data;
     return [self heightWithCell:templateCell inTableView:tableView];

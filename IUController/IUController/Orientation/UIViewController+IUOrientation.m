@@ -7,7 +7,7 @@
 //
 
 #import "UIViewController+IUOrientation.h"
-#import <IUMethodSwizzle/IUMethodSwizzle.h>
+#import "NSObject+IUMethodSwizzle.h"
 
 @implementation UIViewController (IUOrientation)
 

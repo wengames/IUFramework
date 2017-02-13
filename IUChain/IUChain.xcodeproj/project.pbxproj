@@ -25,13 +25,14 @@
 		841F52151E30922D00223BB5 /* IUChain.h in Headers */ = {isa = PBXBuildFile; fileRef = 841F52131E30922D00223BB5 /* IUChain.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		841F53151E34786900223BB5 /* NSObject+IUChain.h in Headers */ = {isa = PBXBuildFile; fileRef = 841F52FD1E34786900223BB5 /* NSObject+IUChain.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		841F53161E34786900223BB5 /* NSObject+IUChain.m in Sources */ = {isa = PBXBuildFile; fileRef = 841F52FE1E34786900223BB5 /* NSObject+IUChain.m */; };
+		8447F1321E51528000781DAC /* NSObject+IUMethodSwizzle.h in Headers */ = {isa = PBXBuildFile; fileRef = 8447F1301E51528000781DAC /* NSObject+IUMethodSwizzle.h */; };
+		8447F1331E51528000781DAC /* NSObject+IUMethodSwizzle.m in Sources */ = {isa = PBXBuildFile; fileRef = 8447F1311E51528000781DAC /* NSObject+IUMethodSwizzle.m */; };
 		84D2EA4A1E45B6AD00B2A2CD /* UIGestureRecognizer+IUChain.h in Headers */ = {isa = PBXBuildFile; fileRef = 84D2EA481E45B6AD00B2A2CD /* UIGestureRecognizer+IUChain.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		84D2EA4B1E45B6AD00B2A2CD /* UIGestureRecognizer+IUChain.m in Sources */ = {isa = PBXBuildFile; fileRef = 84D2EA491E45B6AD00B2A2CD /* UIGestureRecognizer+IUChain.m */; };
 		84DFC5DD1E34A95B000A588C /* IUChainProtocolMethod_UITextInputTraits.h in Headers */ = {isa = PBXBuildFile; fileRef = 84DFC5DC1E34A915000A588C /* IUChainProtocolMethod_UITextInputTraits.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		84DFC5E11E34AA9C000A588C /* IUChainProtocolMethod_UITextInput.h in Headers */ = {isa = PBXBuildFile; fileRef = 84DFC5DE1E34A9AA000A588C /* IUChainProtocolMethod_UITextInput.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		84DFC5E21E34AA9C000A588C /* IUChainProtocolMethod_UIKeyInput.h in Headers */ = {isa = PBXBuildFile; fileRef = 84DFC5DF1E34A9B9000A588C /* IUChainProtocolMethod_UIKeyInput.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		84DFC5E31E34AA9D000A588C /* IUChainProtocolMethod_UIContentSizeCategoryAdjusting.h in Headers */ = {isa = PBXBuildFile; fileRef = 84DFC5E01E34AA49000A588C /* IUChainProtocolMethod_UIContentSizeCategoryAdjusting.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		84FBCD471E4C5F8E00A35006 /* IUMethodSwizzle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84FBCD461E4C5F8E00A35006 /* IUMethodSwizzle.framework */; };
 		84FBCD8C1E4D612A00A35006 /* UIButton+IUChain.h in Headers */ = {isa = PBXBuildFile; fileRef = 84FBCD5E1E4D612A00A35006 /* UIButton+IUChain.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		84FBCD8D1E4D612A00A35006 /* UIButton+IUChain.m in Sources */ = {isa = PBXBuildFile; fileRef = 84FBCD5F1E4D612A00A35006 /* UIButton+IUChain.m */; };
 		84FBCD8E1E4D612A00A35006 /* UIControl+IUChain.h in Headers */ = {isa = PBXBuildFile; fileRef = 84FBCD601E4D612A00A35006 /* UIControl+IUChain.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -90,6 +91,8 @@
 		841F52141E30922D00223BB5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		841F52FD1E34786900223BB5 /* NSObject+IUChain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+IUChain.h"; sourceTree = "<group>"; };
 		841F52FE1E34786900223BB5 /* NSObject+IUChain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+IUChain.m"; sourceTree = "<group>"; };
+		8447F1301E51528000781DAC /* NSObject+IUMethodSwizzle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+IUMethodSwizzle.h"; sourceTree = "<group>"; };
+		8447F1311E51528000781DAC /* NSObject+IUMethodSwizzle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+IUMethodSwizzle.m"; sourceTree = "<group>"; };
 		84D2EA481E45B6AD00B2A2CD /* UIGestureRecognizer+IUChain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIGestureRecognizer+IUChain.h"; sourceTree = "<group>"; };
 		84D2EA491E45B6AD00B2A2CD /* UIGestureRecognizer+IUChain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIGestureRecognizer+IUChain.m"; sourceTree = "<group>"; };
 		84DFC5DC1E34A915000A588C /* IUChainProtocolMethod_UITextInputTraits.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IUChainProtocolMethod_UITextInputTraits.h; sourceTree = "<group>"; };
@@ -144,7 +147,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				84FBCD471E4C5F8E00A35006 /* IUMethodSwizzle.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -172,6 +174,8 @@
 			isa = PBXGroup;
 			children = (
 				841F52131E30922D00223BB5 /* IUChain.h */,
+				8447F1301E51528000781DAC /* NSObject+IUMethodSwizzle.h */,
+				8447F1311E51528000781DAC /* NSObject+IUMethodSwizzle.m */,
 				841F52FC1E34786900223BB5 /* Methods */,
 				84DFC5D91E34A882000A588C /* Protocols */,
 				841F52141E30922D00223BB5 /* Info.plist */,
@@ -438,6 +442,7 @@
 				84FBCD9C1E4D612A00A35006 /* UILabel+IUChain.h in Headers */,
 				84FBCDA21E4D612A00A35006 /* UITableView+IUChain.h in Headers */,
 				84FBCDA81E4D612A00A35006 /* UIView+IUChain.h in Headers */,
+				8447F1321E51528000781DAC /* NSObject+IUMethodSwizzle.h in Headers */,
 				84FBCDAE1E4D614000A35006 /* UIViewController+IUChain.h in Headers */,
 				84FBCDB21E4D615900A35006 /* UIResponder+IUChain.h in Headers */,
 				84FBCD941E4D612A00A35006 /* UISlider+IUChain.h in Headers */,
@@ -552,6 +557,7 @@
 				84FBCDA91E4D612A00A35006 /* UIView+IUChain.m in Sources */,
 				84FBCDA71E4D612A00A35006 /* UISearchBar+IUChain.m in Sources */,
 				841F53161E34786900223BB5 /* NSObject+IUChain.m in Sources */,
+				8447F1331E51528000781DAC /* NSObject+IUMethodSwizzle.m in Sources */,
 				84FBCDAB1E4D612A00A35006 /* UIWindow+IUChain.m in Sources */,
 				84FBCD9D1E4D612A00A35006 /* UILabel+IUChain.m in Sources */,
 				84FBCDB31E4D615900A35006 /* UIResponder+IUChain.m in Sources */,

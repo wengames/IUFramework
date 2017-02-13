@@ -1,0 +1,6 @@
+framework module IUTextInput {
+  umbrella header "IUTextInput.h"
+
+  export *
+  module * { export * }
+}

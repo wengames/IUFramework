@@ -8,7 +8,7 @@
 
 #import "UINavigationController+IUAutoHidesBottomBarWhenPushed.h"
 #import "objc/runtime.h"
-#import <IUMethodSwizzle/IUMethodSwizzle.h>
+#import "NSObject+IUMethodSwizzle.h"
 
 static char TAG_NAVIGATION_CONTROLLER_INNER_DELEGATE;
 static char TAG_VIEW_CONTROLLER_IGNORE_AUTO_HIDES_BOTTOM_BAR_WHEN_PUSHED;

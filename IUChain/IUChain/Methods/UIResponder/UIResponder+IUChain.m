@@ -9,6 +9,7 @@
 #import "UIResponder+IUChain.h"
 
 #pragma clang diagnostic ignored "-Wobjc-property-implementation"
+#pragma clang diagnostic ignored "-Wincomplete-implementation"
 
 @implementation UIResponder (IUChain)
 

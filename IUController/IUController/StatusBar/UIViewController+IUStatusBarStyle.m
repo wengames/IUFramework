@@ -12,7 +12,7 @@
 
 - (UIStatusBarStyle)preferredStatusBarStyle {
     CGFloat brightness = 0, alpha = 1;
-    BOOL s = [[self statusBarBackgroundColor] getHue:nil saturation:nil brightness:&brightness alpha:&alpha];
+    [[self statusBarBackgroundColor] getHue:nil saturation:nil brightness:&brightness alpha:&alpha];
     return brightness * alpha > 0.5 ? UIStatusBarStyleDefault : UIStatusBarStyleLightContent;
 }
 
@@ -38,14 +38,14 @@
                                                  thumbSize.width*4,
                                                  colorSpace,
                                                  bitmapInfo);
-         
+
     CGRect drawRect = CGRectMake(0, 0, thumbSize.width, thumbSize.height);
     CGContextDrawImage(context, drawRect, image.CGImage);
     CGColorSpaceRelease(colorSpace);
     
     //第二步 取每个点的像素值
     unsigned char* data = CGBitmapContextGetData(context);
-         
+
     if (data == NULL) return nil;
     
     NSCountedSet *cls=[NSCountedSet setWithCapacity:thumbSize.width*thumbSize.height];
@@ -55,7 +55,7 @@
             int red   = data[offset];
             int green = data[offset+1];
             int blue  = data[offset+2];
-            int alpha = data[offset+3];
+            int alpha = data[offset+3];
             NSArray *clr=@[@(red),@(green),@(blue),@(alpha)];
             [cls addObject:clr];
         }
